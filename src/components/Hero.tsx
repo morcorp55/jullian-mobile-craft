@@ -37,7 +37,16 @@ const Hero: React.FC = () => {
 
   return (
     <section className="min-h-screen w-full flex flex-col items-center justify-center px-4 py-20 bg-jullian-dark relative overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-jullian-indigo/5 to-transparent opacity-30"></div>
+      {/* Apple-like elegant background with subtle gradient and blur */}
+      <div 
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-20 z-0"
+        style={{ 
+          backgroundImage: "url('https://images.unsplash.com/photo-1531297484001-80022131f5a1?q=80&w=2340&auto=format&fit=crop')",
+          filter: "blur(5px)"
+        }}
+      ></div>
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-jullian-indigo/10 to-transparent opacity-50 z-0"></div>
+      
       <div className="max-w-4xl mx-auto flex flex-col items-center justify-center relative z-10">
         <h1 
           ref={titleRef}
