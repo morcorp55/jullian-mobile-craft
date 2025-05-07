@@ -49,19 +49,19 @@ const JullianBroker: React.FC = () => {
       <div className="max-w-7xl mx-auto">
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div className="order-2 md:order-1">
-            <div>
+            <div className="text-center">
               <h2 
                 ref={titleRef}
                 className="text-3xl md:text-4xl font-bold mb-3 transition-all duration-700 opacity-0 translate-y-10"
               >
                 Jullian Broker
               </h2>
-              <Separator className="w-20 h-1 bg-blue-600 mb-6" />
+              <Separator className="w-20 h-1 bg-blue-600 mb-6 mx-auto" />
             </div>
             
             <div 
               ref={contentRef}
-              className="text-lg text-gray-600 space-y-4 transition-all duration-700 delay-100 opacity-0 translate-y-10"
+              className="text-lg text-gray-600 space-y-4 text-center transition-all duration-700 delay-100 opacity-0 translate-y-10"
             >
               <p className="text-xl font-medium">
                 Apps with meaningful MRR deserve meaningful exits.
@@ -78,7 +78,7 @@ const JullianBroker: React.FC = () => {
               {keyPoints.map((point, index) => (
                 <div 
                   key={index}
-                  className="flex items-start gap-4 bg-blue-50/50 p-4 rounded-lg border border-blue-100"
+                  className="flex flex-col items-center text-center gap-4 bg-blue-50/50 p-4 rounded-lg border border-blue-100"
                 >
                   <div className="w-10 h-10 rounded-lg bg-blue-100 text-blue-600 flex items-center justify-center flex-shrink-0">
                     <span className="font-semibold">{index + 1}</span>
@@ -93,7 +93,7 @@ const JullianBroker: React.FC = () => {
             
             <p 
               ref={closingRef}
-              className="text-xl font-medium text-blue-600 transition-all duration-700 delay-300 opacity-0 translate-y-10 border-l-4 border-blue-600 pl-4"
+              className="text-xl font-medium text-blue-600 text-center transition-all duration-700 delay-300 opacity-0 translate-y-10 border-l-4 border-blue-600 px-4"
             >
               If you're considering a full acquisition, we make sure your upside is protected and maximized.
             </p>
