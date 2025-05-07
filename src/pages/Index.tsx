@@ -5,6 +5,9 @@ import Hero from "@/components/Hero";
 import JullianApps from "@/components/JullianApps";
 import JullianPublishing from "@/components/JullianPublishing";
 import JullianBroker from "@/components/JullianBroker";
+import FeatureHighlights from "@/components/FeatureHighlights";
+import Testimonials from "@/components/Testimonials";
+import Stats from "@/components/Stats";
 import Footer from "@/components/Footer";
 
 const Index: React.FC = () => {
@@ -24,11 +27,14 @@ const Index: React.FC = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-jullian-black text-white">
+    <div className="min-h-screen bg-background text-foreground">
       <Navbar />
       <Hero />
+      <Stats />
       <JullianApps />
+      <FeatureHighlights />
       <JullianPublishing />
+      <Testimonials />
       <JullianBroker />
       <Footer />
     </div>

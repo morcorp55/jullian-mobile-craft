@@ -7,6 +7,7 @@ const Hero: React.FC = () => {
   const titleRef = useRef<HTMLHeadingElement>(null);
   const subtitleRef = useRef<HTMLParagraphElement>(null);
   const ctaRef = useRef<HTMLDivElement>(null);
+  const imageRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -24,6 +25,7 @@ const Hero: React.FC = () => {
     if (titleRef.current) observer.observe(titleRef.current);
     if (subtitleRef.current) observer.observe(subtitleRef.current);
     if (ctaRef.current) observer.observe(ctaRef.current);
+    if (imageRef.current) observer.observe(imageRef.current);
 
     return () => observer.disconnect();
   }, []);
@@ -36,53 +38,59 @@ const Hero: React.FC = () => {
   };
 
   return (
-    <section className="min-h-screen w-full flex flex-col items-center justify-center px-4 py-20 bg-jullian-dark relative overflow-hidden">
-      {/* Apple-like elegant background with subtle gradient and blur */}
-      <div 
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-20 z-0"
-        style={{ 
-          backgroundImage: "url('https://images.unsplash.com/photo-1531297484001-80022131f5a1?q=80&w=2340&auto=format&fit=crop')",
-          filter: "blur(5px)"
-        }}
-      ></div>
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-jullian-indigo/10 to-transparent opacity-50 z-0"></div>
-      
-      <div className="max-w-4xl mx-auto flex flex-col items-center justify-center relative z-10">
-        <h1 
-          ref={titleRef}
-          className="text-4xl md:text-6xl lg:text-7xl font-semibold mb-6 transition-all duration-700 delay-100 opacity-0 translate-y-5"
-        >
-          We Don't Build Hype.{" "}
-          <span className="text-gradient">We Build Value.</span>
-        </h1>
-        <p 
-          ref={subtitleRef}
-          className="text-lg md:text-xl text-gray-300 max-w-2xl mb-10 transition-all duration-700 delay-300 opacity-0 translate-y-5"
-        >
-          Publishing, scaling, or selling your mobile app? Jullian.io is your silent partner with sharp execution.
-        </p>
-        <div 
-          ref={ctaRef}
-          className="transition-all duration-700 delay-500 opacity-0 translate-y-5"
-        >
-          <Button 
-            onClick={scrollToSection}
-            className="ios-button group text-lg"
+    <section className="pt-28 pb-20 md:pt-36 md:pb-28 px-4 md:px-6 bg-gradient-to-b from-blue-50 to-white">
+      <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+        <div className="text-left space-y-6">
+          <h1 
+            ref={titleRef}
+            className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight transition-all duration-700 delay-100 opacity-0 translate-y-5"
           >
-            Explore Our Work
-            <span className="ml-2 transform group-hover:translate-y-1 transition-transform">
-              <ChevronDown size={16} />
-            </span>
-          </Button>
+            We Don't Build Hype.{" "}
+            <span className="text-blue-600">We Build Value.</span>
+          </h1>
+          <p 
+            ref={subtitleRef}
+            className="text-lg md:text-xl text-gray-600 max-w-xl transition-all duration-700 delay-300 opacity-0 translate-y-5"
+          >
+            Publishing, scaling, or selling your mobile app? Jullian.io is your silent partner with sharp execution.
+          </p>
+          <div 
+            ref={ctaRef}
+            className="pt-4 transition-all duration-700 delay-500 opacity-0 translate-y-5"
+          >
+            <Button 
+              onClick={scrollToSection}
+              className="bg-blue-600 text-white px-8 py-6 text-lg rounded-xl font-medium hover:bg-blue-700 transition-colors"
+            >
+              Explore Our Work
+              <ChevronDown size={16} className="ml-2" />
+            </Button>
+          </div>
         </div>
-      </div>
-      
-      <div className="absolute bottom-10 w-full flex justify-center animate-bounce">
-        <ChevronDown 
-          size={24} 
-          className="text-gray-500 cursor-pointer"
-          onClick={scrollToSection}
-        />
+        
+        <div 
+          ref={imageRef} 
+          className="transition-all duration-700 delay-300 opacity-0 translate-y-5"
+        >
+          <div className="relative">
+            <div className="absolute -top-8 -left-8 w-64 h-64 bg-blue-200/50 rounded-full filter blur-3xl"></div>
+            <div className="absolute -bottom-8 -right-8 w-64 h-64 bg-indigo-200/50 rounded-full filter blur-3xl"></div>
+            <div className="relative bg-white p-4 rounded-2xl shadow-xl z-10">
+              <div className="aspect-[4/3] rounded-xl bg-gradient-to-br from-blue-50 to-indigo-50 overflow-hidden flex items-center justify-center">
+                <div className="p-8">
+                  <svg className="w-full h-auto text-blue-600" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M32 58.6667C46.7276 58.6667 58.6667 46.7276 58.6667 32C58.6667 17.2724 46.7276 5.33334 32 5.33334C17.2724 5.33334 5.33334 17.2724 5.33334 32C5.33334 46.7276 17.2724 58.6667 32 58.6667Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                    <path d="M32 42.6667C37.891 42.6667 42.6667 37.891 42.6667 32C42.6667 26.109 37.891 21.3333 32 21.3333C26.109 21.3333 21.3334 26.109 21.3334 32C21.3334 37.891 26.109 42.6667 32 42.6667Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                    <path d="M32 32V16" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                    <path d="M44 32H48" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                    <path d="M16 32H20" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                    <path d="M32 48V44" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                  </svg>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   );

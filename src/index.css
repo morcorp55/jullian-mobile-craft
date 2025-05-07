@@ -5,6 +5,38 @@
 
 @layer base {
   :root {
+    --background: 0 0% 100%;
+    --foreground: 222 47% 11%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222 47% 11%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 47% 11%;
+
+    --primary: 221 83% 53%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222 47% 11%;
+
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222 47% 11%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 221 83% 53%;
+
+    --radius: 1rem;
+  }
+
+  .dark {
     --background: 0 0% 3.9%;
     --foreground: 0 0% 95%;
 
@@ -32,8 +64,6 @@
     --border: 240 10% 15%;
     --input: 240 10% 15%;
     --ring: 252 87% 67%;
-
-    --radius: 0.75rem;
   }
 }
 
@@ -43,7 +73,7 @@
   }
 
   body {
-    @apply bg-jullian-black text-foreground font-sans antialiased;
+    @apply bg-background text-foreground font-sans antialiased;
     font-feature-settings: "ss01", "ss02", "cv01", "cv02", "cv03";
   }
 
@@ -58,17 +88,37 @@
 
 @layer utilities {
   .text-gradient {
-    @apply bg-gradient-to-br from-indigo-400 via-blue-400 to-violet-400 bg-clip-text text-transparent;
+    @apply bg-gradient-to-br from-blue-600 to-blue-500 bg-clip-text text-transparent;
   }
   
   .glow {
-    @apply shadow-[0_0_15px_rgba(99,102,241,0.4)];
+    @apply shadow-[0_0_15px_rgba(59,130,246,0.4)];
   }
   
   .ios-button {
-    @apply bg-secondary rounded-2xl px-6 py-3 text-white font-medium 
-      transition-all duration-300 hover:scale-105 hover:shadow-[0_0_20px_rgba(99,102,241,0.3)]
+    @apply bg-blue-600 rounded-lg px-6 py-3 text-white font-medium 
+      transition-all duration-300 hover:scale-105 hover:shadow-[0_0_20px_rgba(59,130,246,0.3)]
       active:scale-95;
+  }
+
+  .section-padding {
+    @apply py-16 md:py-24 px-4;
+  }
+
+  .heading-xl {
+    @apply text-3xl md:text-4xl lg:text-5xl font-bold;
+  }
+
+  .heading-lg {
+    @apply text-2xl md:text-3xl lg:text-4xl font-bold;
+  }
+
+  .heading-md {
+    @apply text-xl md:text-2xl font-semibold;
+  }
+
+  .blur-card {
+    @apply bg-white/90 backdrop-blur-md rounded-2xl shadow-lg;
   }
 }
 
