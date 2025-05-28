@@ -40,7 +40,7 @@ const Hero: React.FC = () => {
           <p ref={subtitleRef} className="text-lg md:text-xl text-gray-600 max-w-xl transition-all duration-700 delay-300 opacity-0 translate-y-5">
             We create your ad creatives, fund the marketing, and run the campaigns.
             <br />
-            Turkey's first and only mobile app publisher.
+            Turkey's #1 and only mobile app publisher.
           </p>
           <div ref={ctaRef} className="pt-4 transition-all duration-700 delay-500 opacity-0 translate-y-5">
             <Button onClick={scrollToSection} className="bg-blue-600 text-white px-8 py-6 text-lg rounded-xl font-medium hover:bg-blue-700 transition-colors">
