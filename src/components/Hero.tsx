@@ -114,7 +114,7 @@ const Hero: React.FC = () => {
         </div>
       </div>
       
-      <style jsx>{`
+      <style>{`
         @keyframes gradient-shift {
           0% {
             background: linear-gradient(45deg, #3b82f6, #8b5cf6, #ec4899);
