@@ -32,7 +32,7 @@ const JullianBroker: React.FC = () => {
     title: "Market Knowledge",
     description: "Paid traffic or organic, we know what sells"
   }];
-  return <section id="jullian-broker" className="py-24 px-4 bg-gradient-to-br from-slate-100 via-blue-50 to-indigo-100">
+  return <section id="jullian-broker" className="py-24 px-4 bg-gradient-to-br from-gray-200 via-gray-100 to-gray-300">
       <div className="max-w-7xl mx-auto">
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div className="order-2 md:order-1">
