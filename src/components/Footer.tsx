@@ -85,6 +85,7 @@ const Footer: React.FC = () => {
           
           <div className="text-sm text-white/70">
             <p>© 2025 Jullian.io. All rights reserved.</p>
+            <p className="mt-2">Made with pride and love in Moda ❤️</p>
           </div>
         </div>
       </div>
