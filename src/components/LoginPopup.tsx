@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import { createPortal } from 'react-dom';
 import { X, Mail, Lock } from 'lucide-react';
@@ -58,7 +59,7 @@ const LoginPopup: React.FC<LoginPopupProps> = ({ isOpen, onClose }) => {
       
       {/* Popup */}
       <div 
-        className={`relative bg-white rounded-2xl shadow-2xl p-8 w-full max-w-md transform transition-all duration-300 ${
+        className={`relative bg-white rounded-2xl shadow-2xl w-full max-w-md transform transition-all duration-300 overflow-hidden ${
           isVisible ? 'scale-100 translate-y-0' : 'scale-95 translate-y-4'
         }`}
       >
@@ -71,76 +72,79 @@ const LoginPopup: React.FC<LoginPopupProps> = ({ isOpen, onClose }) => {
         </button>
 
         {/* 16:9 Görsel Alanı */}
-        <div className="mb-6 -mx-8 -mt-8">
+        <div className="mb-0">
           <AspectRatio ratio={16 / 9}>
             <img 
               src="/lovable-uploads/b99a35a2-f24c-47f4-bdba-6dc78c2adf0d.png"
               alt="Login illustration"
-              className="w-full h-full object-cover rounded-t-2xl"
+              className="w-full h-full object-cover"
             />
           </AspectRatio>
         </div>
 
-        {/* Başlık */}
-        <div className="text-center mb-8">
-          <h2 className="text-2xl font-bold text-gray-900 mb-2">App Studio Girişi</h2>
-          <p className="text-gray-600">Hesabınıza giriş yapın</p>
-        </div>
-
-        {/* Form */}
-        <form onSubmit={handleSubmit} className="space-y-6">
-          {/* Email */}
-          <div className="space-y-2">
-            <Label htmlFor="email" className="text-gray-700 font-medium">
-              E-posta Adresi
-            </Label>
-            <div className="relative">
-              <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" size={20} />
-              <Input
-                id="email"
-                type="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                placeholder="ornek@email.com"
-                className="pl-10 h-12 border-gray-300 focus:border-blue-500 focus:ring-blue-500"
-                required
-              />
-            </div>
+        {/* Gradient Background Content Area */}
+        <div className="bg-gradient-to-b from-gray-800 to-black p-8">
+          {/* Başlık */}
+          <div className="text-center mb-8">
+            <h2 className="text-2xl font-bold text-white mb-2">App Studio Girişi</h2>
+            <p className="text-gray-300">Hesabınıza giriş yapın</p>
           </div>
 
-          {/* Password */}
-          <div className="space-y-2">
-            <Label htmlFor="password" className="text-gray-700 font-medium">
-              Parola
-            </Label>
-            <div className="relative">
-              <Lock className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" size={20} />
-              <Input
-                id="password"
-                type="password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                placeholder="••••••••"
-                className="pl-10 h-12 border-gray-300 focus:border-blue-500 focus:ring-blue-500"
-                required
-              />
+          {/* Form */}
+          <form onSubmit={handleSubmit} className="space-y-6">
+            {/* Email */}
+            <div className="space-y-2">
+              <Label htmlFor="email" className="text-gray-300 font-medium">
+                E-posta Adresi
+              </Label>
+              <div className="relative">
+                <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" size={20} />
+                <Input
+                  id="email"
+                  type="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  placeholder="ornek@email.com"
+                  className="pl-10 h-12 bg-gray-700/50 border-gray-600 text-white placeholder:text-gray-400 focus:border-blue-500 focus:ring-blue-500"
+                  required
+                />
+              </div>
             </div>
+
+            {/* Password */}
+            <div className="space-y-2">
+              <Label htmlFor="password" className="text-gray-300 font-medium">
+                Parola
+              </Label>
+              <div className="relative">
+                <Lock className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" size={20} />
+                <Input
+                  id="password"
+                  type="password"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  placeholder="••••••••"
+                  className="pl-10 h-12 bg-gray-700/50 border-gray-600 text-white placeholder:text-gray-400 focus:border-blue-500 focus:ring-blue-500"
+                  required
+                />
+              </div>
+            </div>
+
+            {/* Giriş butonu */}
+            <Button 
+              type="submit"
+              className="w-full h-12 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-medium rounded-lg transition-all duration-300 transform hover:scale-105"
+            >
+              Giriş Yap
+            </Button>
+          </form>
+
+          {/* Şifremi unuttum */}
+          <div className="text-center mt-6">
+            <button className="text-blue-400 hover:text-blue-300 text-sm font-medium transition-colors">
+              Şifremi unuttum
+            </button>
           </div>
-
-          {/* Giriş butonu */}
-          <Button 
-            type="submit"
-            className="w-full h-12 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-medium rounded-lg transition-all duration-300 transform hover:scale-105"
-          >
-            Giriş Yap
-          </Button>
-        </form>
-
-        {/* Şifremi unuttum */}
-        <div className="text-center mt-6">
-          <button className="text-blue-600 hover:text-blue-800 text-sm font-medium transition-colors">
-            Şifremi unuttum
-          </button>
         </div>
       </div>
     </div>
