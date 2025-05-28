@@ -19,13 +19,18 @@ const LoginPopup: React.FC<LoginPopupProps> = ({ isOpen, onClose }) => {
     if (isOpen) {
       setIsVisible(true);
       document.body.style.overflow = 'hidden';
+      // Blur efekti için root element'e class ekle
+      document.getElementById('root')?.classList.add('blur-background');
     } else {
       setIsVisible(false);
       document.body.style.overflow = 'unset';
+      // Blur efektini kaldır
+      document.getElementById('root')?.classList.remove('blur-background');
     }
 
     return () => {
       document.body.style.overflow = 'unset';
+      document.getElementById('root')?.classList.remove('blur-background');
     };
   }, [isOpen]);
 
@@ -43,9 +48,9 @@ const LoginPopup: React.FC<LoginPopupProps> = ({ isOpen, onClose }) => {
         isVisible ? 'opacity-100' : 'opacity-0'
       }`}
     >
-      {/* Blur arka plan */}
+      {/* Arka plan overlay - blur efekti artık root element'te */}
       <div 
-        className="absolute inset-0 bg-black/50 backdrop-blur-sm"
+        className="absolute inset-0 bg-black/30"
         onClick={onClose}
       />
       

@@ -120,6 +120,12 @@
   .blur-card {
     @apply bg-white/90 backdrop-blur-md rounded-2xl shadow-lg;
   }
+
+  /* Popup açıldığında arka planı yavaşça blurla */
+  .blur-background {
+    filter: blur(3px);
+    transition: filter 0.3s ease-in-out;
+  }
 }
 
 #root {
@@ -127,4 +133,5 @@
   margin: 0 auto;
   padding: 0;
   text-align: center;
+  transition: filter 0.3s ease-in-out;
 }
