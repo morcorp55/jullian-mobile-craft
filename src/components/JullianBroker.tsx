@@ -45,7 +45,7 @@ const JullianBroker: React.FC = () => {
   ];
 
   return (
-    <section id="jullian-broker" className="py-24 px-4 bg-gradient-to-br from-gray-50 via-white to-blue-50">
+    <section id="jullian-broker" className="py-24 px-4 bg-gradient-to-br from-slate-100 via-blue-50 to-indigo-100">
       <div className="max-w-7xl mx-auto">
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div className="order-2 md:order-1">
