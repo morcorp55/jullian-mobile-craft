@@ -1,7 +1,6 @@
 import React, { useEffect, useRef } from "react";
 import { CheckCircle } from "lucide-react";
 import { Separator } from "@/components/ui/separator";
-
 const JullianPublishing: React.FC = () => {
   const titleRef = useRef<HTMLHeadingElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
@@ -45,11 +44,7 @@ const JullianPublishing: React.FC = () => {
                 {/* Inner border frame with elegant gray gradient */}
                 <div className="absolute -inset-2 bg-gradient-to-br from-gray-600 via-gray-400 to-gray-600 rounded-2xl"></div>
                 {/* Image */}
-                <img 
-                  alt="Publishing" 
-                  className="rounded-2xl shadow-2xl relative z-10 object-cover w-full h-full max-h-[500px] border-3 border-white/60" 
-                  src="/lovable-uploads/32041a53-7987-462a-b8b1-875ab72db9f5.jpg" 
-                />
+                <img alt="Publishing" className="rounded-2xl shadow-2xl relative z-10 object-cover w-full h-full max-h-[500px] border-3 border-white/60" src="/lovable-uploads/32041a53-7987-462a-b8b1-875ab72db9f5.jpg" />
               </div>
             </div>
           </div>
@@ -78,13 +73,10 @@ const JullianPublishing: React.FC = () => {
                 </div>)}
             </div>
             
-            <p ref={closingRef} className="text-xl font-medium text-blue-600 transition-all duration-700 delay-300 opacity-0 translate-y-10 mt-6 border-l-4 border-blue-600 pl-4">
-              This isn't an agency model. We become partners.
-            </p>
+            <p ref={closingRef} className="text-xl font-medium text-blue-600 transition-all duration-700 delay-300 opacity-0 translate-y-10 mt-6 border-l-4 border-blue-600 pl-4">We become your success partners.</p>
           </div>
         </div>
       </div>
     </section>;
 };
-
 export default JullianPublishing;
