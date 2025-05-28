@@ -1,14 +1,11 @@
-
 import React, { useEffect, useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { ChevronDown } from "lucide-react";
-
 const Hero: React.FC = () => {
   const titleRef = useRef<HTMLHeadingElement>(null);
   const subtitleRef = useRef<HTMLParagraphElement>(null);
   const ctaRef = useRef<HTMLDivElement>(null);
   const imageRef = useRef<HTMLDivElement>(null);
-
   useEffect(() => {
     const observer = new IntersectionObserver(entries => {
       entries.forEach(entry => {
@@ -20,15 +17,12 @@ const Hero: React.FC = () => {
     }, {
       threshold: 0.1
     });
-
     if (titleRef.current) observer.observe(titleRef.current);
     if (subtitleRef.current) observer.observe(subtitleRef.current);
     if (ctaRef.current) observer.observe(ctaRef.current);
     if (imageRef.current) observer.observe(imageRef.current);
-
     return () => observer.disconnect();
   }, []);
-
   const scrollToSection = () => {
     const firstSection = document.getElementById("jullian-publishing");
     if (firstSection) {
@@ -37,13 +31,12 @@ const Hero: React.FC = () => {
       });
     }
   };
-
   return <section className="pt-28 pb-20 md:pt-36 md:pb-28 px-4 md:px-6 bg-gradient-to-b from-blue-50 to-white">
       <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-center">
         <div className="text-left space-y-6">
           <h1 ref={titleRef} className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight transition-all duration-700 delay-100 opacity-0 translate-y-5">
             We create your ad creatives, fund the marketing, and run the campaigns —{" "}
-            <span className="text-blue-600">Turkey's first and only mobile app publisher.</span>
+            <span className="text-blue-600">Türkiye's #1 mobile app publisher.</span>
           </h1>
           <p ref={subtitleRef} className="text-lg md:text-xl text-gray-600 max-w-xl transition-all duration-700 delay-300 opacity-0 translate-y-5">
             Built a mobile app but struggling to scale? Ready to exit? Jullian.io specializes in mobile app growth and acquisitions.
@@ -70,5 +63,4 @@ const Hero: React.FC = () => {
       </div>
     </section>;
 };
-
 export default Hero;
