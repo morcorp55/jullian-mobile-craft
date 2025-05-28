@@ -40,8 +40,8 @@ const JullianPublishing: React.FC = () => {
                 <div className="absolute -inset-4 bg-gradient-to-r from-gray-300/70 via-gray-200/50 to-gray-300/70 rounded-3xl blur-md"></div>
                 {/* Middle glow frame */}
                 <div className="absolute -inset-3 bg-gradient-to-r from-gray-400/60 via-gray-300/40 to-gray-400/60 rounded-3xl blur-sm"></div>
-                {/* Inner border frame */}
-                <div className="absolute -inset-2 bg-gradient-to-r from-gray-500/80 via-gray-400/60 to-gray-500/80 rounded-2xl"></div>
+                {/* Inner border frame with elegant gray gradient */}
+                <div className="absolute -inset-2 bg-gradient-to-br from-gray-600 via-gray-400 to-gray-600 rounded-2xl"></div>
                 {/* Image */}
                 <img 
                   alt="Publishing" 
