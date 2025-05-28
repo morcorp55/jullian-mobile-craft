@@ -1,4 +1,5 @@
-import React, { useEffect, useRef } from "react";
+
+import React, { useEffect, useRef, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { ChevronDown } from "lucide-react";
 
@@ -7,6 +8,13 @@ const Hero: React.FC = () => {
   const subtitleRef = useRef<HTMLParagraphElement>(null);
   const ctaRef = useRef<HTMLDivElement>(null);
   const imageRef = useRef<HTMLDivElement>(null);
+  
+  const [currentText, setCurrentText] = useState("");
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [isDeleting, setIsDeleting] = useState(false);
+  
+  const words = ["Building", "Coding", "Dreaming"];
+
   useEffect(() => {
     const observer = new IntersectionObserver(entries => {
       entries.forEach(entry => {
@@ -24,6 +32,34 @@ const Hero: React.FC = () => {
     if (imageRef.current) observer.observe(imageRef.current);
     return () => observer.disconnect();
   }, []);
+
+  useEffect(() => {
+    const typeSpeed = 150;
+    const deleteSpeed = 100;
+    const pauseTime = 2000;
+
+    const timeout = setTimeout(() => {
+      const currentWord = words[currentIndex];
+      
+      if (!isDeleting) {
+        if (currentText.length < currentWord.length) {
+          setCurrentText(currentWord.substring(0, currentText.length + 1));
+        } else {
+          setTimeout(() => setIsDeleting(true), pauseTime);
+        }
+      } else {
+        if (currentText.length > 0) {
+          setCurrentText(currentWord.substring(0, currentText.length - 1));
+        } else {
+          setIsDeleting(false);
+          setCurrentIndex((prevIndex) => (prevIndex + 1) % words.length);
+        }
+      }
+    }, isDeleting ? deleteSpeed : typeSpeed);
+
+    return () => clearTimeout(timeout);
+  }, [currentText, isDeleting, currentIndex, words]);
+
   const scrollToSection = () => {
     const firstSection = document.getElementById("jullian-publishing");
     if (firstSection) {
@@ -32,6 +68,7 @@ const Hero: React.FC = () => {
       });
     }
   };
+
   return <section className="pt-28 pb-20 md:pt-36 md:pb-28 px-4 md:px-6 bg-transparent">
       <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-center">
         <div className="text-left space-y-6">
@@ -40,7 +77,11 @@ const Hero: React.FC = () => {
             <br />
             <span className="text-blue-400">You Focus</span>
             <br />
-            <span className="text-blue-400">on Building 🚀</span>
+            <span className="text-blue-400">
+              on {currentText}
+              <span className="animate-pulse">|</span>
+            </span>
+            <span className="text-blue-400"> 🚀</span>
           </h1>
           <p ref={subtitleRef} className="text-lg md:text-xl text-gray-300 max-w-xl transition-all duration-700 delay-300 opacity-0 translate-y-5">
             We create your ad creatives, fund the marketing, and run the campaigns.
