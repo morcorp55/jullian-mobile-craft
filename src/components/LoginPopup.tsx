@@ -5,6 +5,7 @@ import { X, Mail, Lock } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
+import { AspectRatio } from '@/components/ui/aspect-ratio';
 
 interface LoginPopupProps {
   isOpen: boolean;
@@ -65,10 +66,22 @@ const LoginPopup: React.FC<LoginPopupProps> = ({ isOpen, onClose }) => {
         {/* Kapatma butonu */}
         <button
           onClick={onClose}
-          className="absolute top-4 right-4 p-2 hover:bg-gray-100 rounded-full transition-colors"
+          className="absolute top-4 right-4 p-2 hover:bg-gray-100 rounded-full transition-colors z-10"
         >
           <X size={20} className="text-gray-500" />
         </button>
+
+        {/* 16:9 Görsel Alanı */}
+        <div className="mb-6 -mx-8 -mt-8">
+          <AspectRatio ratio={16 / 9}>
+            <div className="w-full h-full bg-gradient-to-br from-blue-500 to-purple-600 rounded-t-2xl flex items-center justify-center">
+              <div className="text-white text-center">
+                <h3 className="text-lg font-semibold mb-2">Görsel Alanı</h3>
+                <p className="text-sm opacity-90">16:9 oranında görsel buraya gelecek</p>
+              </div>
+            </div>
+          </AspectRatio>
+        </div>
 
         {/* Başlık */}
         <div className="text-center mb-8">
