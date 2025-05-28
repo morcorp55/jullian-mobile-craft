@@ -71,13 +71,13 @@ const LoginPopup: React.FC<LoginPopupProps> = ({ isOpen, onClose }) => {
           <X size={20} className="text-gray-500" />
         </button>
 
-        {/* Resim Alanı - Normal */}
-        <div className="relative mb-0 p-6">
+        {/* Resim Alanı - Kenarları olmadan tam kaplasın */}
+        <div className="relative">
           <AspectRatio ratio={16 / 9}>
             <img 
               src="/lovable-uploads/b99a35a2-f24c-47f4-bdba-6dc78c2adf0d.png"
               alt="Login illustration"
-              className="w-full h-full object-cover rounded-lg"
+              className="w-full h-full object-cover rounded-t-2xl"
             />
           </AspectRatio>
         </div>
