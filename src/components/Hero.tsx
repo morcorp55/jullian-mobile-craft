@@ -77,13 +77,7 @@ const Hero: React.FC = () => {
             <span className="text-blue-400">You Focus</span>
             <br />
             <span className="text-blue-400">
-              on <span className="italic bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 bg-clip-text text-transparent animate-pulse" 
-                       style={{
-                         animation: 'gradient-shift 3s ease-in-out infinite, pulse 2s ease-in-out infinite',
-                         filter: 'drop-shadow(0 0 8px rgba(147, 51, 234, 0.5))'
-                       }}>
-                {currentText}
-              </span>
+              on <span className="italic text-white animated-glow">{currentText}</span>
               <span className="animate-pulse">|</span>
             </span>
             <span className="text-blue-400"> 🚀</span>
@@ -115,22 +109,22 @@ const Hero: React.FC = () => {
       </div>
       
       <style>{`
-        @keyframes gradient-shift {
+        .animated-glow {
+          animation: glow-shift 4s ease-in-out infinite;
+        }
+        
+        @keyframes glow-shift {
           0% {
-            background: linear-gradient(45deg, #3b82f6, #8b5cf6, #ec4899);
-            filter: drop-shadow(0 0 8px rgba(59, 130, 246, 0.5));
+            text-shadow: 0 0 20px #3b82f6, 0 0 30px #3b82f6, 0 0 40px #3b82f6;
           }
           33% {
-            background: linear-gradient(45deg, #8b5cf6, #ec4899, #f59e0b);
-            filter: drop-shadow(0 0 8px rgba(139, 92, 246, 0.5));
+            text-shadow: 0 0 20px #8b5cf6, 0 0 30px #8b5cf6, 0 0 40px #8b5cf6;
           }
           66% {
-            background: linear-gradient(45deg, #ec4899, #f59e0b, #3b82f6);
-            filter: drop-shadow(0 0 8px rgba(236, 72, 153, 0.5));
+            text-shadow: 0 0 20px #ec4899, 0 0 30px #ec4899, 0 0 40px #ec4899;
           }
           100% {
-            background: linear-gradient(45deg, #3b82f6, #8b5cf6, #ec4899);
-            filter: drop-shadow(0 0 8px rgba(59, 130, 246, 0.5));
+            text-shadow: 0 0 20px #3b82f6, 0 0 30px #3b82f6, 0 0 40px #3b82f6;
           }
         }
       `}</style>
