@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { createPortal } from 'react-dom';
 import { X, Mail, Lock } from 'lucide-react';
@@ -74,12 +73,11 @@ const LoginPopup: React.FC<LoginPopupProps> = ({ isOpen, onClose }) => {
         {/* 16:9 Görsel Alanı */}
         <div className="mb-6 -mx-8 -mt-8">
           <AspectRatio ratio={16 / 9}>
-            <div className="w-full h-full bg-gradient-to-br from-blue-500 to-purple-600 rounded-t-2xl flex items-center justify-center">
-              <div className="text-white text-center">
-                <h3 className="text-lg font-semibold mb-2">Görsel Alanı</h3>
-                <p className="text-sm opacity-90">16:9 oranında görsel buraya gelecek</p>
-              </div>
-            </div>
+            <img 
+              src="/lovable-uploads/b99a35a2-f24c-47f4-bdba-6dc78c2adf0d.png"
+              alt="Login illustration"
+              className="w-full h-full object-cover rounded-t-2xl"
+            />
           </AspectRatio>
         </div>
 
