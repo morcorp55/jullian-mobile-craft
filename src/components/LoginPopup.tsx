@@ -17,6 +17,13 @@ const LoginPopup: React.FC<LoginPopupProps> = ({ isOpen, onClose }) => {
   const [password, setPassword] = useState('');
   const [isVisible, setIsVisible] = useState(false);
 
+  // Preload the image when component mounts
+  useEffect(() => {
+    const img = new Image();
+    img.src = "/lovable-uploads/b99a35a2-f24c-47f4-bdba-6dc78c2adf0d.png";
+    console.log('Preloading login popup image');
+  }, []);
+
   useEffect(() => {
     if (isOpen) {
       setIsVisible(true);
