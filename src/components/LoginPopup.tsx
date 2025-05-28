@@ -72,17 +72,16 @@ const LoginPopup: React.FC<LoginPopupProps> = ({ isOpen, onClose }) => {
         </button>
 
         {/* 16:9 Görsel Alanı with transparent frame */}
-        <div className="relative mb-0 p-4">
-          {/* Transparent frame background */}
-          <div className="absolute inset-4 bg-white/10 backdrop-blur-sm rounded-xl border border-white/20 shadow-lg"></div>
-          
-          <AspectRatio ratio={16 / 9}>
-            <img 
-              src="/lovable-uploads/b99a35a2-f24c-47f4-bdba-6dc78c2adf0d.png"
-              alt="Login illustration"
-              className="w-full h-full object-cover rounded-lg relative z-10"
-            />
-          </AspectRatio>
+        <div className="relative mb-0 p-6">
+          <div className="relative bg-white/10 backdrop-blur-sm p-4 rounded-2xl shadow-xl z-10 border border-white/20">
+            <AspectRatio ratio={16 / 9}>
+              <img 
+                src="/lovable-uploads/b99a35a2-f24c-47f4-bdba-6dc78c2adf0d.png"
+                alt="Login illustration"
+                className="w-full h-full object-cover rounded-lg"
+              />
+            </AspectRatio>
+          </div>
         </div>
 
         {/* Gradient Background Content Area */}
