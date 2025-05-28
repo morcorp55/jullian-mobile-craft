@@ -56,7 +56,7 @@ const Navbar: React.FC = () => {
                 Blog
               </button>
               <a href="mailto:partners@jullian.io" className="bg-blue-600 text-white px-5 py-2 rounded-lg font-medium hover:bg-blue-700 transition-colors">
-                Contact Us
+                Submit your app
               </a>
               <button 
                 onClick={handleLoginClick}
@@ -94,7 +94,7 @@ const Navbar: React.FC = () => {
               Blog
             </button>
             <a href="mailto:partners@jullian.io" className="bg-blue-600 text-white px-5 py-2 rounded-lg font-medium">
-              Contact Us
+              Submit your app
             </a>
             <button 
               onClick={handleLoginClick}
