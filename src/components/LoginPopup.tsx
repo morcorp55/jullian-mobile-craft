@@ -86,8 +86,8 @@ const LoginPopup: React.FC<LoginPopupProps> = ({ isOpen, onClose }) => {
         <div className="bg-gradient-to-b from-gray-800 to-black p-8">
           {/* Başlık */}
           <div className="text-center mb-8">
-            <h2 className="text-2xl font-bold text-white mb-2">App Studio Girişi</h2>
-            <p className="text-gray-300">Hesabınıza giriş yapın</p>
+            <h2 className="text-2xl font-bold text-white mb-2">App Studio Login</h2>
+            <p className="text-gray-300">Sign in to your account</p>
           </div>
 
           {/* Form */}
@@ -95,7 +95,7 @@ const LoginPopup: React.FC<LoginPopupProps> = ({ isOpen, onClose }) => {
             {/* Email */}
             <div className="space-y-2">
               <Label htmlFor="email" className="text-gray-300 font-medium">
-                E-posta Adresi
+                Email Address
               </Label>
               <div className="relative">
                 <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" size={20} />
@@ -104,7 +104,7 @@ const LoginPopup: React.FC<LoginPopupProps> = ({ isOpen, onClose }) => {
                   type="email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  placeholder="ornek@email.com"
+                  placeholder="example@email.com"
                   className="pl-10 h-12 bg-gray-700/50 border-gray-600 text-white placeholder:text-gray-400 focus:border-blue-500 focus:ring-blue-500"
                   required
                 />
@@ -114,7 +114,7 @@ const LoginPopup: React.FC<LoginPopupProps> = ({ isOpen, onClose }) => {
             {/* Password */}
             <div className="space-y-2">
               <Label htmlFor="password" className="text-gray-300 font-medium">
-                Parola
+                Password
               </Label>
               <div className="relative">
                 <Lock className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" size={20} />
@@ -135,14 +135,14 @@ const LoginPopup: React.FC<LoginPopupProps> = ({ isOpen, onClose }) => {
               type="submit"
               className="w-full h-12 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-medium rounded-lg transition-all duration-300 transform hover:scale-105"
             >
-              Giriş Yap
+              Sign In
             </Button>
           </form>
 
           {/* Şifremi unuttum */}
           <div className="text-center mt-6">
             <button className="text-blue-400 hover:text-blue-300 text-sm font-medium transition-colors">
-              Şifremi unuttum
+              Forgot Password?
             </button>
           </div>
         </div>
