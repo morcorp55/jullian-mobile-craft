@@ -1,3 +1,4 @@
+
 import React, { useEffect, useRef } from "react";
 import { Separator } from "@/components/ui/separator";
 const JullianBroker: React.FC = () => {
@@ -70,9 +71,24 @@ const JullianBroker: React.FC = () => {
           </div>
           
           <div className="order-1 md:order-2">
-            <div className="relative">
-              <div className="absolute -top-8 -right-8 w-64 h-64 bg-blue-100/50 rounded-full filter blur-3xl"></div>
-              <img alt="Broker" src="/lovable-uploads/4713a65d-3698-4059-b410-803d6c0996f1.jpg" className="rounded-2xl shadow-xl relative z-10 w-full h-full max-h-[500px] object-fill" />
+            <div className="relative p-12">
+              {/* Background glow effects - extended */}
+              <div className="absolute -top-16 -left-16 w-80 h-80 bg-blue-100/50 rounded-full filter blur-3xl"></div>
+              <div className="absolute -bottom-16 -right-16 w-80 h-80 bg-indigo-100/40 rounded-full filter blur-3xl"></div>
+              
+              {/* Main image with extended frame */}
+              <div className="relative">
+                {/* White outer glow - most expanded */}
+                <div className="absolute -inset-12 bg-gradient-to-r from-white/80 via-white/60 to-white/80 rounded-3xl blur-xl"></div>
+                {/* Outer glow frame - expanded further */}
+                <div className="absolute -inset-8 bg-gradient-to-r from-blue-300/70 via-blue-200/50 to-blue-300/70 rounded-3xl blur-md"></div>
+                {/* Middle glow frame */}
+                <div className="absolute -inset-6 bg-gradient-to-r from-blue-400/60 via-blue-300/40 to-blue-400/60 rounded-3xl blur-sm"></div>
+                {/* Inner border frame with elegant blue gradient */}
+                <div className="absolute -inset-3 bg-gradient-to-br from-blue-600 via-blue-400 to-blue-600 rounded-2xl"></div>
+                {/* Image */}
+                <img alt="Broker" src="/lovable-uploads/4713a65d-3698-4059-b410-803d6c0996f1.jpg" className="rounded-2xl shadow-xl relative z-10 w-full h-full max-h-[500px] object-fill border-4 border-white/60" />
+              </div>
             </div>
           </div>
         </div>
