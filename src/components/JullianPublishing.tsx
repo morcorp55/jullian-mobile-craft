@@ -31,8 +31,8 @@ const JullianPublishing: React.FC = () => {
   }, []);
 
   const points = [
-    "We handle TikTok, Meta, Search Ads & all major ad channels",
     "We build your creatives, manage your funnel, and implement every event layer you're missing",
+    "We handle TikTok, Meta, Search Ads & all major ad channels",
     "You stay focused on product. We cover growth. Revenue is shared, incentives aligned.",
   ];
 
