@@ -47,13 +47,21 @@ const Navbar: React.FC = () => {
             <div className="hidden md:flex items-center space-x-8">
               <button
                 onClick={() => scrollToSection("jullian-publishing")}
-                className="text-white hover:text-blue-400 transition-colors"
+                className={`transition-colors ${
+                  isScrolled
+                    ? "text-black hover:text-blue-600"
+                    : "text-white hover:text-blue-400"
+                }`}
               >
                 Publishing
               </button>
               <button
                 onClick={() => scrollToSection("jullian-broker")}
-                className="text-white hover:text-blue-400 transition-colors"
+                className={`transition-colors ${
+                  isScrolled
+                    ? "text-black hover:text-blue-600"
+                    : "text-white hover:text-blue-400"
+                }`}
               >
                 Broker
               </button>
