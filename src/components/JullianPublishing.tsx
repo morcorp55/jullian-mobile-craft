@@ -31,8 +31,8 @@ const JullianPublishing: React.FC = () => {
   }, []);
 
   const points = [
-    "Rakiplerin analiz edilip uygulamanın hedef kitlesine en uygun, en etkileşimi ve hook'u yüksek olacak kreatif üretimi yapılıyor",
-    "TikTok, Meta, Search Ads gibi ad channel'larda hedef kitleye kampanya açılıyor",
+    "We handle TikTok, Meta, Search Ads & all major ad channels",
+    "We build your creatives, manage your funnel, and implement every event layer you're missing",
     "You stay focused on product. We cover growth. Revenue is shared, incentives aligned.",
   ];
 
@@ -87,13 +87,6 @@ const JullianPublishing: React.FC = () => {
                   <p className="text-gray-700">{point}</p>
                 </div>
               ))}
-            </div>
-            
-            <div className="bg-gradient-to-r from-blue-50 to-indigo-50 p-6 rounded-lg border border-blue-100 mt-8">
-              <h3 className="text-lg font-semibold text-gray-800 mb-2">Success Story</h3>
-              <p className="text-gray-700">
-                <span className="font-medium text-blue-600">Locary - Find Family Location</span>
-              </p>
             </div>
             
             <p 
