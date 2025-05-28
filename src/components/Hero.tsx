@@ -56,7 +56,7 @@ const Hero: React.FC = () => {
             <div className="absolute -bottom-8 -right-8 w-64 h-64 bg-indigo-200/50 rounded-full filter blur-3xl"></div>
             <div className="relative bg-white p-4 rounded-2xl shadow-xl z-10">
               <div className="aspect-[4/3] rounded-xl bg-gradient-to-br from-blue-50 to-indigo-50 overflow-hidden flex items-center justify-center">
-                <img alt="Jullian Memoji" src="/lovable-uploads/875bf8af-609f-4d18-8616-c9e102b17dfe.png" className="w-full h-auto object-fill" />
+                <img alt="Jullian Memoji" className="w-full h-auto object-fill" src="/lovable-uploads/10db7202-6321-407b-b7e1-403425e60104.png" />
               </div>
             </div>
           </div>
