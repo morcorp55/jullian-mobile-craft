@@ -71,6 +71,9 @@ const Navbar: React.FC = () => {
               >
                 Contact Us
               </a>
+              <button className="bg-black text-white px-5 py-2 rounded-lg font-medium hover:shadow-[0_0_20px_rgba(255,255,255,0.3)] transition-all duration-300 animate-pulse">
+                App Studio Login
+              </button>
             </div>
 
             {/* Mobile Menu Button */}
@@ -127,6 +130,9 @@ const Navbar: React.FC = () => {
             >
               Contact Us
             </a>
+            <button className="bg-black text-white px-5 py-2 rounded-lg font-medium hover:shadow-[0_0_20px_rgba(255,255,255,0.3)] transition-all duration-300 animate-pulse">
+              App Studio Login
+            </button>
           </div>
         </div>
       )}
