@@ -35,7 +35,7 @@ const Hero: React.FC = () => {
   return <section className="pt-28 pb-20 md:pt-36 md:pb-28 px-4 md:px-6 bg-transparent">
       <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-center">
         <div className="text-left space-y-6">
-          <h1 ref={titleRef} className="text-4xl md:text-5xl lg:text-6xl font-bold leading-relaxed transition-all duration-700 delay-100 opacity-0 translate-y-5 text-white">
+          <h1 ref={titleRef} className="text-4xl md:text-5xl lg:text-6xl font-bold leading-loose transition-all duration-700 delay-100 opacity-0 translate-y-5 text-white">
             We Grow Your App.
             <br />
             <span className="text-blue-400">You Focus</span>
