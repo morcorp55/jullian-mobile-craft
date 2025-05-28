@@ -28,7 +28,7 @@ const Footer: React.FC = () => {
   }, []);
 
   return (
-    <footer className="py-20 px-4 bg-blue-600 text-white">
+    <footer className="py-20 px-4 bg-gradient-to-br from-purple-900 via-gray-900 via-black to-blue-900 text-white">
       <div className="max-w-4xl mx-auto text-center">
         <h2 
           ref={titleRef}
