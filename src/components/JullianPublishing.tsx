@@ -30,7 +30,7 @@ const JullianPublishing: React.FC = () => {
           <div className="order-2 md:order-1">
             <div className="relative">
               <div className="absolute -top-8 -left-8 w-64 h-64 bg-blue-100/50 rounded-full filter blur-3xl"></div>
-              <img alt="Publishing" className="rounded-2xl shadow-xl relative z-10 object-cover w-full h-full max-h-[500px]" src="/lovable-uploads/da05f3c0-1a6b-4c70-a9f9-001d4731df06.jpg" />
+              <img alt="Publishing" className="rounded-2xl shadow-xl relative z-10 object-cover w-full h-full max-h-[500px]" src="/lovable-uploads/32041a53-7987-462a-b8b1-875ab72db9f5.jpg" />
             </div>
           </div>
 
