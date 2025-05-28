@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from "react";
 import { X } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -43,7 +44,7 @@ const Navbar: React.FC = () => {
               <a href="mailto:partners@jullian.io" className="bg-blue-600 text-white px-5 py-2 rounded-lg font-medium hover:bg-blue-700 transition-colors">
                 Contact Us
               </a>
-              <button className="px-5 py-2 rounded-lg font-medium hover:shadow-[0_0_20px_rgba(255,255,255,0.3)] transition-all duration-300 animate-pulse text-slate-50 bg-slate-900 hover:bg-slate-800">
+              <button className="relative overflow-hidden px-5 py-2 rounded-lg font-medium text-slate-50 bg-gradient-to-br from-slate-800 to-slate-900 hover:from-slate-700 hover:to-slate-800 shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 border border-slate-600 before:absolute before:top-0 before:left-[-100%] before:w-full before:h-full before:bg-gradient-to-r before:from-transparent before:via-white/20 before:to-transparent before:transition-all before:duration-1000 hover:before:left-[100%]">
                 App Studio Login
               </button>
             </div>
@@ -75,7 +76,7 @@ const Navbar: React.FC = () => {
             <a href="mailto:partners@jullian.io" className="bg-blue-600 text-white px-5 py-2 rounded-lg font-medium">
               Contact Us
             </a>
-            <button className="bg-black text-white px-5 py-2 rounded-lg font-medium hover:shadow-[0_0_20px_rgba(255,255,255,0.3)] transition-all duration-300 animate-pulse">
+            <button className="relative overflow-hidden px-5 py-2 rounded-lg font-medium text-slate-50 bg-gradient-to-br from-slate-800 to-slate-900 hover:from-slate-700 hover:to-slate-800 shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 border border-slate-600 before:absolute before:top-0 before:left-[-100%] before:w-full before:h-full before:bg-gradient-to-r before:from-transparent before:via-white/20 before:to-transparent before:transition-all before:duration-1000 hover:before:left-[100%]">
               App Studio Login
             </button>
           </div>
