@@ -46,12 +46,6 @@ const Navbar: React.FC = () => {
             {/* Desktop Navigation */}
             <div className="hidden md:flex items-center space-x-8">
               <button
-                onClick={() => scrollToSection("jullian-apps")}
-                className="text-gray-700 hover:text-blue-600 transition-colors"
-              >
-                Jullian Apps
-              </button>
-              <button
                 onClick={() => scrollToSection("jullian-publishing")}
                 className="text-gray-700 hover:text-blue-600 transition-colors"
               >
@@ -107,12 +101,6 @@ const Navbar: React.FC = () => {
             </button>
           </div>
           <div className="flex flex-col items-center justify-center flex-1 space-y-8 text-xl">
-            <button
-              onClick={() => scrollToSection("jullian-apps")}
-              className="text-gray-700 hover:text-blue-600 transition-colors py-2"
-            >
-              Jullian Apps
-            </button>
             <button
               onClick={() => scrollToSection("jullian-publishing")}
               className="text-gray-700 hover:text-blue-600 transition-colors py-2"
