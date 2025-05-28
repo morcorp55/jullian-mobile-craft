@@ -37,7 +37,7 @@ const Hero: React.FC = () => {
           <h1 ref={titleRef} className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight transition-all duration-700 delay-100 opacity-0 translate-y-5">
             We Grow Your App. You Focus on Building.
             <br />
-            <span className="text-blue-600">Turkey's first and only mobile app publisher.</span>
+            <span className="text-blue-600">We Grow Your App. You Focus on Building.</span>
           </h1>
           <p ref={subtitleRef} className="text-lg md:text-xl text-gray-600 max-w-xl transition-all duration-700 delay-300 opacity-0 translate-y-5">
             We create your ad creatives, fund the marketing, and run the campaigns.
