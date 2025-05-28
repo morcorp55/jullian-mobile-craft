@@ -29,21 +29,23 @@ const JullianPublishing: React.FC = () => {
       <div className="max-w-7xl mx-auto">
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div className="order-2 md:order-1">
-            <div className="relative p-4">
+            <div className="relative p-6">
               {/* Glow effects */}
-              <div className="absolute -top-8 -left-8 w-64 h-64 bg-gray-200/40 rounded-full filter blur-3xl"></div>
-              <div className="absolute -bottom-8 -right-8 w-64 h-64 bg-gray-300/30 rounded-full filter blur-3xl"></div>
+              <div className="absolute -top-12 -left-12 w-80 h-80 bg-gray-200/50 rounded-full filter blur-3xl"></div>
+              <div className="absolute -bottom-12 -right-12 w-80 h-80 bg-gray-300/40 rounded-full filter blur-3xl"></div>
               
-              {/* Main image with frame */}
+              {/* Main image with expanded frame */}
               <div className="relative">
-                {/* Outer glow frame */}
-                <div className="absolute -inset-2 bg-gradient-to-r from-gray-300/60 via-gray-200/40 to-gray-300/60 rounded-3xl blur-sm"></div>
+                {/* Outer glow frame - expanded */}
+                <div className="absolute -inset-4 bg-gradient-to-r from-gray-300/70 via-gray-200/50 to-gray-300/70 rounded-3xl blur-md"></div>
+                {/* Middle glow frame */}
+                <div className="absolute -inset-3 bg-gradient-to-r from-gray-400/60 via-gray-300/40 to-gray-400/60 rounded-3xl blur-sm"></div>
                 {/* Inner border frame */}
-                <div className="absolute -inset-1 bg-gradient-to-r from-gray-400/80 via-gray-300/60 to-gray-400/80 rounded-2xl"></div>
+                <div className="absolute -inset-2 bg-gradient-to-r from-gray-500/80 via-gray-400/60 to-gray-500/80 rounded-2xl"></div>
                 {/* Image */}
                 <img 
                   alt="Publishing" 
-                  className="rounded-2xl shadow-xl relative z-10 object-cover w-full h-full max-h-[500px] border-2 border-white/50" 
+                  className="rounded-2xl shadow-2xl relative z-10 object-cover w-full h-full max-h-[500px] border-3 border-white/60" 
                   src="/lovable-uploads/32041a53-7987-462a-b8b1-875ab72db9f5.jpg" 
                 />
               </div>
