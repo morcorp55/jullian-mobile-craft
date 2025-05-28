@@ -77,7 +77,7 @@ const Hero: React.FC = () => {
             <span className="text-blue-400">You Focus</span>
             <br />
             <span className="text-blue-400">
-              on <span className="italic animated-color-glow">{currentText}</span>
+              on <span className="italic animated-color-change">{currentText}</span>
               <span className="animate-pulse">|</span>
             </span>
             <span className="text-blue-400"> 🚀</span>
@@ -109,26 +109,22 @@ const Hero: React.FC = () => {
       </div>
       
       <style>{`
-        .animated-color-glow {
-          animation: color-glow-shift 4s ease-in-out infinite;
+        .animated-color-change {
+          animation: color-change 4s ease-in-out infinite;
         }
         
-        @keyframes color-glow-shift {
+        @keyframes color-change {
           0% {
             color: #3b82f6;
-            text-shadow: 0 0 20px #3b82f6, 0 0 30px #3b82f6, 0 0 40px #3b82f6;
           }
           33% {
             color: #8b5cf6;
-            text-shadow: 0 0 20px #8b5cf6, 0 0 30px #8b5cf6, 0 0 40px #8b5cf6;
           }
           66% {
             color: #ec4899;
-            text-shadow: 0 0 20px #ec4899, 0 0 30px #ec4899, 0 0 40px #ec4899;
           }
           100% {
             color: #3b82f6;
-            text-shadow: 0 0 20px #3b82f6, 0 0 30px #3b82f6, 0 0 40px #3b82f6;
           }
         }
       `}</style>
