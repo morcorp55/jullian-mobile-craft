@@ -121,9 +121,9 @@
     @apply bg-white/90 backdrop-blur-md rounded-2xl shadow-lg;
   }
 
-  /* Popup açıldığında arka planı yavaşça blurla */
+  /* Popup açıldığında arka planı yavaşça blurla - beyaz glow olmadan */
   .blur-background {
-    filter: blur(3px);
+    filter: blur(3px) brightness(0.8);
     transition: filter 0.3s ease-in-out;
   }
 }
