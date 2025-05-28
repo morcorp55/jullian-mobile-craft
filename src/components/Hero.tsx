@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { ChevronDown } from "lucide-react";
+
 const Hero: React.FC = () => {
   const titleRef = useRef<HTMLHeadingElement>(null);
   const subtitleRef = useRef<HTMLParagraphElement>(null);
@@ -35,8 +36,9 @@ const Hero: React.FC = () => {
       <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-center">
         <div className="text-left space-y-6">
           <h1 ref={titleRef} className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight transition-all duration-700 delay-100 opacity-0 translate-y-5 text-white">
-            We Grow Your App. <span className="text-blue-400">You Focus on
-Building 🚀</span>
+            We Grow Your App.
+            <br />
+            <span className="text-blue-400">You Focus on Building 🚀</span>
           </h1>
           <p ref={subtitleRef} className="text-lg md:text-xl text-gray-300 max-w-xl transition-all duration-700 delay-300 opacity-0 translate-y-5">
             We create your ad creatives, fund the marketing, and run the campaigns.
@@ -65,4 +67,5 @@ Building 🚀</span>
       </div>
     </section>;
 };
+
 export default Hero;
