@@ -1,3 +1,4 @@
+
 import React, { useEffect, useRef } from "react";
 import { CheckCircle } from "lucide-react";
 import { Separator } from "@/components/ui/separator";
@@ -29,7 +30,8 @@ const JullianPublishing: React.FC = () => {
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div className="order-2 md:order-1">
             <div className="relative">
-              <div className="absolute -top-8 -left-8 w-64 h-64 bg-blue-100/50 rounded-full filter blur-3xl"></div>
+              <div className="absolute -top-8 -left-8 w-64 h-64 bg-gray-200/40 rounded-full filter blur-3xl"></div>
+              <div className="absolute -bottom-8 -right-8 w-64 h-64 bg-gray-300/30 rounded-full filter blur-3xl"></div>
               <img alt="Publishing" className="rounded-2xl shadow-xl relative z-10 object-cover w-full h-full max-h-[500px]" src="/lovable-uploads/32041a53-7987-462a-b8b1-875ab72db9f5.jpg" />
             </div>
           </div>
