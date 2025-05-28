@@ -52,6 +52,9 @@ const Navbar: React.FC = () => {
               <button onClick={() => scrollToSection("jullian-broker")} className={`transition-colors ${isScrolled ? "text-black hover:text-blue-600" : "text-white hover:text-blue-400"}`}>
                 Broker
               </button>
+              <button className={`transition-colors ${isScrolled ? "text-black hover:text-blue-600" : "text-white hover:text-blue-400"}`}>
+                Blog
+              </button>
               <a href="mailto:partners@jullian.io" className="bg-blue-600 text-white px-5 py-2 rounded-lg font-medium hover:bg-blue-700 transition-colors">
                 Contact Us
               </a>
@@ -86,6 +89,9 @@ const Navbar: React.FC = () => {
             </button>
             <button onClick={() => scrollToSection("jullian-broker")} className="text-white hover:text-blue-400 transition-colors py-2">
               Broker
+            </button>
+            <button className="text-white hover:text-blue-400 transition-colors py-2">
+              Blog
             </button>
             <a href="mailto:partners@jullian.io" className="bg-blue-600 text-white px-5 py-2 rounded-lg font-medium">
               Contact Us
