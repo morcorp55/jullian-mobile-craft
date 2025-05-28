@@ -1,4 +1,3 @@
-
 import React, { useEffect, useRef } from "react";
 import { Separator } from "@/components/ui/separator";
 const JullianBroker: React.FC = () => {
@@ -72,22 +71,22 @@ const JullianBroker: React.FC = () => {
           
           <div className="order-1 md:order-2">
             <div className="relative p-12">
-              {/* Background glow effects - extended */}
-              <div className="absolute -top-16 -left-16 w-80 h-80 bg-blue-100/50 rounded-full filter blur-3xl"></div>
-              <div className="absolute -bottom-16 -right-16 w-80 h-80 bg-indigo-100/40 rounded-full filter blur-3xl"></div>
+              {/* Background glow effects */}
+              <div className="absolute -top-12 -left-12 w-80 h-80 bg-gray-200/50 rounded-full filter blur-3xl"></div>
+              <div className="absolute -bottom-12 -right-12 w-80 h-80 bg-gray-300/40 rounded-full filter blur-3xl"></div>
               
-              {/* Main image with extended frame */}
+              {/* Main image with expanded frame and white glow - matching Publishing section */}
               <div className="relative">
                 {/* White outer glow - most expanded */}
-                <div className="absolute -inset-12 bg-gradient-to-r from-white/80 via-white/60 to-white/80 rounded-3xl blur-xl"></div>
+                <div className="absolute -inset-8 bg-gradient-to-r from-white/80 via-white/60 to-white/80 rounded-3xl blur-xl"></div>
                 {/* Outer glow frame - expanded further */}
-                <div className="absolute -inset-8 bg-gradient-to-r from-blue-300/70 via-blue-200/50 to-blue-300/70 rounded-3xl blur-md"></div>
+                <div className="absolute -inset-6 bg-gradient-to-r from-gray-300/70 via-gray-200/50 to-gray-300/70 rounded-3xl blur-md"></div>
                 {/* Middle glow frame */}
-                <div className="absolute -inset-6 bg-gradient-to-r from-blue-400/60 via-blue-300/40 to-blue-400/60 rounded-3xl blur-sm"></div>
-                {/* Inner border frame with elegant blue gradient */}
-                <div className="absolute -inset-3 bg-gradient-to-br from-blue-600 via-blue-400 to-blue-600 rounded-2xl"></div>
+                <div className="absolute -inset-4 bg-gradient-to-r from-gray-400/60 via-gray-300/40 to-gray-400/60 rounded-3xl blur-sm"></div>
+                {/* Inner border frame with elegant gray gradient */}
+                <div className="absolute -inset-2 bg-gradient-to-br from-gray-600 via-gray-400 to-gray-600 rounded-2xl"></div>
                 {/* Image */}
-                <img alt="Broker" src="/lovable-uploads/4713a65d-3698-4059-b410-803d6c0996f1.jpg" className="rounded-2xl shadow-xl relative z-10 w-full h-full max-h-[500px] object-fill border-4 border-white/60" />
+                <img alt="Broker" src="/lovable-uploads/4713a65d-3698-4059-b410-803d6c0996f1.jpg" className="rounded-2xl shadow-xl relative z-10 w-full h-full max-h-[500px] object-fill border-3 border-white/60" />
               </div>
             </div>
           </div>
