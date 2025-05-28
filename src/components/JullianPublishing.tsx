@@ -29,17 +29,19 @@ const JullianPublishing: React.FC = () => {
       <div className="max-w-7xl mx-auto">
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div className="order-2 md:order-1">
-            <div className="relative p-6">
-              {/* Glow effects */}
+            <div className="relative p-8">
+              {/* Background glow effects */}
               <div className="absolute -top-12 -left-12 w-80 h-80 bg-gray-200/50 rounded-full filter blur-3xl"></div>
               <div className="absolute -bottom-12 -right-12 w-80 h-80 bg-gray-300/40 rounded-full filter blur-3xl"></div>
               
-              {/* Main image with expanded frame */}
+              {/* Main image with expanded frame and white glow */}
               <div className="relative">
-                {/* Outer glow frame - expanded */}
-                <div className="absolute -inset-4 bg-gradient-to-r from-gray-300/70 via-gray-200/50 to-gray-300/70 rounded-3xl blur-md"></div>
+                {/* White outer glow - most expanded */}
+                <div className="absolute -inset-8 bg-gradient-to-r from-white/80 via-white/60 to-white/80 rounded-3xl blur-xl"></div>
+                {/* Outer glow frame - expanded further */}
+                <div className="absolute -inset-6 bg-gradient-to-r from-gray-300/70 via-gray-200/50 to-gray-300/70 rounded-3xl blur-md"></div>
                 {/* Middle glow frame */}
-                <div className="absolute -inset-3 bg-gradient-to-r from-gray-400/60 via-gray-300/40 to-gray-400/60 rounded-3xl blur-sm"></div>
+                <div className="absolute -inset-4 bg-gradient-to-r from-gray-400/60 via-gray-300/40 to-gray-400/60 rounded-3xl blur-sm"></div>
                 {/* Inner border frame with elegant gray gradient */}
                 <div className="absolute -inset-2 bg-gradient-to-br from-gray-600 via-gray-400 to-gray-600 rounded-2xl"></div>
                 {/* Image */}
