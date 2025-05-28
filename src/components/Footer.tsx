@@ -1,6 +1,6 @@
 
 import React, { useEffect, useRef } from "react";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Linkedin, Phone, Send } from "lucide-react";
 
 const Footer: React.FC = () => {
   const titleRef = useRef<HTMLHeadingElement>(null);
@@ -50,13 +50,40 @@ const Footer: React.FC = () => {
         >
           <a 
             href="mailto:partners@jullian.io" 
-            className="inline-flex items-center bg-white text-blue-600 px-8 py-4 rounded-xl text-lg font-medium hover:bg-blue-50 transition-all"
+            className="inline-flex items-center bg-white text-blue-600 px-8 py-4 rounded-xl text-lg font-medium hover:bg-blue-50 transition-all mb-8"
           >
             partners@jullian.io
             <ArrowRight size={20} className="ml-2 group-hover:translate-x-1 transition-transform" />
           </a>
           
-          <div className="mt-16 text-sm text-white/70">
+          <div className="flex justify-center space-x-6 mb-16">
+            <a 
+              href="https://wa.me/905000000000" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="bg-white/10 hover:bg-white/20 p-4 rounded-full transition-all hover:scale-110"
+            >
+              <Phone size={24} className="text-white" />
+            </a>
+            <a 
+              href="https://t.me/jullianio" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="bg-white/10 hover:bg-white/20 p-4 rounded-full transition-all hover:scale-110"
+            >
+              <Send size={24} className="text-white" />
+            </a>
+            <a 
+              href="https://linkedin.com/company/jullianio" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="bg-white/10 hover:bg-white/20 p-4 rounded-full transition-all hover:scale-110"
+            >
+              <Linkedin size={24} className="text-white" />
+            </a>
+          </div>
+          
+          <div className="text-sm text-white/70">
             <p>© 2025 Jullian.io. All rights reserved.</p>
           </div>
         </div>
