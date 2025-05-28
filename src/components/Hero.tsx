@@ -1,4 +1,3 @@
-
 import React, { useEffect, useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { ChevronDown } from "lucide-react";
@@ -41,7 +40,9 @@ const Hero: React.FC = () => {
             <span className="text-blue-600">Turkey's first and only mobile app publisher.</span>
           </h1>
           <p ref={subtitleRef} className="text-lg md:text-xl text-gray-600 max-w-xl transition-all duration-700 delay-300 opacity-0 translate-y-5">
-            Built a mobile app but struggling to scale? Ready to exit? Jullian.io specializes in mobile app growth and acquisitions.
+            We create your ad creatives, fund the marketing, and run the campaigns.
+            <br />
+            Turkey's first and only mobile app publisher.
           </p>
           <div ref={ctaRef} className="pt-4 transition-all duration-700 delay-500 opacity-0 translate-y-5">
             <Button onClick={scrollToSection} className="bg-blue-600 text-white px-8 py-6 text-lg rounded-xl font-medium hover:bg-blue-700 transition-colors">
