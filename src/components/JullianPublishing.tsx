@@ -24,7 +24,7 @@ const JullianPublishing: React.FC = () => {
     return () => observer.disconnect();
   }, []);
   const points = ["We build your creatives, manage your funnel, and implement every event layer you're missing", "We handle TikTok, Meta, Search Ads & all major ad channels", "You stay focused on product. We cover growth. Revenue is shared, incentives aligned."];
-  return <section id="jullian-publishing" className="py-24 px-4 bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100">
+  return <section id="jullian-publishing" className="py-24 px-4 bg-gradient-to-br from-gray-400 via-gray-200 to-gray-300">
       <div className="max-w-7xl mx-auto">
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div className="order-2 md:order-1">
