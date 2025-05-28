@@ -1,3 +1,4 @@
+
 import React, { useEffect, useRef, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { ChevronDown } from "lucide-react";
@@ -68,7 +69,7 @@ const Hero: React.FC = () => {
     }
   };
 
-  return <section className="pt-28 pb-20 md:pt-36 md:pb-28 px-4 md:px-6 bg-gradient-to-br from-gray-400 via-gray-200 to-gray-300 animate-gradient-shift">
+  return <section className="pt-28 pb-20 md:pt-36 md:pb-28 px-4 md:px-6 bg-gradient-to-br from-purple-900 via-gray-900 via-black to-blue-900 animate-gradient-shift">
       <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-center">
         <div className="text-left space-y-6">
           <h1 ref={titleRef} className="text-4xl md:text-5xl lg:text-6xl font-bold transition-all duration-700 delay-100 opacity-0 translate-y-5 text-white" style={{lineHeight: '1.5'}}>
