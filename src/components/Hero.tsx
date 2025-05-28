@@ -1,4 +1,3 @@
-
 import React, { useEffect, useRef, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { ChevronDown } from "lucide-react";
@@ -78,7 +77,7 @@ const Hero: React.FC = () => {
             <span className="text-blue-400">You Focus</span>
             <br />
             <span className="text-blue-400">
-              on {currentText}
+              on <span className="italic">{currentText}</span>
               <span className="animate-pulse">|</span>
             </span>
             <span className="text-blue-400"> 🚀</span>
