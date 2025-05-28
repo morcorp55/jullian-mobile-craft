@@ -42,8 +42,8 @@ const Hero: React.FC = () => {
       <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-center">
         <div className="text-left space-y-6">
           <h1 ref={titleRef} className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight transition-all duration-700 delay-100 opacity-0 translate-y-5">
-            Scale Your Mobile App.{" "}
-            <span className="text-blue-600">Sell When Ready.</span>
+            We create your ad creatives, fund the marketing, and run the campaigns —{" "}
+            <span className="text-blue-600">Turkey's first and only mobile app publisher.</span>
           </h1>
           <p ref={subtitleRef} className="text-lg md:text-xl text-gray-600 max-w-xl transition-all duration-700 delay-300 opacity-0 translate-y-5">
             Built a mobile app but struggling to scale? Ready to exit? Jullian.io specializes in mobile app growth and acquisitions.
