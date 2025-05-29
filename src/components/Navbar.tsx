@@ -37,8 +37,13 @@ const Navbar: React.FC = () => {
   };
 
   return <>
-      <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? "bg-gradient-to-r from-indigo-500/30 via-purple-500/25 to-pink-500/30 backdrop-blur-xl shadow-lg border-b border-white/10 py-4" : "bg-transparent py-6"}`}>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? "backdrop-blur-xl shadow-lg py-4" : "bg-transparent py-6"}`}>
+        {/* Gradient background with fade to transparent */}
+        {isScrolled && (
+          <div className="absolute inset-0 bg-gradient-to-b from-indigo-500/30 via-purple-500/25 to-transparent"></div>
+        )}
+        
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center">
             <div className="text-2xl md:text-3xl lg:text-4xl font-bold">
               <span className="text-blue-400">Jullian</span>
