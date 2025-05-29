@@ -37,7 +37,7 @@ const Navbar: React.FC = () => {
   };
 
   return <>
-      <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? "bg-white/90 backdrop-blur-md shadow-sm py-4" : "bg-transparent py-6"}`}>
+      <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? "bg-gradient-to-r from-white/80 via-blue-50/70 to-purple-50/70 backdrop-blur-lg shadow-lg border-b border-white/20 py-4" : "bg-transparent py-6"}`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center">
             <div className="text-2xl md:text-3xl lg:text-4xl font-bold">
@@ -46,13 +46,13 @@ const Navbar: React.FC = () => {
 
             {/* Desktop Navigation */}
             <div className="hidden md:flex items-center space-x-8">
-              <button onClick={() => scrollToSection("jullian-publishing")} className={`transition-colors ${isScrolled ? "text-black hover:text-blue-600" : "text-white hover:text-blue-400"}`}>
+              <button onClick={() => scrollToSection("jullian-publishing")} className={`transition-colors ${isScrolled ? "text-gray-800 hover:text-blue-600" : "text-white hover:text-blue-400"}`}>
                 Publishing
               </button>
-              <button onClick={() => scrollToSection("jullian-broker")} className={`transition-colors ${isScrolled ? "text-black hover:text-blue-600" : "text-white hover:text-blue-400"}`}>
+              <button onClick={() => scrollToSection("jullian-broker")} className={`transition-colors ${isScrolled ? "text-gray-800 hover:text-blue-600" : "text-white hover:text-blue-400"}`}>
                 Broker
               </button>
-              <button className={`transition-colors ${isScrolled ? "text-black hover:text-blue-600" : "text-white hover:text-blue-400"}`}>
+              <button className={`transition-colors ${isScrolled ? "text-gray-800 hover:text-blue-600" : "text-white hover:text-blue-400"}`}>
                 Blog
               </button>
               <a href="mailto:partners@jullian.io" className="bg-blue-600 text-white px-5 py-2 rounded-lg font-medium hover:bg-blue-700 transition-colors">
