@@ -37,7 +37,8 @@ const Navbar: React.FC = () => {
   };
 
   return <>
-      <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? "backdrop-blur-xl py-4" : "bg-transparent py-6"}`}>
+      {/* Desktop Navbar */}
+      <nav className={`hidden md:block fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? "backdrop-blur-xl py-4" : "bg-transparent py-6"}`}>
         {/* Gradient background with fade to transparent */}
         {isScrolled && (
           <div className="absolute inset-0 bg-gradient-to-b from-indigo-500/30 via-purple-500/25 to-transparent"></div>
@@ -50,7 +51,7 @@ const Navbar: React.FC = () => {
             </div>
 
             {/* Desktop Navigation */}
-            <div className="hidden md:flex items-center space-x-8">
+            <div className="flex items-center space-x-8">
               <button onClick={() => scrollToSection("jullian-publishing")} className={`transition-colors ${isScrolled ? "text-white hover:text-blue-300" : "text-white hover:text-blue-400"}`}>
                 Publishing
               </button>
@@ -70,45 +71,26 @@ const Navbar: React.FC = () => {
                 App Studio Login
               </button>
             </div>
-
-            {/* Mobile Menu Button */}
-            <button className="md:hidden text-white hover:text-blue-400 focus:outline-none" onClick={() => setIsMobileMenuOpen(true)}>
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-              </svg>
-            </button>
           </div>
         </div>
       </nav>
 
-      {/* Mobile Menu */}
-      {isMobileMenuOpen && <div className="fixed inset-0 z-50 bg-black/95 backdrop-blur-lg flex flex-col">
-          <div className="flex justify-end p-6">
-            <button onClick={() => setIsMobileMenuOpen(false)} className="text-white hover:text-blue-400">
-              <X size={24} />
-            </button>
-          </div>
-          <div className="flex flex-col items-center justify-center flex-1 space-y-8 text-xl">
-            <button onClick={() => scrollToSection("jullian-publishing")} className="text-white hover:text-blue-400 transition-colors py-2">
-              Publishing
-            </button>
-            <button onClick={() => scrollToSection("jullian-broker")} className="text-white hover:text-blue-400 transition-colors py-2">
-              Broker
-            </button>
-            <button className="text-white hover:text-blue-400 transition-colors py-2">
-              Blog
-            </button>
-            <a href="mailto:partners@jullian.io" className="bg-blue-600 text-white px-5 py-2 rounded-lg font-medium">
+      {/* Mobile Bottom Navbar */}
+      <nav className="md:hidden fixed bottom-0 left-0 right-0 z-50 bg-gradient-to-t from-black/90 via-gray-900/80 to-transparent backdrop-blur-xl border-t border-gray-800/50">
+        <div className="max-w-7xl mx-auto px-4 py-4">
+          <div className="flex justify-center items-center space-x-4">
+            <a href="mailto:partners@jullian.io" className="bg-blue-600 text-white px-4 py-2 rounded-lg font-medium hover:bg-blue-700 transition-colors text-sm">
               Submit your app
             </a>
             <button 
               onClick={handleLoginClick}
-              className="relative overflow-hidden px-5 py-2 rounded-lg font-medium text-slate-50 bg-gradient-to-br from-slate-800 to-slate-900 hover:from-slate-700 hover:to-slate-800 shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 border border-slate-600 before:absolute before:top-0 before:left-[-100%] before:w-full before:h-full before:bg-gradient-to-r before:from-transparent before:via-white/20 before:to-transparent before:transition-all before:duration-1000 hover:before:left-[100%]"
+              className="relative overflow-hidden px-4 py-2 rounded-lg font-medium text-slate-50 bg-gradient-to-br from-slate-800 to-slate-900 hover:from-slate-700 hover:to-slate-800 shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 border border-slate-600 text-sm"
             >
               App Studio Login
             </button>
           </div>
-        </div>}
+        </div>
+      </nav>
 
       {/* Login Popup */}
       <LoginPopup 
