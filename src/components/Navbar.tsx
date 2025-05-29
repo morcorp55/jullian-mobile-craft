@@ -66,10 +66,21 @@ const Navbar: React.FC = () => {
               </a>
               <button 
                 onClick={handleLoginClick}
-                className="relative overflow-hidden px-5 py-2 rounded-lg font-medium text-slate-50 bg-gradient-to-br from-slate-800 to-slate-900 hover:from-slate-700 hover:to-slate-800 shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 border border-slate-600 before:absolute before:top-0 before:left-[-100%] before:w-full before:h-full before:bg-gradient-to-r before:from-transparent before:via-white/20 before:to-transparent before:transition-all before:duration-1000 hover:before:left-[100%]"
+                className="relative overflow-hidden px-5 py-2 rounded-lg font-medium text-slate-50 bg-gradient-to-br from-slate-800 to-slate-900 hover:from-slate-700 hover:to-slate-800 transform hover:scale-105 transition-all duration-300 border border-slate-600 before:absolute before:top-0 before:left-[-100%] before:w-full before:h-full before:bg-gradient-to-r before:from-transparent before:via-white/20 before:to-transparent before:transition-all before:duration-1000 hover:before:left-[100%]"
               >
                 App Studio Login
               </button>
+            </div>
+          </div>
+        </div>
+      </nav>
+
+      {/* Mobile Top Navbar - Only Logo */}
+      <nav className="md:hidden fixed top-0 left-0 right-0 z-50 bg-gradient-to-b from-black/80 via-black/60 to-transparent backdrop-blur-sm">
+        <div className="max-w-7xl mx-auto px-4 py-4">
+          <div className="flex justify-center items-center">
+            <div className="text-2xl font-bold">
+              <span className="text-blue-400">Jullian</span>
             </div>
           </div>
         </div>
@@ -84,7 +95,7 @@ const Navbar: React.FC = () => {
             </a>
             <button 
               onClick={handleLoginClick}
-              className="relative overflow-hidden px-4 py-2 rounded-lg font-medium text-slate-50 bg-gradient-to-br from-slate-800 to-slate-900 hover:from-slate-700 hover:to-slate-800 shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 border border-slate-600 text-sm"
+              className="relative overflow-hidden px-4 py-2 rounded-lg font-medium text-slate-50 bg-gradient-to-br from-slate-800 to-slate-900 hover:from-slate-700 hover:to-slate-800 transform hover:scale-105 transition-all duration-300 border border-slate-600 text-sm"
             >
               App Studio Login
             </button>
