@@ -1,4 +1,3 @@
-
 import React from "react";
 import Navbar from "@/components/Navbar";
 import { Play, Award, Zap, CheckCircle, Clock } from "lucide-react";
@@ -10,6 +9,7 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 import VideoCard from "@/components/VideoCard";
+import { useNavigate } from "react-router-dom";
 
 // Placeholder video data - sen bunları kendi verilerinle değiştireceksin
 const videoData = [
@@ -76,6 +76,8 @@ const videoData = [
 ];
 
 const CreativeStudio: React.FC = () => {
+  const navigate = useNavigate();
+
   const scrollToShowcase = () => {
     const showcaseSection = document.getElementById('creative-showcase');
     if (showcaseSection) {
@@ -85,9 +87,25 @@ const CreativeStudio: React.FC = () => {
     }
   };
 
+  const navigateToSection = (section: string) => {
+    navigate('/', { replace: true });
+    // Small delay to ensure navigation completes before scrolling
+    setTimeout(() => {
+      const targetSection = document.getElementById(section);
+      if (targetSection) {
+        targetSection.scrollIntoView({
+          behavior: 'smooth'
+        });
+      }
+    }, 100);
+  };
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-purple-900 via-gray-900 via-black to-blue-900 text-white">
-      <Navbar />
+      <Navbar 
+        onPublisherClick={() => navigateToSection('jullian-publishing')}
+        onBrokerClick={() => navigateToSection('jullian-broker')}
+      />
       
       {/* Hero Section */}
       <section className="pt-32 pb-20 px-4 sm:px-6 lg:px-8">
