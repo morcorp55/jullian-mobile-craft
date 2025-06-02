@@ -93,13 +93,16 @@ const Navbar: React.FC = () => {
       {/* Mobile Bottom Navbar */}
       <nav className="md:hidden fixed bottom-0 left-0 right-0 z-50 bg-gradient-to-t from-black/90 via-gray-900/80 to-transparent backdrop-blur-xl border-t border-gray-800/50">
         <div className="max-w-7xl mx-auto px-4 py-4">
-          <div className="flex justify-center items-center space-x-4">
-            <a href="mailto:partners@jullian.io" className="bg-blue-600 text-white px-4 py-2 rounded-lg font-medium hover:bg-blue-700 transition-colors text-sm">
+          <div className="flex justify-center items-center space-x-3">
+            <Link to="/creative-studio" className="bg-purple-600 text-white px-3 py-2 rounded-lg font-medium hover:bg-purple-700 transition-colors text-sm">
+              Creative Studio
+            </Link>
+            <a href="mailto:partners@jullian.io" className="bg-blue-600 text-white px-3 py-2 rounded-lg font-medium hover:bg-blue-700 transition-colors text-sm">
               Submit your app
             </a>
             <button 
               onClick={handleLoginClick}
-              className="relative overflow-hidden px-4 py-2 rounded-lg font-medium text-slate-50 bg-gradient-to-br from-slate-800 to-slate-900 hover:from-slate-700 hover:to-slate-800 transform hover:scale-105 transition-all duration-300 border border-slate-600 text-sm"
+              className="relative overflow-hidden px-3 py-2 rounded-lg font-medium text-slate-50 bg-gradient-to-br from-slate-800 to-slate-900 hover:from-slate-700 hover:to-slate-800 transform hover:scale-105 transition-all duration-300 border border-slate-600 text-sm"
             >
               App Studio Login
             </button>
