@@ -1,3 +1,4 @@
+
 import React from "react";
 import Navbar from "@/components/Navbar";
 import { Play, Award, Zap, CheckCircle, Clock } from "lucide-react";
@@ -128,6 +129,21 @@ const CreativeStudio: React.FC = () => {
               Accelerate Your Downloads 🚀
             </button>
           </div>
+        </div>
+      </section>
+
+      {/* App Studio Login Section */}
+      <section className="py-20 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-4xl mx-auto text-center">
+          <h2 className="text-3xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-green-400 to-blue-500 bg-clip-text text-transparent">
+            App Studio Login
+          </h2>
+          <p className="text-xl text-gray-300 mb-8">
+            Access our exclusive creative studio platform to manage your campaigns and track performance.
+          </p>
+          <button className="bg-gradient-to-r from-green-600 to-blue-600 text-white px-8 py-4 rounded-lg font-semibold text-lg hover:from-green-700 hover:to-blue-700 transition-all duration-300 transform hover:scale-105">
+            Login to Studio
+          </button>
         </div>
       </section>
 
@@ -271,6 +287,21 @@ const CreativeStudio: React.FC = () => {
               <CarouselNext className="right-4 bg-black/50 border-gray-600 hover:bg-black/70 text-white" />
             </Carousel>
           </div>
+        </div>
+      </section>
+
+      {/* App Submit Section */}
+      <section className="py-20 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-4xl mx-auto text-center">
+          <h2 className="text-3xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-orange-400 to-red-500 bg-clip-text text-transparent">
+            App Submit
+          </h2>
+          <p className="text-xl text-gray-300 mb-8">
+            Submit your app details and let our creative team analyze your requirements for the perfect video campaign.
+          </p>
+          <button className="bg-gradient-to-r from-orange-600 to-red-600 text-white px-8 py-4 rounded-lg font-semibold text-lg hover:from-orange-700 hover:to-red-700 transition-all duration-300 transform hover:scale-105">
+            Submit Your App
+          </button>
         </div>
       </section>
 
