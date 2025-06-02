@@ -1,4 +1,3 @@
-
 import React, { useEffect, useRef } from "react";
 import { CheckCircle } from "lucide-react";
 import { Separator } from "@/components/ui/separator";
@@ -69,24 +68,14 @@ const JullianPublishing: React.FC = () => {
               <Separator className="w-20 h-1 bg-blue-600 mb-6" />
             </div>
             
-            {/* Mobile image - below the title */}
-            <div className="md:hidden relative p-4 mb-8 w-full max-w-full overflow-hidden">
-              {/* Background glow effects - reduced for mobile */}
-              <div className="absolute -top-8 -left-8 w-60 h-60 bg-gray-200/50 rounded-full filter blur-3xl"></div>
-              <div className="absolute -bottom-8 -right-8 w-60 h-60 bg-gray-300/40 rounded-full filter blur-3xl"></div>
-              
-              {/* Main image with reduced frame for mobile */}
+            {/* Mobile image - below the title with clean styling */}
+            <div className="md:hidden relative p-2 mb-8 w-full max-w-full overflow-hidden">
+              {/* Main image with minimal clean styling */}
               <div className="relative w-full">
-                {/* White outer glow - reduced */}
-                <div className="absolute -inset-4 bg-gradient-to-r from-white/80 via-white/60 to-white/80 rounded-3xl blur-xl"></div>
-                {/* Outer glow frame - reduced */}
-                <div className="absolute -inset-3 bg-gradient-to-r from-gray-300/70 via-gray-200/50 to-gray-300/70 rounded-3xl blur-md"></div>
-                {/* Middle glow frame - reduced */}
-                <div className="absolute -inset-2 bg-gradient-to-r from-gray-400/60 via-gray-300/40 to-gray-400/60 rounded-3xl blur-sm"></div>
-                {/* Inner border frame with elegant gray gradient */}
-                <div className="absolute -inset-1 bg-gradient-to-br from-gray-600 via-gray-400 to-gray-600 rounded-2xl"></div>
+                {/* Simple border frame */}
+                <div className="absolute -inset-1 bg-gradient-to-br from-gray-500 via-gray-400 to-gray-500 rounded-2xl"></div>
                 {/* Image */}
-                <img alt="Publishing" className="rounded-2xl shadow-2xl relative z-10 object-cover w-full h-auto max-h-[400px] border-2 border-white/60" src="/lovable-uploads/32041a53-7987-462a-b8b1-875ab72db9f5.jpg" />
+                <img alt="Publishing" className="rounded-2xl shadow-lg relative z-10 object-cover w-full h-auto max-h-[400px] border border-white/40" src="/lovable-uploads/32041a53-7987-462a-b8b1-875ab72db9f5.jpg" />
               </div>
             </div>
             
