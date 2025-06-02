@@ -10,7 +10,6 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 import VideoCard from "@/components/VideoCard";
-import { useNavigate } from "react-router-dom";
 
 // Placeholder video data - sen bunları kendi verilerinle değiştireceksin
 const videoData = [
@@ -77,8 +76,6 @@ const videoData = [
 ];
 
 const CreativeStudio: React.FC = () => {
-  const navigate = useNavigate();
-
   const scrollToShowcase = () => {
     const showcaseSection = document.getElementById('creative-showcase');
     if (showcaseSection) {
@@ -88,25 +85,9 @@ const CreativeStudio: React.FC = () => {
     }
   };
 
-  const navigateToSection = (section: string) => {
-    navigate('/', { replace: true });
-    // Small delay to ensure navigation completes before scrolling
-    setTimeout(() => {
-      const targetSection = document.getElementById(section);
-      if (targetSection) {
-        targetSection.scrollIntoView({
-          behavior: 'smooth'
-        });
-      }
-    }, 100);
-  };
-
   return (
     <div className="min-h-screen bg-gradient-to-br from-purple-900 via-gray-900 via-black to-blue-900 text-white">
-      <Navbar 
-        onPublisherClick={() => navigateToSection('jullian-publishing')}
-        onBrokerClick={() => navigateToSection('jullian-broker')}
-      />
+      <Navbar />
       
       {/* Hero Section */}
       <section className="pt-32 pb-20 px-4 sm:px-6 lg:px-8">
@@ -129,21 +110,6 @@ const CreativeStudio: React.FC = () => {
               Accelerate Your Downloads 🚀
             </button>
           </div>
-        </div>
-      </section>
-
-      {/* App Studio Login Section */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-3xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-green-400 to-blue-500 bg-clip-text text-transparent">
-            App Studio Login
-          </h2>
-          <p className="text-xl text-gray-300 mb-8">
-            Access our exclusive creative studio platform to manage your campaigns and track performance.
-          </p>
-          <button className="bg-gradient-to-r from-green-600 to-blue-600 text-white px-8 py-4 rounded-lg font-semibold text-lg hover:from-green-700 hover:to-blue-700 transition-all duration-300 transform hover:scale-105">
-            Login to Studio
-          </button>
         </div>
       </section>
 
@@ -287,21 +253,6 @@ const CreativeStudio: React.FC = () => {
               <CarouselNext className="right-4 bg-black/50 border-gray-600 hover:bg-black/70 text-white" />
             </Carousel>
           </div>
-        </div>
-      </section>
-
-      {/* App Submit Section */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-3xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-orange-400 to-red-500 bg-clip-text text-transparent">
-            App Submit
-          </h2>
-          <p className="text-xl text-gray-300 mb-8">
-            Submit your app details and let our creative team analyze your requirements for the perfect video campaign.
-          </p>
-          <button className="bg-gradient-to-r from-orange-600 to-red-600 text-white px-8 py-4 rounded-lg font-semibold text-lg hover:from-orange-700 hover:to-red-700 transition-all duration-300 transform hover:scale-105">
-            Submit Your App
-          </button>
         </div>
       </section>
 
