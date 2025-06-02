@@ -58,6 +58,9 @@ const Navbar: React.FC = () => {
               <button onClick={() => scrollToSection("jullian-broker")} className={`transition-colors ${isScrolled ? "text-white hover:text-blue-300" : "text-white hover:text-blue-400"}`}>
                 Broker
               </button>
+              <button onClick={() => scrollToSection("creative-studio")} className={`transition-colors ${isScrolled ? "text-white hover:text-blue-300" : "text-white hover:text-blue-400"}`}>
+                Creative Studio
+              </button>
               <button className={`transition-colors ${isScrolled ? "text-white hover:text-blue-300" : "text-white hover:text-blue-400"}`}>
                 Blog
               </button>
