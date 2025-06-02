@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from "react";
 import { X } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
 import LoginPopup from "./LoginPopup";
 
 const Navbar: React.FC = () => {
@@ -46,9 +47,9 @@ const Navbar: React.FC = () => {
         
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center">
-            <div className="text-2xl md:text-3xl lg:text-4xl font-bold">
+            <Link to="/" className="text-2xl md:text-3xl lg:text-4xl font-bold">
               <span className="text-blue-400">Jullian</span>
-            </div>
+            </Link>
 
             {/* Desktop Navigation */}
             <div className="flex items-center space-x-8">
@@ -58,9 +59,9 @@ const Navbar: React.FC = () => {
               <button onClick={() => scrollToSection("jullian-broker")} className={`transition-colors ${isScrolled ? "text-white hover:text-blue-300" : "text-white hover:text-blue-400"}`}>
                 Broker
               </button>
-              <button onClick={() => scrollToSection("creative-studio")} className={`transition-colors ${isScrolled ? "text-white hover:text-blue-300" : "text-white hover:text-blue-400"}`}>
+              <Link to="/creative-studio" className={`transition-colors ${isScrolled ? "text-white hover:text-blue-300" : "text-white hover:text-blue-400"}`}>
                 Creative Studio
-              </button>
+              </Link>
               <button className={`transition-colors ${isScrolled ? "text-white hover:text-blue-300" : "text-white hover:text-blue-400"}`}>
                 Blog
               </button>
@@ -82,9 +83,9 @@ const Navbar: React.FC = () => {
       <nav className="md:hidden fixed top-0 left-0 right-0 z-50 bg-gradient-to-b from-black/80 via-black/60 to-transparent backdrop-blur-sm">
         <div className="max-w-7xl mx-auto px-4 py-4">
           <div className="flex justify-center items-center">
-            <div className="text-2xl font-bold">
+            <Link to="/" className="text-2xl font-bold">
               <span className="text-blue-400">Jullian</span>
-            </div>
+            </Link>
           </div>
         </div>
       </nav>
