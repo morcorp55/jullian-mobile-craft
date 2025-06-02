@@ -75,10 +75,12 @@
   body {
     @apply bg-background text-foreground font-sans antialiased;
     font-feature-settings: "ss01", "ss02", "cv01", "cv02", "cv03";
+    overflow-x: hidden;
   }
 
   html {
     @apply scroll-smooth;
+    overflow-x: hidden;
   }
 
   h1, h2, h3, h4 {
@@ -153,4 +155,6 @@
   padding: 0;
   text-align: center;
   transition: filter 0.3s ease-in-out;
+  overflow-x: hidden;
+  width: 100%;
 }
