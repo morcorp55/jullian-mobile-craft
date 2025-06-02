@@ -1,7 +1,6 @@
-
 import React from "react";
 import Navbar from "@/components/Navbar";
-import { Play, Award, Zap } from "lucide-react";
+import { Play, Award, Zap, CheckCircle, Clock } from "lucide-react";
 import {
   Carousel,
   CarouselContent,
@@ -86,6 +85,85 @@ const CreativeStudio: React.FC = () => {
         </div>
       </section>
 
+      {/* How We Work Section */}
+      <section className="py-20 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto">
+          <h2 className="text-3xl md:text-5xl font-bold text-center mb-16 bg-gradient-to-r from-green-400 to-blue-500 bg-clip-text text-transparent">
+            How We Work
+          </h2>
+          
+          <div className="grid md:grid-cols-2 gap-8 mb-12">
+            <div className="space-y-8">
+              <div className="bg-gradient-to-br from-purple-900/50 to-blue-900/50 backdrop-blur-xl p-8 rounded-2xl border border-gray-700/50 hover:border-blue-500/50 transition-all duration-300">
+                <div className="flex items-start space-x-4">
+                  <div className="bg-blue-500/20 p-3 rounded-full flex-shrink-0">
+                    <span className="text-blue-400 font-bold text-lg">1</span>
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-bold mb-3 text-blue-400">App & Audience Analysis</h3>
+                    <p className="text-gray-300">We thoroughly understand your app and its target audience, analyzing user behavior patterns and market positioning to create the perfect creative strategy.</p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="bg-gradient-to-br from-purple-900/50 to-blue-900/50 backdrop-blur-xl p-8 rounded-2xl border border-gray-700/50 hover:border-purple-500/50 transition-all duration-300">
+                <div className="flex items-start space-x-4">
+                  <div className="bg-purple-500/20 p-3 rounded-full flex-shrink-0">
+                    <span className="text-purple-400 font-bold text-lg">2</span>
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-bold mb-3 text-purple-400">Competitor Research</h3>
+                    <p className="text-gray-300">We analyze the ad creatives of your competitors to identify market trends, successful strategies, and opportunities for differentiation.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="space-y-8">
+              <div className="bg-gradient-to-br from-purple-900/50 to-blue-900/50 backdrop-blur-xl p-8 rounded-2xl border border-gray-700/50 hover:border-pink-500/50 transition-all duration-300">
+                <div className="flex items-start space-x-4">
+                  <div className="bg-pink-500/20 p-3 rounded-full flex-shrink-0">
+                    <span className="text-pink-400 font-bold text-lg">3</span>
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-bold mb-3 text-pink-400">Target Audience Deep Dive</h3>
+                    <p className="text-gray-300">We conduct detailed analysis of your target audiences, understanding their pain points, motivations, and preferred content formats.</p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="bg-gradient-to-br from-purple-900/50 to-blue-900/50 backdrop-blur-xl p-8 rounded-2xl border border-gray-700/50 hover:border-green-500/50 transition-all duration-300">
+                <div className="flex items-start space-x-4">
+                  <div className="bg-green-500/20 p-3 rounded-full flex-shrink-0">
+                    <span className="text-green-400 font-bold text-lg">4</span>
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-bold mb-3 text-green-400">Creative Production & Delivery</h3>
+                    <p className="text-gray-300">We create compelling creatives based on key themes that hook users to download your app and drive in-app purchases, delivered in your desired formats.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Delivery Promise */}
+          <div className="text-center">
+            <div className="bg-gradient-to-br from-yellow-900/30 to-orange-900/30 backdrop-blur-xl p-8 rounded-2xl border border-yellow-500/30 inline-block">
+              <div className="flex items-center justify-center space-x-3 mb-2">
+                <Clock className="w-8 h-8 text-yellow-400" />
+                <CheckCircle className="w-8 h-8 text-green-400" />
+              </div>
+              <h3 className="text-2xl font-bold mb-2 bg-gradient-to-r from-yellow-400 to-orange-400 bg-clip-text text-transparent">
+                48-Hour Delivery Guarantee
+              </h3>
+              <p className="text-gray-300 text-lg">
+                Your creatives will be ready within maximum 48 hours after order confirmation
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Portfolio Showcase */}
       <section className="py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
@@ -117,7 +195,7 @@ const CreativeStudio: React.FC = () => {
                       
                       <div className="p-6">
                         <h3 className="text-lg font-semibold mb-2">Gaming App Campaign #{index}</h3>
-                        <p className="text-gray-400 text-sm mb-4">High-engagement vertical video ad that increased downloads by 250%</p>
+                        <p className="text-gray-400 text-sm mb-4">High-engaging vertical video ad that increased downloads by 250%</p>
                         <div className="flex justify-between items-center">
                           <span className="text-blue-400 font-semibold">+250% Downloads</span>
                           <span className="text-purple-400 font-semibold">{(index * 0.8 + 3.2).toFixed(1)}M Views</span>
