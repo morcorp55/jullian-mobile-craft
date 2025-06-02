@@ -1,3 +1,4 @@
+
 import React from "react";
 import Navbar from "@/components/Navbar";
 import { Play, Award, Zap, CheckCircle, Clock } from "lucide-react";
@@ -29,7 +30,7 @@ const CreativeStudio: React.FC = () => {
               View Our Portfolio
             </button>
             <button className="border border-gray-600 text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-gray-800 transition-all duration-300">
-              Start Your Project
+              Accelerate Your Downloads 🚀
             </button>
           </div>
         </div>
@@ -198,7 +199,7 @@ const CreativeStudio: React.FC = () => {
             Let our creative team transform your app into the next viral sensation with high-converting video ads.
           </p>
           <a href="mailto:creative@jullian.io" className="bg-gradient-to-r from-purple-600 to-blue-600 text-white px-8 py-4 rounded-lg font-semibold text-lg hover:from-purple-700 hover:to-blue-700 transition-all duration-300 transform hover:scale-105 inline-block">
-            Start Your Creative Project
+            Accelerate Your Downloads 🚀
           </a>
         </div>
       </section>
