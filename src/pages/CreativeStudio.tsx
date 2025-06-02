@@ -1,3 +1,4 @@
+
 import React from "react";
 import Navbar from "@/components/Navbar";
 import { Play, Award, Zap, CheckCircle, Clock } from "lucide-react";
@@ -94,24 +95,24 @@ const CreativeStudio: React.FC = () => {
           
           <div className="grid md:grid-cols-2 gap-8 mb-12">
             <div className="space-y-8">
-              <div className="bg-gradient-to-br from-purple-900/50 to-blue-900/50 backdrop-blur-xl p-8 rounded-2xl border border-gray-700/50 hover:border-blue-500/50 transition-all duration-300">
-                <div className="flex items-start space-x-4">
-                  <div className="bg-blue-500/20 p-3 rounded-full flex-shrink-0">
-                    <span className="text-blue-400 font-bold text-lg">1</span>
+              <div className="bg-white/5 backdrop-blur-sm p-8 rounded-2xl border border-gray-700/30 hover:border-blue-500/50 transition-all duration-300">
+                <div className="flex items-start space-x-6">
+                  <div className="flex-shrink-0">
+                    <span className="text-7xl font-bold bg-gradient-to-br from-blue-400 to-blue-600 bg-clip-text text-transparent">1</span>
                   </div>
-                  <div>
+                  <div className="flex-1">
                     <h3 className="text-xl font-bold mb-3 text-blue-400">App & Audience Analysis</h3>
                     <p className="text-gray-300">We thoroughly understand your app and its target audience, analyzing user behavior patterns and market positioning to create the perfect creative strategy.</p>
                   </div>
                 </div>
               </div>
 
-              <div className="bg-gradient-to-br from-purple-900/50 to-blue-900/50 backdrop-blur-xl p-8 rounded-2xl border border-gray-700/50 hover:border-purple-500/50 transition-all duration-300">
-                <div className="flex items-start space-x-4">
-                  <div className="bg-purple-500/20 p-3 rounded-full flex-shrink-0">
-                    <span className="text-purple-400 font-bold text-lg">2</span>
+              <div className="bg-white/5 backdrop-blur-sm p-8 rounded-2xl border border-gray-700/30 hover:border-purple-500/50 transition-all duration-300">
+                <div className="flex items-start space-x-6">
+                  <div className="flex-shrink-0">
+                    <span className="text-7xl font-bold bg-gradient-to-br from-purple-400 to-purple-600 bg-clip-text text-transparent">2</span>
                   </div>
-                  <div>
+                  <div className="flex-1">
                     <h3 className="text-xl font-bold mb-3 text-purple-400">Competitor Research</h3>
                     <p className="text-gray-300">We analyze the ad creatives of your competitors to identify market trends, successful strategies, and opportunities for differentiation.</p>
                   </div>
@@ -120,24 +121,24 @@ const CreativeStudio: React.FC = () => {
             </div>
 
             <div className="space-y-8">
-              <div className="bg-gradient-to-br from-purple-900/50 to-blue-900/50 backdrop-blur-xl p-8 rounded-2xl border border-gray-700/50 hover:border-pink-500/50 transition-all duration-300">
-                <div className="flex items-start space-x-4">
-                  <div className="bg-pink-500/20 p-3 rounded-full flex-shrink-0">
-                    <span className="text-pink-400 font-bold text-lg">3</span>
+              <div className="bg-white/5 backdrop-blur-sm p-8 rounded-2xl border border-gray-700/30 hover:border-pink-500/50 transition-all duration-300">
+                <div className="flex items-start space-x-6">
+                  <div className="flex-shrink-0">
+                    <span className="text-7xl font-bold bg-gradient-to-br from-pink-400 to-pink-600 bg-clip-text text-transparent">3</span>
                   </div>
-                  <div>
+                  <div className="flex-1">
                     <h3 className="text-xl font-bold mb-3 text-pink-400">Target Audience Deep Dive</h3>
                     <p className="text-gray-300">We conduct detailed analysis of your target audiences, understanding their pain points, motivations, and preferred content formats.</p>
                   </div>
                 </div>
               </div>
 
-              <div className="bg-gradient-to-br from-purple-900/50 to-blue-900/50 backdrop-blur-xl p-8 rounded-2xl border border-gray-700/50 hover:border-green-500/50 transition-all duration-300">
-                <div className="flex items-start space-x-4">
-                  <div className="bg-green-500/20 p-3 rounded-full flex-shrink-0">
-                    <span className="text-green-400 font-bold text-lg">4</span>
+              <div className="bg-white/5 backdrop-blur-sm p-8 rounded-2xl border border-gray-700/30 hover:border-green-500/50 transition-all duration-300">
+                <div className="flex items-start space-x-6">
+                  <div className="flex-shrink-0">
+                    <span className="text-7xl font-bold bg-gradient-to-br from-green-400 to-green-600 bg-clip-text text-transparent">4</span>
                   </div>
-                  <div>
+                  <div className="flex-1">
                     <h3 className="text-xl font-bold mb-3 text-green-400">Creative Production & Delivery</h3>
                     <p className="text-gray-300">We create compelling creatives based on key themes that hook users to download your app and drive in-app purchases, delivered in your desired formats.</p>
                   </div>
