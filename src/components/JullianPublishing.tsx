@@ -64,7 +64,7 @@ const JullianPublishing: React.FC = () => {
               </h2>
               <Separator className="w-20 h-1 bg-blue-600 mb-6" />
               
-              {/* Mobile image - only visible on mobile */}
+              {/* Mobile image - moved here from desktop section */}
               <div className="md:hidden mb-6">
                 <img 
                   src="/lovable-uploads/56810381-612f-44e2-83ca-32b6e2cee3dc.png" 
