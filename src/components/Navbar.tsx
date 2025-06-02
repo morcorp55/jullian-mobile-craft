@@ -37,6 +37,11 @@ const Navbar: React.FC = () => {
     setIsMobileMenuOpen(false);
   };
 
+  const handlePageNavigation = () => {
+    // Sayfa geçişlerinde scroll pozisyonunu en üste sıfırla
+    window.scrollTo(0, 0);
+  };
+
   return <>
       {/* Desktop Navbar */}
       <nav className={`hidden md:block fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? "backdrop-blur-xl py-4" : "bg-transparent py-6"}`}>
@@ -47,7 +52,7 @@ const Navbar: React.FC = () => {
         
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center">
-            <Link to="/" className="text-2xl md:text-3xl lg:text-4xl font-bold">
+            <Link to="/" onClick={handlePageNavigation} className="text-2xl md:text-3xl lg:text-4xl font-bold">
               <span className="text-blue-400">Jullian</span>
             </Link>
 
@@ -59,7 +64,7 @@ const Navbar: React.FC = () => {
               <button onClick={() => scrollToSection("jullian-broker")} className={`transition-colors ${isScrolled ? "text-white hover:text-blue-300" : "text-white hover:text-blue-400"}`}>
                 Broker
               </button>
-              <Link to="/creative-studio" className={`transition-colors ${isScrolled ? "text-white hover:text-blue-300" : "text-white hover:text-blue-400"}`}>
+              <Link to="/creative-studio" onClick={handlePageNavigation} className={`transition-colors ${isScrolled ? "text-white hover:text-blue-300" : "text-white hover:text-blue-400"}`}>
                 Creative Studio
               </Link>
               <button className={`transition-colors ${isScrolled ? "text-white hover:text-blue-300" : "text-white hover:text-blue-400"}`}>
@@ -83,7 +88,7 @@ const Navbar: React.FC = () => {
       <nav className="md:hidden fixed top-0 left-0 right-0 z-50 bg-gradient-to-b from-black/80 via-black/60 to-transparent backdrop-blur-sm">
         <div className="max-w-7xl mx-auto px-4 py-4">
           <div className="flex justify-center items-center">
-            <Link to="/" className="text-2xl font-bold">
+            <Link to="/" onClick={handlePageNavigation} className="text-2xl font-bold">
               <span className="text-blue-400">Jullian</span>
             </Link>
           </div>
@@ -95,13 +100,13 @@ const Navbar: React.FC = () => {
         <div className="px-2 py-2">
           <div className="flex items-center justify-around">
             {/* Home Button */}
-            <Link to="/" className="flex flex-col items-center justify-center p-3 rounded-xl hover:bg-gray-800/50 transition-colors">
+            <Link to="/" onClick={handlePageNavigation} className="flex flex-col items-center justify-center p-3 rounded-xl hover:bg-gray-800/50 transition-colors">
               <Home size={22} className="text-blue-400 mb-1" />
               <span className="text-xs text-gray-300">Home</span>
             </Link>
             
             {/* Creative Studio Button */}
-            <Link to="/creative-studio" className="flex flex-col items-center justify-center p-3 rounded-xl bg-gradient-to-br from-purple-900/50 to-pink-900/50 hover:from-purple-800/60 hover:to-pink-800/60 transition-colors border border-purple-500/30">
+            <Link to="/creative-studio" onClick={handlePageNavigation} className="flex flex-col items-center justify-center p-3 rounded-xl bg-gradient-to-br from-purple-900/50 to-pink-900/50 hover:from-purple-800/60 hover:to-pink-800/60 transition-colors border border-purple-500/30">
               <Sparkles size={22} className="text-purple-400 mb-1" />
               <span className="text-xs text-gray-300">Creative</span>
             </Link>
