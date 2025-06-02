@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import Navbar from "@/components/Navbar";
 import { Play, Award, Zap, CheckCircle, Clock } from "lucide-react";
 import {
@@ -9,7 +9,6 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 import VideoCard from "@/components/VideoCard";
-import VideoModal from "@/components/VideoModal";
 
 // Placeholder video data - sen bunları kendi verilerinle değiştireceksin
 const videoData = [
@@ -76,16 +75,6 @@ const videoData = [
 ];
 
 const CreativeStudio: React.FC = () => {
-  const [selectedVideo, setSelectedVideo] = useState<{url: string; title: string} | null>(null);
-
-  const handleVideoClick = (videoUrl: string, title: string) => {
-    setSelectedVideo({ url: videoUrl, title });
-  };
-
-  const handleCloseModal = () => {
-    setSelectedVideo(null);
-  };
-
   return (
     <div className="min-h-screen bg-gradient-to-br from-purple-900 via-gray-900 via-black to-blue-900 text-white">
       <Navbar />
@@ -243,7 +232,6 @@ const CreativeStudio: React.FC = () => {
                       duration={video.duration}
                       views={video.views}
                       downloads={video.downloads}
-                      onVideoClick={handleVideoClick}
                     />
                   </CarouselItem>
                 ))}
@@ -269,14 +257,6 @@ const CreativeStudio: React.FC = () => {
           </a>
         </div>
       </section>
-
-      {/* Video Modal */}
-      <VideoModal
-        isOpen={!!selectedVideo}
-        onClose={handleCloseModal}
-        videoUrl={selectedVideo?.url || ""}
-        title={selectedVideo?.title || ""}
-      />
     </div>
   );
 };
