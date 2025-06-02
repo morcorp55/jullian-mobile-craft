@@ -103,9 +103,7 @@ const Navbar: React.FC = () => {
             {/* Creative Studio Button */}
             <Link to="/creative-studio" className="flex flex-col items-center justify-center p-3 rounded-xl bg-gradient-to-br from-purple-900/50 to-pink-900/50 hover:from-purple-800/60 hover:to-pink-800/60 transition-colors border border-purple-500/30">
               <Sparkles size={22} className="text-purple-400 mb-1" />
-              <span className="text-xs bg-gradient-to-r from-purple-400 via-pink-400 to-blue-400 bg-clip-text text-transparent animate-[gradient_3s_ease-in-out_infinite] bg-[length:300%_300%]">
-                Creative
-              </span>
+              <span className="text-xs text-gray-300">Creative</span>
             </Link>
             
             {/* Submit App Button */}
