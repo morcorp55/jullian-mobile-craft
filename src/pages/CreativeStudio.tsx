@@ -1,7 +1,6 @@
-
 import React from "react";
 import Navbar from "@/components/Navbar";
-import { Play, Award, Zap, Target } from "lucide-react";
+import { Play, Award, Zap } from "lucide-react";
 
 const CreativeStudio: React.FC = () => {
   return (
@@ -63,11 +62,6 @@ const CreativeStudio: React.FC = () => {
               <Play className="w-12 h-12 text-blue-400 mb-4" />
               <h3 className="text-xl font-bold mb-4">Video Ad Production</h3>
               <p className="text-gray-300">High-quality video ads optimized for social media platforms with proven conversion rates.</p>
-            </div>
-            <div className="bg-gradient-to-br from-purple-900/50 to-blue-900/50 backdrop-blur-xl p-8 rounded-2xl border border-gray-700/50 hover:border-purple-500/50 transition-all duration-300">
-              <Target className="w-12 h-12 text-purple-400 mb-4" />
-              <h3 className="text-xl font-bold mb-4">Performance Marketing</h3>
-              <p className="text-gray-300">Data-driven creative strategies that maximize ROAS and user acquisition.</p>
             </div>
             <div className="bg-gradient-to-br from-purple-900/50 to-blue-900/50 backdrop-blur-xl p-8 rounded-2xl border border-gray-700/50 hover:border-pink-500/50 transition-all duration-300">
               <Zap className="w-12 h-12 text-pink-400 mb-4" />
