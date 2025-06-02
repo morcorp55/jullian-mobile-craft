@@ -37,7 +37,8 @@ const Navbar: React.FC = () => {
     setIsMobileMenuOpen(false);
   };
 
-  return <>
+  return (
+    <>
       {/* Desktop Navbar */}
       <nav className={`hidden md:block fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? "backdrop-blur-xl py-4" : "bg-transparent py-6"}`}>
         {/* Gradient background with fade to transparent */}
@@ -110,7 +111,7 @@ const Navbar: React.FC = () => {
             <a href="mailto:partners@jullian.io" className="flex flex-col items-center justify-center p-3 rounded-xl bg-gradient-to-br from-blue-900/50 to-cyan-900/50 hover:from-blue-800/60 hover:to-cyan-800/60 transition-colors border border-blue-500/30">
               <Mail size={22} className="text-blue-400 mb-1" />
               <span className="text-xs text-gray-300">Submit</span>
-            </Link>
+            </a>
             
             {/* Login Button */}
             <button 
@@ -129,6 +130,8 @@ const Navbar: React.FC = () => {
         isOpen={isLoginPopupOpen} 
         onClose={() => setIsLoginPopupOpen(false)} 
       />
-    </>;
+    </>
+  );
 };
+
 export default Navbar;
