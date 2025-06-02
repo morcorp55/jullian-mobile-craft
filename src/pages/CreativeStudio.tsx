@@ -1,4 +1,3 @@
-
 import React from "react";
 import Navbar from "@/components/Navbar";
 import { Play, Award, Zap, CheckCircle, Clock } from "lucide-react";
@@ -32,30 +31,6 @@ const CreativeStudio: React.FC = () => {
             <button className="border border-gray-600 text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-gray-800 transition-all duration-300">
               Start Your Project
             </button>
-          </div>
-        </div>
-      </section>
-
-      {/* Stats Section */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-            <div className="bg-gradient-to-br from-purple-900/50 to-blue-900/50 backdrop-blur-xl p-6 rounded-2xl border border-gray-700/50">
-              <div className="text-3xl md:text-4xl font-bold text-blue-400 mb-2">500+</div>
-              <div className="text-gray-300">Creatives Produced</div>
-            </div>
-            <div className="bg-gradient-to-br from-purple-900/50 to-blue-900/50 backdrop-blur-xl p-6 rounded-2xl border border-gray-700/50">
-              <div className="text-3xl md:text-4xl font-bold text-purple-400 mb-2">95%</div>
-              <div className="text-gray-300">Client Satisfaction</div>
-            </div>
-            <div className="bg-gradient-to-br from-purple-900/50 to-blue-900/50 backdrop-blur-xl p-6 rounded-2xl border border-gray-700/50">
-              <div className="text-3xl md:text-4xl font-bold text-pink-400 mb-2">150+</div>
-              <div className="text-gray-300">Apps Promoted</div>
-            </div>
-            <div className="bg-gradient-to-br from-purple-900/50 to-blue-900/50 backdrop-blur-xl p-6 rounded-2xl border border-gray-700/50">
-              <div className="text-3xl md:text-4xl font-bold text-green-400 mb-2">300%</div>
-              <div className="text-gray-300">Avg. Engagement Boost</div>
-            </div>
           </div>
         </div>
       </section>
