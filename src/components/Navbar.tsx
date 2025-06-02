@@ -2,13 +2,14 @@
 import React, { useState, useEffect } from "react";
 import { X, Home, Sparkles, Mail, LogIn } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import LoginPopup from "./LoginPopup";
 
 const Navbar: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isLoginPopupOpen, setIsLoginPopupOpen] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -24,11 +25,26 @@ const Navbar: React.FC = () => {
 
   const scrollToSection = (id: string) => {
     setIsMobileMenuOpen(false);
-    const element = document.getElementById(id);
-    if (element) {
-      element.scrollIntoView({
-        behavior: "smooth"
-      });
+    // Check if we're on Creative Studio page
+    if (window.location.pathname === '/creative-studio') {
+      // Navigate to homepage first, then scroll
+      navigate('/');
+      setTimeout(() => {
+        const element = document.getElementById(id);
+        if (element) {
+          element.scrollIntoView({
+            behavior: "smooth"
+          });
+        }
+      }, 100);
+    } else {
+      // We're already on homepage, just scroll
+      const element = document.getElementById(id);
+      if (element) {
+        element.scrollIntoView({
+          behavior: "smooth"
+        });
+      }
     }
   };
 
@@ -53,28 +69,41 @@ const Navbar: React.FC = () => {
             </Link>
 
             {/* Desktop Navigation */}
-            <div className="flex items-center space-x-8">
-              <button onClick={() => scrollToSection("jullian-publishing")} className={`transition-colors ${isScrolled ? "text-white hover:text-blue-300" : "text-white hover:text-blue-400"}`}>
-                Publishing
-              </button>
-              <button onClick={() => scrollToSection("jullian-broker")} className={`transition-colors ${isScrolled ? "text-white hover:text-blue-300" : "text-white hover:text-blue-400"}`}>
-                Broker
-              </button>
-              <Link to="/creative-studio" className={`transition-colors ${isScrolled ? "text-white hover:text-blue-300" : "text-white hover:text-blue-400"}`}>
-                <span className="moving-gradient-text">Creative</span> <span className="moving-gradient-text">Studio</span>
-              </Link>
-              <button className={`transition-colors ${isScrolled ? "text-white hover:text-blue-300" : "text-white hover:text-blue-400"}`}>
-                Blog
-              </button>
-              <a href="mailto:partners@jullian.io" className="bg-blue-600 text-white px-5 py-2 rounded-lg font-medium hover:bg-blue-700 transition-colors">
-                Submit your app
-              </a>
-              <button 
-                onClick={handleLoginClick}
-                className="relative overflow-hidden px-5 py-2 rounded-lg font-medium text-slate-50 bg-gradient-to-br from-slate-800 to-slate-900 hover:from-slate-700 hover:to-slate-800 transform hover:scale-105 transition-all duration-300 border border-slate-600 before:absolute before:top-0 before:left-[-100%] before:w-full before:h-full before:bg-gradient-to-r before:from-transparent before:via-white/20 before:to-transparent before:transition-all before:duration-1000 hover:before:left-[100%]"
-              >
-                App Studio Login
-              </button>
+            <div className="flex items-center space-x-6">
+              {/* Navigation Links */}
+              <div className="flex items-center space-x-6 mr-4">
+                <button onClick={() => scrollToSection("jullian-publishing")} className={`transition-colors ${isScrolled ? "text-white hover:text-blue-300" : "text-white hover:text-blue-400"}`}>
+                  Publishing
+                </button>
+                <button onClick={() => scrollToSection("jullian-broker")} className={`transition-colors ${isScrolled ? "text-white hover:text-blue-300" : "text-white hover:text-blue-400"}`}>
+                  Broker
+                </button>
+                <Link to="/creative-studio" className={`transition-colors ${isScrolled ? "text-white hover:text-blue-300" : "text-white hover:text-blue-400"}`}>
+                  <span className="moving-gradient-text">Creative</span> <span className="moving-gradient-text">Studio</span>
+                </Link>
+                <button className={`transition-colors ${isScrolled ? "text-white hover:text-blue-300" : "text-white hover:text-blue-400"}`}>
+                  Blog
+                </button>
+              </div>
+
+              {/* App-like Buttons */}
+              <div className="flex items-center space-x-3">
+                <a 
+                  href="mailto:partners@jullian.io" 
+                  className="flex items-center space-x-2 bg-gradient-to-br from-blue-900/70 to-cyan-900/70 hover:from-blue-800/80 hover:to-cyan-800/80 text-white px-4 py-2.5 rounded-xl font-medium transition-all duration-300 transform hover:scale-105 border border-blue-500/30 backdrop-blur-sm"
+                >
+                  <Mail size={18} className="text-blue-400" />
+                  <span>Submit App</span>
+                </a>
+                
+                <button 
+                  onClick={handleLoginClick}
+                  className="flex items-center space-x-2 bg-gradient-to-br from-gray-900/70 to-slate-900/70 hover:from-gray-800/80 hover:to-slate-800/80 text-white px-4 py-2.5 rounded-xl font-medium transition-all duration-300 transform hover:scale-105 border border-slate-700/30 backdrop-blur-sm relative overflow-hidden before:absolute before:top-0 before:left-[-100%] before:w-full before:h-full before:bg-gradient-to-r before:from-transparent before:via-white/20 before:to-transparent before:transition-all before:duration-1000 hover:before:left-[100%]"
+                >
+                  <LogIn size={18} className="text-slate-400" />
+                  <span>App Studio</span>
+                </button>
+              </div>
             </div>
           </div>
         </div>
