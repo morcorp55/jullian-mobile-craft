@@ -1,6 +1,6 @@
 
 import React, { useState, useEffect } from "react";
-import { X } from "lucide-react";
+import { X, Home, Sparkles, Mail, LogIn } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import LoginPopup from "./LoginPopup";
@@ -90,21 +90,35 @@ const Navbar: React.FC = () => {
         </div>
       </nav>
 
-      {/* Mobile Bottom Navbar */}
-      <nav className="md:hidden fixed bottom-0 left-0 right-0 z-50 bg-gradient-to-t from-black/90 via-gray-900/80 to-transparent backdrop-blur-xl border-t border-gray-800/50">
-        <div className="max-w-7xl mx-auto px-4 py-4">
-          <div className="flex justify-center items-center space-x-3">
-            <Link to="/creative-studio" className="relative overflow-hidden px-3 py-2 rounded-lg font-medium text-white bg-gradient-to-br from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 transform hover:scale-105 transition-all duration-300 border border-purple-500/50 text-sm before:absolute before:top-0 before:left-[-100%] before:w-full before:h-full before:bg-gradient-to-r before:from-transparent before:via-white/20 before:to-transparent before:transition-all before:duration-1000 hover:before:left-[100%]">
-              Creative Studio
+      {/* Mobile Bottom App-Style Navbar */}
+      <nav className="md:hidden fixed bottom-0 left-0 right-0 z-50 bg-black/95 backdrop-blur-xl border-t border-gray-800">
+        <div className="px-2 py-2">
+          <div className="flex items-center justify-around">
+            {/* Home Button */}
+            <Link to="/" className="flex flex-col items-center justify-center p-3 rounded-xl hover:bg-gray-800/50 transition-colors">
+              <Home size={22} className="text-blue-400 mb-1" />
+              <span className="text-xs text-gray-300">Home</span>
             </Link>
-            <a href="mailto:partners@jullian.io" className="relative overflow-hidden px-3 py-2 rounded-lg font-medium text-white bg-gradient-to-br from-blue-600 to-cyan-600 hover:from-blue-700 hover:to-cyan-700 transform hover:scale-105 transition-all duration-300 border border-blue-500/50 text-sm before:absolute before:top-0 before:left-[-100%] before:w-full before:h-full before:bg-gradient-to-r before:from-transparent before:via-white/20 before:to-transparent before:transition-all before:duration-1000 hover:before:left-[100%]">
-              Submit your app
+            
+            {/* Creative Studio Button */}
+            <Link to="/creative-studio" className="flex flex-col items-center justify-center p-3 rounded-xl bg-gradient-to-br from-purple-900/50 to-pink-900/50 hover:from-purple-800/60 hover:to-pink-800/60 transition-colors border border-purple-500/30">
+              <Sparkles size={22} className="text-purple-400 mb-1" />
+              <span className="text-xs text-gray-300">Creative</span>
+            </Link>
+            
+            {/* Submit App Button */}
+            <a href="mailto:partners@jullian.io" className="flex flex-col items-center justify-center p-3 rounded-xl bg-gradient-to-br from-blue-900/50 to-cyan-900/50 hover:from-blue-800/60 hover:to-cyan-800/60 transition-colors border border-blue-500/30">
+              <Mail size={22} className="text-blue-400 mb-1" />
+              <span className="text-xs text-gray-300">Submit</span>
             </a>
+            
+            {/* Login Button */}
             <button 
               onClick={handleLoginClick}
-              className="relative overflow-hidden px-3 py-2 rounded-lg font-medium text-slate-50 bg-gradient-to-br from-slate-800 to-slate-900 hover:from-slate-700 hover:to-slate-800 transform hover:scale-105 transition-all duration-300 border border-slate-600 text-sm before:absolute before:top-0 before:left-[-100%] before:w-full before:h-full before:bg-gradient-to-r before:from-transparent before:via-white/20 before:to-transparent before:transition-all before:duration-1000 hover:before:left-[100%]"
+              className="flex flex-col items-center justify-center p-3 rounded-xl bg-gradient-to-br from-gray-900/70 to-slate-900/70 hover:from-gray-800/80 hover:to-slate-800/80 transition-colors border border-slate-700/30"
             >
-              App Studio Login
+              <LogIn size={22} className="text-slate-400 mb-1" />
+              <span className="text-xs text-gray-300">Login</span>
             </button>
           </div>
         </div>
