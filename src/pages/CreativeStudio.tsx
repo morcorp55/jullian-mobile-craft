@@ -1,3 +1,4 @@
+
 import React from "react";
 import Navbar from "@/components/Navbar";
 import { Play, Award, Zap, CheckCircle, Clock } from "lucide-react";
@@ -75,6 +76,15 @@ const videoData = [
 ];
 
 const CreativeStudio: React.FC = () => {
+  const scrollToShowcase = () => {
+    const showcaseSection = document.getElementById('creative-showcase');
+    if (showcaseSection) {
+      showcaseSection.scrollIntoView({
+        behavior: 'smooth'
+      });
+    }
+  };
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-purple-900 via-gray-900 via-black to-blue-900 text-white">
       <Navbar />
@@ -90,7 +100,10 @@ const CreativeStudio: React.FC = () => {
             High-engaging video ad creatives for B2C app companies. We transform your app into viral-worthy content that drives downloads and engagement.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="bg-gradient-to-r from-purple-600 to-blue-600 text-white px-8 py-4 rounded-lg font-semibold text-lg hover:from-purple-700 hover:to-blue-700 transition-all duration-300 transform hover:scale-105">
+            <button 
+              onClick={scrollToShowcase}
+              className="bg-gradient-to-r from-purple-600 to-blue-600 text-white px-8 py-4 rounded-lg font-semibold text-lg hover:from-purple-700 hover:to-blue-700 transition-all duration-300 transform hover:scale-105"
+            >
               View Our Portfolio
             </button>
             <button className="relative overflow-hidden border border-gray-600 text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-gray-800 transition-all duration-300 before:absolute before:top-0 before:left-[-100%] before:w-full before:h-full before:bg-gradient-to-r before:from-transparent before:via-white/20 before:to-transparent before:transition-all before:duration-1000 hover:before:left-[100%]">
@@ -206,7 +219,7 @@ const CreativeStudio: React.FC = () => {
       </section>
 
       {/* Portfolio Showcase */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8">
+      <section id="creative-showcase" className="py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
           <h2 className="text-3xl md:text-5xl font-bold text-center mb-16 bg-gradient-to-r from-purple-400 to-pink-500 bg-clip-text text-transparent">
             Creative Showcase
