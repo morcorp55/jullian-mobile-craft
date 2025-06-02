@@ -1,3 +1,4 @@
+
 import React, { useEffect, useRef } from "react";
 import { CheckCircle } from "lucide-react";
 import { Separator } from "@/components/ui/separator";
@@ -27,7 +28,7 @@ const JullianPublishing: React.FC = () => {
   return <section id="jullian-publishing" className="py-24 px-4 bg-gradient-to-br from-gray-400 via-gray-200 to-gray-300">
       <div className="max-w-7xl mx-auto">
         <div className="grid md:grid-cols-2 gap-12 items-center">
-          <div className="order-2 md:order-1">
+          <div className="order-2 md:order-1 hidden md:block">
             <div className="relative p-8">
               {/* Background glow effects */}
               <div className="absolute -top-12 -left-12 w-80 h-80 bg-gray-200/50 rounded-full filter blur-3xl"></div>
@@ -55,6 +56,27 @@ const JullianPublishing: React.FC = () => {
                 Jullian Publishing
               </h2>
               <Separator className="w-20 h-1 bg-blue-600 mb-6" />
+            </div>
+            
+            {/* Mobile image - below the title */}
+            <div className="md:hidden relative p-8 mb-8">
+              {/* Background glow effects */}
+              <div className="absolute -top-12 -left-12 w-80 h-80 bg-gray-200/50 rounded-full filter blur-3xl"></div>
+              <div className="absolute -bottom-12 -right-12 w-80 h-80 bg-gray-300/40 rounded-full filter blur-3xl"></div>
+              
+              {/* Main image with expanded frame and white glow */}
+              <div className="relative">
+                {/* White outer glow - most expanded */}
+                <div className="absolute -inset-8 bg-gradient-to-r from-white/80 via-white/60 to-white/80 rounded-3xl blur-xl"></div>
+                {/* Outer glow frame - expanded further */}
+                <div className="absolute -inset-6 bg-gradient-to-r from-gray-300/70 via-gray-200/50 to-gray-300/70 rounded-3xl blur-md"></div>
+                {/* Middle glow frame */}
+                <div className="absolute -inset-4 bg-gradient-to-r from-gray-400/60 via-gray-300/40 to-gray-400/60 rounded-3xl blur-sm"></div>
+                {/* Inner border frame with elegant gray gradient */}
+                <div className="absolute -inset-2 bg-gradient-to-br from-gray-600 via-gray-400 to-gray-600 rounded-2xl"></div>
+                {/* Image */}
+                <img alt="Publishing" className="rounded-2xl shadow-2xl relative z-10 object-cover w-full h-full max-h-[500px] border-3 border-white/60" src="/lovable-uploads/32041a53-7987-462a-b8b1-875ab72db9f5.jpg" />
+              </div>
             </div>
             
             <div ref={contentRef} className="text-lg text-gray-600 space-y-4 transition-all duration-700 delay-100 opacity-0 translate-y-10">
