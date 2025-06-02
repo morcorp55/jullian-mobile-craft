@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Navbar from "@/components/Navbar";
 import { Play, Award, Zap, CheckCircle, Clock } from "lucide-react";
 import {
@@ -8,8 +8,84 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
+import VideoCard from "@/components/VideoCard";
+import VideoModal from "@/components/VideoModal";
+
+// Placeholder video data - sen bunları kendi verilerinle değiştireceksin
+const videoData = [
+  {
+    id: "1",
+    title: "Gaming App Campaign #1",
+    description: "High-engaging vertical video ad that increased downloads by 250%",
+    thumbnailUrl: "/placeholder-thumbnail-1.jpg", // Sen kendi thumbnail'lerini ekleyeceksin
+    videoUrl: "/placeholder-video-1.mp4", // Sen kendi video URL'lerini ekleyeceksin
+    duration: "0:15s",
+    views: "3.2M Views",
+    downloads: "+250% Downloads"
+  },
+  {
+    id: "2",
+    title: "Fitness App Campaign #2",
+    description: "Motivational content that drove massive user engagement",
+    thumbnailUrl: "/placeholder-thumbnail-2.jpg",
+    videoUrl: "/placeholder-video-2.mp4",
+    duration: "0:18s",
+    views: "4.1M Views",
+    downloads: "+320% Downloads"
+  },
+  {
+    id: "3",
+    title: "E-commerce App Campaign #3",
+    description: "Product showcase video with exceptional conversion rates",
+    thumbnailUrl: "/placeholder-thumbnail-3.jpg",
+    videoUrl: "/placeholder-video-3.mp4",
+    duration: "0:22s",
+    views: "2.8M Views",
+    downloads: "+180% Downloads"
+  },
+  {
+    id: "4",
+    title: "Social Media App Campaign #4",
+    description: "Viral content that exploded across all platforms",
+    thumbnailUrl: "/placeholder-thumbnail-4.jpg",
+    videoUrl: "/placeholder-video-4.mp4",
+    duration: "0:16s",
+    views: "5.7M Views",
+    downloads: "+420% Downloads"
+  },
+  {
+    id: "5",
+    title: "Food Delivery App Campaign #5",
+    description: "Appetite-inducing visuals with strong call-to-action",
+    thumbnailUrl: "/placeholder-thumbnail-5.jpg",
+    videoUrl: "/placeholder-video-5.mp4",
+    duration: "0:20s",
+    views: "3.9M Views",
+    downloads: "+290% Downloads"
+  },
+  {
+    id: "6",
+    title: "Travel App Campaign #6",
+    description: "Adventure-packed content inspiring wanderlust",
+    thumbnailUrl: "/placeholder-thumbnail-6.jpg",
+    videoUrl: "/placeholder-video-6.mp4",
+    duration: "0:25s",
+    views: "4.6M Views",
+    downloads: "+350% Downloads"
+  }
+];
 
 const CreativeStudio: React.FC = () => {
+  const [selectedVideo, setSelectedVideo] = useState<{url: string; title: string} | null>(null);
+
+  const handleVideoClick = (videoUrl: string, title: string) => {
+    setSelectedVideo({ url: videoUrl, title });
+  };
+
+  const handleCloseModal = () => {
+    setSelectedVideo(null);
+  };
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-purple-900 via-gray-900 via-black to-blue-900 text-white">
       <Navbar />
@@ -156,28 +232,19 @@ const CreativeStudio: React.FC = () => {
               className="w-full"
             >
               <CarouselContent className="-ml-4">
-                {[1, 2, 3, 4, 5, 6, 7, 8].map((index) => (
-                  <CarouselItem key={index} className="pl-4 md:basis-1/2 lg:basis-1/3">
-                    <div className="bg-gradient-to-br from-gray-900/80 to-black/80 backdrop-blur-xl rounded-2xl border border-gray-700/50 overflow-hidden hover:border-blue-500/50 transition-all duration-300 group">
-                      {/* Vertical Video Container */}
-                      <div className="aspect-[9/16] bg-gradient-to-br from-blue-600/20 to-purple-600/20 flex items-center justify-center relative">
-                        <Play className="w-20 h-20 text-white/80 group-hover:text-blue-400 transition-colors duration-300" />
-                        <div className="absolute top-4 right-4 bg-black/50 text-white px-2 py-1 rounded text-sm">
-                          0:{index + 14}s
-                        </div>
-                        {/* Video overlay gradient */}
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent"></div>
-                      </div>
-                      
-                      <div className="p-6">
-                        <h3 className="text-lg font-semibold mb-2">Gaming App Campaign #{index}</h3>
-                        <p className="text-gray-400 text-sm mb-4">High-engaging vertical video ad that increased downloads by 250%</p>
-                        <div className="flex justify-between items-center">
-                          <span className="text-blue-400 font-semibold">+250% Downloads</span>
-                          <span className="text-purple-400 font-semibold">{(index * 0.8 + 3.2).toFixed(1)}M Views</span>
-                        </div>
-                      </div>
-                    </div>
+                {videoData.map((video) => (
+                  <CarouselItem key={video.id} className="pl-4 md:basis-1/2 lg:basis-1/3">
+                    <VideoCard
+                      id={video.id}
+                      title={video.title}
+                      description={video.description}
+                      thumbnailUrl={video.thumbnailUrl}
+                      videoUrl={video.videoUrl}
+                      duration={video.duration}
+                      views={video.views}
+                      downloads={video.downloads}
+                      onVideoClick={handleVideoClick}
+                    />
                   </CarouselItem>
                 ))}
               </CarouselContent>
@@ -202,6 +269,14 @@ const CreativeStudio: React.FC = () => {
           </a>
         </div>
       </section>
+
+      {/* Video Modal */}
+      <VideoModal
+        isOpen={!!selectedVideo}
+        onClose={handleCloseModal}
+        videoUrl={selectedVideo?.url || ""}
+        title={selectedVideo?.title || ""}
+      />
     </div>
   );
 };
