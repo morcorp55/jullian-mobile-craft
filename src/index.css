@@ -126,6 +126,25 @@
     filter: blur(2px) brightness(0.7) contrast(1.1);
     transition: filter 0.3s ease-in-out;
   }
+
+  /* Hareketli gradient animasyonu */
+  .moving-gradient-text {
+    background: linear-gradient(45deg, #3b82f6, #8b5cf6, #ec4899, #f59e0b, #3b82f6);
+    background-size: 300% 300%;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: gradientMove 3s ease-in-out infinite;
+  }
+
+  @keyframes gradientMove {
+    0%, 100% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+  }
 }
 
 #root {

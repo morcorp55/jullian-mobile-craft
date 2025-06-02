@@ -60,7 +60,7 @@ const Navbar: React.FC = () => {
                 Broker
               </button>
               <Link to="/creative-studio" className={`transition-colors ${isScrolled ? "text-white hover:text-blue-300" : "text-white hover:text-blue-400"}`}>
-                Creative Studio
+                <span className="moving-gradient-text">Creative</span> Studio
               </Link>
               <button className={`transition-colors ${isScrolled ? "text-white hover:text-blue-300" : "text-white hover:text-blue-400"}`}>
                 Blog
