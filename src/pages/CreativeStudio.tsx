@@ -1,6 +1,14 @@
+
 import React from "react";
 import Navbar from "@/components/Navbar";
 import { Play, Award, Zap } from "lucide-react";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
 
 const CreativeStudio: React.FC = () => {
   return (
@@ -83,26 +91,44 @@ const CreativeStudio: React.FC = () => {
           <h2 className="text-3xl md:text-5xl font-bold text-center mb-16 bg-gradient-to-r from-purple-400 to-pink-500 bg-clip-text text-transparent">
             Creative Showcase
           </h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {/* Video Placeholder Cards */}
-            {[1, 2, 3, 4, 5, 6].map((index) => (
-              <div key={index} className="bg-gradient-to-br from-gray-900/80 to-black/80 backdrop-blur-xl rounded-2xl border border-gray-700/50 overflow-hidden hover:border-blue-500/50 transition-all duration-300 group">
-                <div className="aspect-video bg-gradient-to-br from-blue-600/20 to-purple-600/20 flex items-center justify-center relative">
-                  <Play className="w-16 h-16 text-white/80 group-hover:text-blue-400 transition-colors duration-300" />
-                  <div className="absolute top-4 right-4 bg-black/50 text-white px-2 py-1 rounded text-sm">
-                    0:{index + 14}s
-                  </div>
-                </div>
-                <div className="p-6">
-                  <h3 className="text-lg font-semibold mb-2">Gaming App Campaign #{index}</h3>
-                  <p className="text-gray-400 text-sm mb-4">High-engagement video ad that increased downloads by 250%</p>
-                  <div className="flex justify-between items-center">
-                    <span className="text-blue-400 font-semibold">+250% Downloads</span>
-                    <span className="text-purple-400 font-semibold">4.2M Views</span>
-                  </div>
-                </div>
-              </div>
-            ))}
+          
+          <div className="relative max-w-6xl mx-auto">
+            <Carousel
+              opts={{
+                align: "start",
+                loop: true,
+              }}
+              className="w-full"
+            >
+              <CarouselContent className="-ml-4">
+                {[1, 2, 3, 4, 5, 6, 7, 8].map((index) => (
+                  <CarouselItem key={index} className="pl-4 md:basis-1/2 lg:basis-1/3">
+                    <div className="bg-gradient-to-br from-gray-900/80 to-black/80 backdrop-blur-xl rounded-2xl border border-gray-700/50 overflow-hidden hover:border-blue-500/50 transition-all duration-300 group">
+                      {/* Vertical Video Container */}
+                      <div className="aspect-[9/16] bg-gradient-to-br from-blue-600/20 to-purple-600/20 flex items-center justify-center relative">
+                        <Play className="w-20 h-20 text-white/80 group-hover:text-blue-400 transition-colors duration-300" />
+                        <div className="absolute top-4 right-4 bg-black/50 text-white px-2 py-1 rounded text-sm">
+                          0:{index + 14}s
+                        </div>
+                        {/* Video overlay gradient */}
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent"></div>
+                      </div>
+                      
+                      <div className="p-6">
+                        <h3 className="text-lg font-semibold mb-2">Gaming App Campaign #{index}</h3>
+                        <p className="text-gray-400 text-sm mb-4">High-engagement vertical video ad that increased downloads by 250%</p>
+                        <div className="flex justify-between items-center">
+                          <span className="text-blue-400 font-semibold">+250% Downloads</span>
+                          <span className="text-purple-400 font-semibold">{(index * 0.8 + 3.2).toFixed(1)}M Views</span>
+                        </div>
+                      </div>
+                    </div>
+                  </CarouselItem>
+                ))}
+              </CarouselContent>
+              <CarouselPrevious className="left-4 bg-black/50 border-gray-600 hover:bg-black/70 text-white" />
+              <CarouselNext className="right-4 bg-black/50 border-gray-600 hover:bg-black/70 text-white" />
+            </Carousel>
           </div>
         </div>
       </section>
