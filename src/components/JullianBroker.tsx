@@ -1,3 +1,4 @@
+
 import React, { useEffect, useRef } from "react";
 import { Separator } from "@/components/ui/separator";
 const JullianBroker: React.FC = () => {
@@ -43,6 +44,27 @@ const JullianBroker: React.FC = () => {
               <Separator className="w-20 h-1 bg-blue-600 mb-6 mx-auto" />
             </div>
             
+            {/* Image moved here - below the title */}
+            <div className="relative p-12 mb-8">
+              {/* Background glow effects */}
+              <div className="absolute -top-12 -left-12 w-80 h-80 bg-gray-200/50 rounded-full filter blur-3xl"></div>
+              <div className="absolute -bottom-12 -right-12 w-80 h-80 bg-gray-300/40 rounded-full filter blur-3xl"></div>
+              
+              {/* Main image with expanded frame and white glow - matching Publishing section */}
+              <div className="relative">
+                {/* White outer glow - most expanded */}
+                <div className="absolute -inset-8 bg-gradient-to-r from-white/80 via-white/60 to-white/80 rounded-3xl blur-xl"></div>
+                {/* Outer glow frame - expanded further */}
+                <div className="absolute -inset-6 bg-gradient-to-r from-gray-300/70 via-gray-200/50 to-gray-300/70 rounded-3xl blur-md"></div>
+                {/* Middle glow frame */}
+                <div className="absolute -inset-4 bg-gradient-to-r from-gray-400/60 via-gray-300/40 to-gray-400/60 rounded-3xl blur-sm"></div>
+                {/* Inner border frame with elegant gray gradient */}
+                <div className="absolute -inset-2 bg-gradient-to-br from-gray-600 via-gray-400 to-gray-600 rounded-2xl"></div>
+                {/* Image */}
+                <img alt="Broker" src="/lovable-uploads/4713a65d-3698-4059-b410-803d6c0996f1.jpg" className="rounded-2xl shadow-xl relative z-10 w-full h-full max-h-[500px] object-fill border-3 border-white/60" />
+              </div>
+            </div>
+            
             <div ref={contentRef} className="text-lg text-gray-600 space-y-4 text-center transition-all duration-700 delay-100 opacity-0 translate-y-10">
               <p className="text-xl font-medium">
                 Apps with meaningful MRR deserve meaningful exits.
@@ -69,26 +91,8 @@ const JullianBroker: React.FC = () => {
             </p>
           </div>
           
+          {/* Empty div to maintain grid layout */}
           <div className="order-1 md:order-2">
-            <div className="relative p-12">
-              {/* Background glow effects */}
-              <div className="absolute -top-12 -left-12 w-80 h-80 bg-gray-200/50 rounded-full filter blur-3xl"></div>
-              <div className="absolute -bottom-12 -right-12 w-80 h-80 bg-gray-300/40 rounded-full filter blur-3xl"></div>
-              
-              {/* Main image with expanded frame and white glow - matching Publishing section */}
-              <div className="relative">
-                {/* White outer glow - most expanded */}
-                <div className="absolute -inset-8 bg-gradient-to-r from-white/80 via-white/60 to-white/80 rounded-3xl blur-xl"></div>
-                {/* Outer glow frame - expanded further */}
-                <div className="absolute -inset-6 bg-gradient-to-r from-gray-300/70 via-gray-200/50 to-gray-300/70 rounded-3xl blur-md"></div>
-                {/* Middle glow frame */}
-                <div className="absolute -inset-4 bg-gradient-to-r from-gray-400/60 via-gray-300/40 to-gray-400/60 rounded-3xl blur-sm"></div>
-                {/* Inner border frame with elegant gray gradient */}
-                <div className="absolute -inset-2 bg-gradient-to-br from-gray-600 via-gray-400 to-gray-600 rounded-2xl"></div>
-                {/* Image */}
-                <img alt="Broker" src="/lovable-uploads/4713a65d-3698-4059-b410-803d6c0996f1.jpg" className="rounded-2xl shadow-xl relative z-10 w-full h-full max-h-[500px] object-fill border-3 border-white/60" />
-              </div>
-            </div>
           </div>
         </div>
       </div>
