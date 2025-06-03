@@ -139,12 +139,37 @@
     animation: gradientMove 3s ease-in-out infinite;
   }
 
+  /* Animated gradient background for creative studio */
+  .animated-gradient-bg {
+    background: linear-gradient(-45deg, #1a1a2e, #16213e, #0f3460, #533483, #7209b7, #2d1b69);
+    background-size: 400% 400%;
+    animation: gradientFlow 15s ease-in-out infinite;
+  }
+
   @keyframes gradientMove {
     0%, 100% {
       background-position: 0% 50%;
     }
     50% {
       background-position: 100% 50%;
+    }
+  }
+
+  @keyframes gradientFlow {
+    0% {
+      background-position: 0% 50%;
+    }
+    25% {
+      background-position: 100% 50%;
+    }
+    50% {
+      background-position: 100% 100%;
+    }
+    75% {
+      background-position: 0% 100%;
+    }
+    100% {
+      background-position: 0% 50%;
     }
   }
 }
