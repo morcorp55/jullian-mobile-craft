@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { createPortal } from 'react-dom';
 import { X, Building2, User } from 'lucide-react';
@@ -41,12 +40,12 @@ const JoinNetworkPopup: React.FC<JoinNetworkPopupProps> = ({ isOpen, onClose }) 
 
   const handleAppStudioClick = () => {
     console.log('App Studio selected');
-    // Link burada bağlanacak
+    window.open('https://app.youform.com/forms/vpdg1gqy', '_blank');
   };
 
   const handleIndieDeveloperClick = () => {
     console.log('Indie Developer selected');
-    // Link burada bağlanacak
+    window.open('https://app.youform.com/forms/srqtk8ij', '_blank');
   };
 
   if (!isOpen) return null;
