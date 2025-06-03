@@ -88,9 +88,9 @@ const Navbar: React.FC = () => {
                 <Link to="/creative-studio" className={`transition-colors ${isScrolled ? "text-white hover:text-blue-300" : "text-white hover:text-blue-400"}`}>
                   <span className="moving-gradient-text">Creative</span> <span className="moving-gradient-text">Studio</span>
                 </Link>
-                <button className={`transition-colors ${isScrolled ? "text-white hover:text-blue-300" : "text-white hover:text-blue-400"}`}>
+                <Link to="/blog" className={`transition-colors ${isScrolled ? "text-white hover:text-blue-300" : "text-white hover:text-blue-400"}`}>
                   Blog
-                </button>
+                </Link>
               </div>
 
               {/* App-like Buttons */}

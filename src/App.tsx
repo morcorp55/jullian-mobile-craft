@@ -9,6 +9,7 @@ import { useEffect } from "react";
 import Index from "./pages/Index";
 import CreativeStudio from "./pages/CreativeStudio";
 import NotFound from "./pages/NotFound";
+import BlogPage from "./pages/BlogPage";
 
 const queryClient = new QueryClient();
 
@@ -32,6 +33,7 @@ const AnimatedRoutes = () => {
         <Routes location={location}>
           <Route path="/" element={<Index />} />
           <Route path="/creative-studio" element={<CreativeStudio />} />
+          <Route path="/blog" element={<BlogPage />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </motion.div>
