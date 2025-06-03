@@ -72,12 +72,10 @@ const Navbar: React.FC = () => {
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center">
             <Link to="/" className="text-2xl md:text-3xl lg:text-4xl font-bold">
-              <span className="text-white drop-shadow-lg shadow-black/50">Jullian</span>
+              <span className="text-red-500 drop-shadow-lg shadow-black/50">Jullian</span>
             </Link>
 
-            {/* Desktop Navigation */}
             <div className="flex items-center space-x-6">
-              {/* Navigation Links */}
               <div className="flex items-center space-x-6 mr-4">
                 <button onClick={() => scrollToSection("jullian-publishing")} className={`transition-colors font-medium text-white drop-shadow-md shadow-black/50 ${isScrolled ? "hover:text-blue-300" : "hover:text-blue-400"}`}>
                   Publishing
@@ -93,7 +91,6 @@ const Navbar: React.FC = () => {
                 </Link>
               </div>
 
-              {/* App-like Buttons */}
               <div className="flex items-center space-x-3">
                 <button 
                   onClick={handleJoinNetworkClick}
@@ -121,35 +118,30 @@ const Navbar: React.FC = () => {
         <div className="max-w-7xl mx-auto px-4 py-4">
           <div className="flex justify-center items-center">
             <Link to="/" className="text-2xl font-bold">
-              <span className="text-white drop-shadow-lg shadow-black/50">Jullian</span>
+              <span className="text-red-500 drop-shadow-lg shadow-black/50">Jullian</span>
             </Link>
           </div>
         </div>
       </nav>
 
-      {/* Mobile Bottom App-Style Navbar */}
       <nav className="md:hidden fixed bottom-0 left-0 right-0 z-50 bg-black/95 backdrop-blur-xl border-t border-gray-800">
         <div className="px-2 py-2">
           <div className="grid grid-cols-4 gap-1">
-            {/* Home Button */}
             <Link to="/" className="flex flex-col items-center justify-center p-3 rounded-xl hover:bg-gray-800/50 transition-colors">
               <Home size={22} className="text-blue-400 mb-1" />
               <span className="text-xs text-gray-300">Home</span>
             </Link>
             
-            {/* Creative Studio Button */}
             <Link to="/creative-studio" className="flex flex-col items-center justify-center p-3 rounded-xl bg-gradient-to-br from-purple-900/50 to-pink-900/50 hover:from-purple-800/60 hover:to-pink-800/60 transition-colors border border-purple-500/30">
               <Sparkles size={22} className="text-purple-400 mb-1" />
               <span className="text-xs text-gray-300">Creative</span>
             </Link>
             
-            {/* Join Network Button */}
             <button onClick={handleJoinNetworkClick} className="flex flex-col items-center justify-center p-3 rounded-xl bg-gradient-to-br from-blue-900/50 to-cyan-900/50 hover:from-blue-800/60 hover:to-cyan-800/60 transition-colors border border-blue-500/30">
               <Mail size={22} className="text-blue-400 mb-1" />
               <span className="text-xs text-gray-300">Join</span>
             </button>
             
-            {/* Login Button */}
             <button 
               onClick={handleLoginClick}
               className="flex flex-col items-center justify-center p-3 rounded-xl bg-gradient-to-br from-gray-900/70 to-slate-900/70 hover:from-gray-800/80 hover:to-slate-800/80 transition-colors border border-slate-700/30"
@@ -161,13 +153,11 @@ const Navbar: React.FC = () => {
         </div>
       </nav>
 
-      {/* Login Popup */}
       <LoginPopup 
         isOpen={isLoginPopupOpen} 
         onClose={() => setIsLoginPopupOpen(false)} 
       />
 
-      {/* Join Network Popup */}
       <JoinNetworkPopup 
         isOpen={isJoinNetworkPopupOpen} 
         onClose={() => setIsJoinNetworkPopupOpen(false)} 
