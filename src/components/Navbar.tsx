@@ -123,7 +123,7 @@ const Navbar: React.FC = () => {
       {/* Mobile Bottom App-Style Navbar */}
       <nav className="md:hidden fixed bottom-0 left-0 right-0 z-50 bg-black/95 backdrop-blur-xl border-t border-gray-800">
         <div className="px-2 py-2">
-          <div className="flex items-center justify-around">
+          <div className="grid grid-cols-4 gap-1">
             {/* Home Button */}
             <Link to="/" className="flex flex-col items-center justify-center p-3 rounded-xl hover:bg-gray-800/50 transition-colors">
               <Home size={22} className="text-blue-400 mb-1" />
