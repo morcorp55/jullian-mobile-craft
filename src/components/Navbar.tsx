@@ -139,7 +139,7 @@ const Navbar: React.FC = () => {
             {/* Submit App Button */}
             <a href="mailto:partners@jullian.io" className="flex flex-col items-center justify-center p-3 rounded-xl bg-gradient-to-br from-blue-900/50 to-cyan-900/50 hover:from-blue-800/60 hover:to-cyan-800/60 transition-colors border border-blue-500/30">
               <Mail size={22} className="text-blue-400 mb-1" />
-              <span className="text-xs text-gray-300">Network</span>
+              <span className="text-xs text-gray-300">Join</span>
             </a>
             
             {/* Login Button */}
