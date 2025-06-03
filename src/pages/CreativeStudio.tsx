@@ -1,4 +1,3 @@
-
 import React from "react";
 import Navbar from "@/components/Navbar";
 import { Play, Award, Zap, CheckCircle, Clock } from "lucide-react";
@@ -93,17 +92,17 @@ const CreativeStudio: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen animated-gradient-bg text-white">
+    <div className="min-h-screen bg-gradient-to-br from-purple-900 via-gray-900 via-black to-blue-900 text-white">
       <Navbar />
       
       {/* Hero Section */}
       <section className="pt-32 pb-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto text-center">
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 drop-shadow-lg">
-            <span className="bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 bg-clip-text text-transparent drop-shadow-sm">Julian </span>
+          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6">
+            <span className="bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 bg-clip-text text-transparent">Julian </span>
             <span className="moving-gradient-text">Creative</span> <span className="moving-gradient-text">Studio</span>
           </h1>
-          <p className="text-xl md:text-2xl text-gray-200 mb-8 max-w-4xl mx-auto drop-shadow-md">
+          <p className="text-xl md:text-2xl text-gray-300 mb-8 max-w-4xl mx-auto">
             High-engaging video ad creatives for B2C app companies. We transform your app into viral-worthy content that drives downloads and engagement.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -126,24 +125,24 @@ const CreativeStudio: React.FC = () => {
       {/* Services Section */}
       <section className="py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-3xl md:text-5xl font-bold text-center mb-16 bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent drop-shadow-lg">
+          <h2 className="text-3xl md:text-5xl font-bold text-center mb-16 bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
             Our Creative Services
           </h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             <div className="bg-gradient-to-br from-purple-900/50 to-blue-900/50 backdrop-blur-xl p-8 rounded-2xl border border-gray-700/50 hover:border-blue-500/50 transition-all duration-300">
               <Play className="w-12 h-12 text-blue-400 mb-4" />
-              <h3 className="text-xl font-bold mb-4 text-white drop-shadow-md">Video Ad Production</h3>
-              <p className="text-gray-200 drop-shadow-sm">High-quality video ads optimized for social media platforms with proven conversion rates.</p>
+              <h3 className="text-xl font-bold mb-4">Video Ad Production</h3>
+              <p className="text-gray-300">High-quality video ads optimized for social media platforms with proven conversion rates.</p>
             </div>
             <div className="bg-gradient-to-br from-purple-900/50 to-blue-900/50 backdrop-blur-xl p-8 rounded-2xl border border-gray-700/50 hover:border-pink-500/50 transition-all duration-300">
               <Zap className="w-12 h-12 text-pink-400 mb-4" />
-              <h3 className="text-xl font-bold mb-4 text-white drop-shadow-md">Viral Content Creation</h3>
-              <p className="text-gray-200 drop-shadow-sm">Trend-aware content that captures attention and drives organic reach.</p>
+              <h3 className="text-xl font-bold mb-4">Viral Content Creation</h3>
+              <p className="text-gray-300">Trend-aware content that captures attention and drives organic reach.</p>
             </div>
             <div className="bg-gradient-to-br from-purple-900/50 to-blue-900/50 backdrop-blur-xl p-8 rounded-2xl border border-gray-700/50 hover:border-green-500/50 transition-all duration-300">
               <Award className="w-12 h-12 text-green-400 mb-4" />
-              <h3 className="text-xl font-bold mb-4 text-white drop-shadow-md">Creative Strategy</h3>
-              <p className="text-gray-200 drop-shadow-sm">Comprehensive creative direction tailored to your app's unique value proposition.</p>
+              <h3 className="text-xl font-bold mb-4">Creative Strategy</h3>
+              <p className="text-gray-300">Comprehensive creative direction tailored to your app's unique value proposition.</p>
             </div>
           </div>
         </div>
@@ -152,7 +151,7 @@ const CreativeStudio: React.FC = () => {
       {/* How We Work Section */}
       <section className="py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-3xl md:text-5xl font-bold text-center mb-16 bg-gradient-to-r from-green-400 to-blue-500 bg-clip-text text-transparent drop-shadow-lg">
+          <h2 className="text-3xl md:text-5xl font-bold text-center mb-16 bg-gradient-to-r from-green-400 to-blue-500 bg-clip-text text-transparent">
             How We Work
           </h2>
           
@@ -164,8 +163,8 @@ const CreativeStudio: React.FC = () => {
                     <span className="text-7xl font-bold bg-gradient-to-br from-blue-400 to-blue-600 bg-clip-text text-transparent">1</span>
                   </div>
                   <div className="flex-1">
-                    <h3 className="text-xl font-bold mb-3 text-blue-400 drop-shadow-md">App & Audience Analysis</h3>
-                    <p className="text-gray-200 drop-shadow-sm">We thoroughly understand your app and its target audience, analyzing user behavior patterns and market positioning to create the perfect creative strategy.</p>
+                    <h3 className="text-xl font-bold mb-3 text-blue-400">App & Audience Analysis</h3>
+                    <p className="text-gray-300">We thoroughly understand your app and its target audience, analyzing user behavior patterns and market positioning to create the perfect creative strategy.</p>
                   </div>
                 </div>
               </div>
@@ -176,8 +175,8 @@ const CreativeStudio: React.FC = () => {
                     <span className="text-7xl font-bold bg-gradient-to-br from-purple-400 to-purple-600 bg-clip-text text-transparent">2</span>
                   </div>
                   <div className="flex-1">
-                    <h3 className="text-xl font-bold mb-3 text-purple-400 drop-shadow-md">Competitor Research</h3>
-                    <p className="text-gray-200 drop-shadow-sm">We analyze the ad creatives of your competitors to identify market trends, successful strategies, and opportunities for differentiation.</p>
+                    <h3 className="text-xl font-bold mb-3 text-purple-400">Competitor Research</h3>
+                    <p className="text-gray-300">We analyze the ad creatives of your competitors to identify market trends, successful strategies, and opportunities for differentiation.</p>
                   </div>
                 </div>
               </div>
@@ -190,8 +189,8 @@ const CreativeStudio: React.FC = () => {
                     <span className="text-7xl font-bold bg-gradient-to-br from-pink-400 to-pink-600 bg-clip-text text-transparent">3</span>
                   </div>
                   <div className="flex-1">
-                    <h3 className="text-xl font-bold mb-3 text-pink-400 drop-shadow-md">Target Audience Deep Dive</h3>
-                    <p className="text-gray-200 drop-shadow-sm">We conduct detailed analysis of your target audiences, understanding their pain points, motivations, and preferred content formats.</p>
+                    <h3 className="text-xl font-bold mb-3 text-pink-400">Target Audience Deep Dive</h3>
+                    <p className="text-gray-300">We conduct detailed analysis of your target audiences, understanding their pain points, motivations, and preferred content formats.</p>
                   </div>
                 </div>
               </div>
@@ -202,8 +201,8 @@ const CreativeStudio: React.FC = () => {
                     <span className="text-7xl font-bold bg-gradient-to-br from-green-400 to-green-600 bg-clip-text text-transparent">4</span>
                   </div>
                   <div className="flex-1">
-                    <h3 className="text-xl font-bold mb-3 text-green-400 drop-shadow-md">Creative Production & Delivery</h3>
-                    <p className="text-gray-200 drop-shadow-sm">We create compelling creatives based on key themes that hook users to download your app and drive in-app purchases, delivered in your desired formats.</p>
+                    <h3 className="text-xl font-bold mb-3 text-green-400">Creative Production & Delivery</h3>
+                    <p className="text-gray-300">We create compelling creatives based on key themes that hook users to download your app and drive in-app purchases, delivered in your desired formats.</p>
                   </div>
                 </div>
               </div>
@@ -217,10 +216,10 @@ const CreativeStudio: React.FC = () => {
                 <Clock className="w-8 h-8 text-yellow-400" />
                 <CheckCircle className="w-8 h-8 text-green-400" />
               </div>
-              <h3 className="text-2xl font-bold mb-2 bg-gradient-to-r from-yellow-400 to-orange-400 bg-clip-text text-transparent drop-shadow-lg">
+              <h3 className="text-2xl font-bold mb-2 bg-gradient-to-r from-yellow-400 to-orange-400 bg-clip-text text-transparent">
                 48-Hour Delivery Guarantee
               </h3>
-              <p className="text-gray-200 text-lg drop-shadow-sm">
+              <p className="text-gray-300 text-lg">
                 Your creatives will be ready within maximum 48 hours after order confirmation
               </p>
             </div>
@@ -231,7 +230,7 @@ const CreativeStudio: React.FC = () => {
       {/* Portfolio Showcase */}
       <section id="creative-showcase" className="py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-3xl md:text-5xl font-bold text-center mb-16 bg-gradient-to-r from-purple-400 to-pink-500 bg-clip-text text-transparent drop-shadow-lg">
+          <h2 className="text-3xl md:text-5xl font-bold text-center mb-16 bg-gradient-to-r from-purple-400 to-pink-500 bg-clip-text text-transparent">
             Creative Showcase
           </h2>
           
@@ -269,10 +268,10 @@ const CreativeStudio: React.FC = () => {
       {/* CTA Section */}
       <section className="py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-3xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent drop-shadow-lg">
+          <h2 className="text-3xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
             Ready to Create Viral Content?
           </h2>
-          <p className="text-xl text-gray-200 mb-8 drop-shadow-md">
+          <p className="text-xl text-gray-300 mb-8">
             Let our creative team transform your app into the next viral sensation with high-converting video ads.
           </p>
           <button 

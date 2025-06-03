@@ -1,3 +1,4 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -138,40 +139,12 @@
     animation: gradientMove 3s ease-in-out infinite;
   }
 
-  /* Animated gradient background for creative studio */
-  .animated-gradient-bg {
-    background: linear-gradient(-45deg, #1a1a2e, #16213e, #0f3460, #2d1b69, #4c1d95, #312e81, #1e1b4b, #1f2937, #374151);
-    background-size: 400% 400%;
-    animation: gradientFlow 15s ease-in-out infinite;
-  }
-
   @keyframes gradientMove {
     0%, 100% {
       background-position: 0% 50%;
     }
     50% {
       background-position: 100% 50%;
-    }
-  }
-
-  @keyframes gradientFlow {
-    0% {
-      background-position: 0% 50%;
-    }
-    20% {
-      background-position: 100% 50%;
-    }
-    40% {
-      background-position: 100% 100%;
-    }
-    60% {
-      background-position: 0% 100%;
-    }
-    80% {
-      background-position: 50% 0%;
-    }
-    100% {
-      background-position: 0% 50%;
     }
   }
 }
