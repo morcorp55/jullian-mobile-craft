@@ -1,4 +1,3 @@
-
 import React from "react";
 import Navbar from "@/components/Navbar";
 import { Play, Award, Zap, CheckCircle, Clock } from "lucide-react";
@@ -10,6 +9,7 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 import VideoCard from "@/components/VideoCard";
+import ContactPopup from "@/components/ContactPopup";
 
 // Placeholder video data - sen bunları kendi verilerinle değiştireceksin
 const videoData = [
@@ -76,6 +76,8 @@ const videoData = [
 ];
 
 const CreativeStudio: React.FC = () => {
+  const [isContactPopupOpen, setIsContactPopupOpen] = React.useState(false);
+
   const scrollToShowcase = () => {
     const showcaseSection = document.getElementById('creative-showcase');
     if (showcaseSection) {
@@ -85,11 +87,8 @@ const CreativeStudio: React.FC = () => {
     }
   };
 
-  const handleWhatsAppClick = () => {
-    const phoneNumber = '905335961294';
-    const message = encodeURIComponent('I need creatives for my app promotion 🚀');
-    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${message}`;
-    window.open(whatsappUrl, '_blank');
+  const handleContactClick = () => {
+    setIsContactPopupOpen(true);
   };
 
   return (
@@ -114,7 +113,7 @@ const CreativeStudio: React.FC = () => {
               View Our Portfolio
             </button>
             <button 
-              onClick={handleWhatsAppClick}
+              onClick={handleContactClick}
               className="relative overflow-hidden border border-gray-600 text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-gray-800 transition-all duration-300 before:absolute before:top-0 before:left-[-100%] before:w-full before:h-full before:bg-gradient-to-r before:from-transparent before:via-white/20 before:to-transparent before:transition-all before:duration-1000 hover:before:left-[100%]"
             >
               Accelerate Your Downloads 🚀
@@ -276,13 +275,19 @@ const CreativeStudio: React.FC = () => {
             Let our creative team transform your app into the next viral sensation with high-converting video ads.
           </p>
           <button 
-            onClick={handleWhatsAppClick}
+            onClick={handleContactClick}
             className="relative overflow-hidden bg-gradient-to-r from-purple-600 to-blue-600 text-white px-8 py-4 rounded-lg font-semibold text-lg hover:from-purple-700 hover:to-blue-700 transition-all duration-300 transform hover:scale-105 inline-block before:absolute before:top-0 before:left-[-100%] before:w-full before:h-full before:bg-gradient-to-r before:from-transparent before:via-white/20 before:to-transparent before:transition-all before:duration-1000 hover:before:left-[100%]"
           >
             Accelerate Your Downloads 🚀
           </button>
         </div>
       </section>
+
+      {/* Contact Popup */}
+      <ContactPopup 
+        isOpen={isContactPopupOpen} 
+        onClose={() => setIsContactPopupOpen(false)} 
+      />
     </div>
   );
 };
