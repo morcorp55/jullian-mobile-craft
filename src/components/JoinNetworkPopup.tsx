@@ -102,10 +102,10 @@ const JoinNetworkPopup: React.FC<JoinNetworkPopupProps> = ({ isOpen, onClose }) 
             {/* App Development Company */}
             <Button 
               onClick={handleAppStudioClick}
-              className="w-full h-16 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-medium rounded-lg transition-all duration-300 transform hover:scale-105 flex items-center justify-center space-x-3"
+              className="w-full h-16 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-medium rounded-lg transition-all duration-300 transform hover:scale-105 flex items-center justify-start space-x-4 px-6"
             >
-              <Building2 size={24} className="text-white" />
-              <div className="text-left">
+              <Building2 size={28} className="text-white flex-shrink-0" />
+              <div className="text-left flex-grow">
                 <div className="font-semibold">I'm a App Development Company</div>
                 <div className="text-sm text-blue-200">App Studio</div>
               </div>
@@ -114,10 +114,10 @@ const JoinNetworkPopup: React.FC<JoinNetworkPopupProps> = ({ isOpen, onClose }) 
             {/* Solo Developer */}
             <Button 
               onClick={handleIndieDeveloperClick}
-              className="w-full h-16 bg-gradient-to-r from-green-600 to-teal-600 hover:from-green-700 hover:to-teal-700 text-white font-medium rounded-lg transition-all duration-300 transform hover:scale-105 flex items-center justify-center space-x-3"
+              className="w-full h-16 bg-gradient-to-r from-green-600 to-teal-600 hover:from-green-700 hover:to-teal-700 text-white font-medium rounded-lg transition-all duration-300 transform hover:scale-105 flex items-center justify-start space-x-4 px-6"
             >
-              <User size={24} className="text-white" />
-              <div className="text-left">
+              <User size={28} className="text-white flex-shrink-0" />
+              <div className="text-left flex-grow">
                 <div className="font-semibold">I'm a Solo-Developer</div>
                 <div className="text-sm text-green-200">Indie Developer</div>
               </div>
