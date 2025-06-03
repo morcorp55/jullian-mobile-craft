@@ -93,7 +93,7 @@ const Navbar: React.FC = () => {
                   className="flex items-center space-x-2 bg-gradient-to-br from-blue-900/70 to-cyan-900/70 hover:from-blue-800/80 hover:to-cyan-800/80 text-white px-4 py-2.5 rounded-xl font-medium transition-all duration-300 transform hover:scale-105 border border-blue-500/30 backdrop-blur-sm"
                 >
                   <Mail size={18} className="text-blue-400" />
-                  <span>Submit App</span>
+                  <span>Join the Jullian Network</span>
                 </a>
                 
                 <button 
@@ -101,7 +101,7 @@ const Navbar: React.FC = () => {
                   className="flex items-center space-x-2 bg-gradient-to-br from-gray-900/70 to-slate-900/70 hover:from-gray-800/80 hover:to-slate-800/80 text-white px-4 py-2.5 rounded-xl font-medium transition-all duration-300 transform hover:scale-105 border border-slate-700/30 backdrop-blur-sm relative overflow-hidden before:absolute before:top-0 before:left-[-100%] before:w-full before:h-full before:bg-gradient-to-r before:from-transparent before:via-white/20 before:to-transparent before:transition-all before:duration-1000 hover:before:left-[100%]"
                 >
                   <LogIn size={18} className="text-slate-400" />
-                  <span>App Studio</span>
+                  <span>Jullian Dashboard</span>
                 </button>
               </div>
             </div>
@@ -139,7 +139,7 @@ const Navbar: React.FC = () => {
             {/* Submit App Button */}
             <a href="mailto:partners@jullian.io" className="flex flex-col items-center justify-center p-3 rounded-xl bg-gradient-to-br from-blue-900/50 to-cyan-900/50 hover:from-blue-800/60 hover:to-cyan-800/60 transition-colors border border-blue-500/30">
               <Mail size={22} className="text-blue-400 mb-1" />
-              <span className="text-xs text-gray-300">Submit</span>
+              <span className="text-xs text-gray-300">Network</span>
             </a>
             
             {/* Login Button */}
@@ -148,7 +148,7 @@ const Navbar: React.FC = () => {
               className="flex flex-col items-center justify-center p-3 rounded-xl bg-gradient-to-br from-gray-900/70 to-slate-900/70 hover:from-gray-800/80 hover:to-slate-800/80 transition-colors border border-slate-700/30"
             >
               <LogIn size={22} className="text-slate-400 mb-1" />
-              <span className="text-xs text-gray-300">Login</span>
+              <span className="text-xs text-gray-300">Dashboard</span>
             </button>
           </div>
         </div>
