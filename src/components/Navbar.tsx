@@ -72,23 +72,23 @@ const Navbar: React.FC = () => {
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center">
             <Link to="/" className="text-2xl md:text-3xl lg:text-4xl font-bold">
-              <span className="text-blue-400">Jullian</span>
+              <span className="text-white drop-shadow-lg shadow-black/50">Jullian</span>
             </Link>
 
             {/* Desktop Navigation */}
             <div className="flex items-center space-x-6">
               {/* Navigation Links */}
               <div className="flex items-center space-x-6 mr-4">
-                <button onClick={() => scrollToSection("jullian-publishing")} className={`transition-colors ${isScrolled ? "text-white hover:text-blue-300" : "text-white hover:text-blue-400"}`}>
+                <button onClick={() => scrollToSection("jullian-publishing")} className={`transition-colors font-medium text-white drop-shadow-md shadow-black/50 ${isScrolled ? "hover:text-blue-300" : "hover:text-blue-400"}`}>
                   Publishing
                 </button>
-                <button onClick={() => scrollToSection("jullian-broker")} className={`transition-colors ${isScrolled ? "text-white hover:text-blue-300" : "text-white hover:text-blue-400"}`}>
+                <button onClick={() => scrollToSection("jullian-broker")} className={`transition-colors font-medium text-white drop-shadow-md shadow-black/50 ${isScrolled ? "hover:text-blue-300" : "hover:text-blue-400"}`}>
                   Broker
                 </button>
-                <Link to="/creative-studio" className={`transition-colors ${isScrolled ? "text-white hover:text-blue-300" : "text-white hover:text-blue-400"}`}>
-                  <span className="moving-gradient-text">Creative</span> <span className="moving-gradient-text">Studio</span>
+                <Link to="/creative-studio" className={`transition-colors font-medium ${isScrolled ? "text-white hover:text-blue-300" : "text-white hover:text-blue-400"}`}>
+                  <span className="moving-gradient-text drop-shadow-md shadow-black/50">Creative</span> <span className="moving-gradient-text drop-shadow-md shadow-black/50">Studio</span>
                 </Link>
-                <Link to="/blog" className={`transition-colors ${isScrolled ? "text-white hover:text-blue-300" : "text-white hover:text-blue-400"}`}>
+                <Link to="/blog" className={`transition-colors font-medium text-white drop-shadow-md shadow-black/50 ${isScrolled ? "hover:text-blue-300" : "hover:text-blue-400"}`}>
                   Blog
                 </Link>
               </div>
@@ -121,7 +121,7 @@ const Navbar: React.FC = () => {
         <div className="max-w-7xl mx-auto px-4 py-4">
           <div className="flex justify-center items-center">
             <Link to="/" className="text-2xl font-bold">
-              <span className="text-blue-400">Jullian</span>
+              <span className="text-white drop-shadow-lg shadow-black/50">Jullian</span>
             </Link>
           </div>
         </div>
