@@ -69,7 +69,7 @@ const Hero: React.FC = () => {
     }
   };
 
-  return <section className="pt-28 pb-20 md:pt-36 md:pb-28 px-4 md:px-6">
+  return <section className="pt-28 pb-20 md:pt-36 md:pb-28 px-4 md:px-6 bg-gradient-to-br from-purple-900 via-gray-900 via-black to-blue-900 animate-gradient-shift">
       <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-center">
         <div className="text-left space-y-6">
           <h1 ref={titleRef} className="text-4xl md:text-5xl lg:text-6xl font-bold transition-all duration-700 delay-100 opacity-0 translate-y-5 text-white" style={{lineHeight: '1.5'}}>
@@ -114,6 +114,11 @@ const Hero: React.FC = () => {
           animation: color-change 4s ease-in-out infinite;
         }
         
+        .animate-gradient-shift {
+          background-size: 300% 300%;
+          animation: gradient-shift 12s ease-in-out infinite;
+        }
+        
         @keyframes color-change {
           0% {
             color: #3b82f6;
@@ -126,6 +131,18 @@ const Hero: React.FC = () => {
           }
           100% {
             color: #3b82f6;
+          }
+        }
+        
+        @keyframes gradient-shift {
+          0% {
+            background-position: 0% 50%;
+          }
+          50% {
+            background-position: 100% 50%;
+          }
+          100% {
+            background-position: 0% 50%;
           }
         }
       `}</style>

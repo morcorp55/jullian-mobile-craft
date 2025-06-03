@@ -23,7 +23,7 @@ const Index: React.FC = () => {
   }, []);
 
   return (
-    <div className="min-h-screen animated-gradient-bg text-foreground">
+    <div className="min-h-screen bg-gradient-to-br from-purple-900 via-gray-900 via-black to-blue-900 text-foreground">
       <Navbar />
       <Hero />
       <JullianPublishing />

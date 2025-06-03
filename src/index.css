@@ -139,31 +139,12 @@
     animation: gradientMove 3s ease-in-out infinite;
   }
 
-  /* Hareketli gradient arka plan animasyonu */
-  .animated-gradient-bg {
-    background: linear-gradient(-45deg, #1e1b4b, #312e81, #1e40af, #1e3a8a, #7c3aed, #5b21b6);
-    background-size: 400% 400%;
-    animation: gradientFlow 8s ease-in-out infinite;
-  }
-
   @keyframes gradientMove {
     0%, 100% {
       background-position: 0% 50%;
     }
     50% {
       background-position: 100% 50%;
-    }
-  }
-
-  @keyframes gradientFlow {
-    0% {
-      background-position: 0% 50%;
-    }
-    50% {
-      background-position: 100% 50%;
-    }
-    100% {
-      background-position: 0% 50%;
     }
   }
 }
