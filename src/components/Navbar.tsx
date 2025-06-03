@@ -4,11 +4,13 @@ import { X, Home, Sparkles, Mail, LogIn } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link, useNavigate } from "react-router-dom";
 import LoginPopup from "./LoginPopup";
+import JoinNetworkPopup from "./JoinNetworkPopup";
 
 const Navbar: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isLoginPopupOpen, setIsLoginPopupOpen] = useState(false);
+  const [isJoinNetworkPopupOpen, setIsJoinNetworkPopupOpen] = useState(false);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -53,6 +55,11 @@ const Navbar: React.FC = () => {
     setIsMobileMenuOpen(false);
   };
 
+  const handleJoinNetworkClick = () => {
+    setIsJoinNetworkPopupOpen(true);
+    setIsMobileMenuOpen(false);
+  };
+
   return (
     <>
       {/* Desktop Navbar */}
@@ -88,13 +95,13 @@ const Navbar: React.FC = () => {
 
               {/* App-like Buttons */}
               <div className="flex items-center space-x-3">
-                <a 
-                  href="mailto:partners@jullian.io" 
+                <button 
+                  onClick={handleJoinNetworkClick}
                   className="flex items-center space-x-2 bg-gradient-to-br from-blue-900/70 to-cyan-900/70 hover:from-blue-800/80 hover:to-cyan-800/80 text-white px-4 py-2.5 rounded-xl font-medium transition-all duration-300 transform hover:scale-105 border border-blue-500/30 backdrop-blur-sm"
                 >
                   <Mail size={18} className="text-blue-400" />
                   <span>Join the Jullian Network</span>
-                </a>
+                </button>
                 
                 <button 
                   onClick={handleLoginClick}
@@ -136,11 +143,11 @@ const Navbar: React.FC = () => {
               <span className="text-xs text-gray-300">Creative</span>
             </Link>
             
-            {/* Submit App Button */}
-            <a href="mailto:partners@jullian.io" className="flex flex-col items-center justify-center p-3 rounded-xl bg-gradient-to-br from-blue-900/50 to-cyan-900/50 hover:from-blue-800/60 hover:to-cyan-800/60 transition-colors border border-blue-500/30">
+            {/* Join Network Button */}
+            <button onClick={handleJoinNetworkClick} className="flex flex-col items-center justify-center p-3 rounded-xl bg-gradient-to-br from-blue-900/50 to-cyan-900/50 hover:from-blue-800/60 hover:to-cyan-800/60 transition-colors border border-blue-500/30">
               <Mail size={22} className="text-blue-400 mb-1" />
               <span className="text-xs text-gray-300">Join</span>
-            </a>
+            </button>
             
             {/* Login Button */}
             <button 
@@ -158,6 +165,12 @@ const Navbar: React.FC = () => {
       <LoginPopup 
         isOpen={isLoginPopupOpen} 
         onClose={() => setIsLoginPopupOpen(false)} 
+      />
+
+      {/* Join Network Popup */}
+      <JoinNetworkPopup 
+        isOpen={isJoinNetworkPopupOpen} 
+        onClose={() => setIsJoinNetworkPopupOpen(false)} 
       />
     </>
   );
