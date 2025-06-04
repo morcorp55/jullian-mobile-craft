@@ -114,14 +114,14 @@ const VideoCard: React.FC<VideoCardProps> = ({
 
   return (
     <div className="bg-gradient-to-br from-gray-900/80 to-black/80 backdrop-blur-xl rounded-2xl border border-gray-700/50 overflow-hidden hover:border-blue-500/50 transition-all duration-300 group h-full flex flex-col mx-2 md:mx-0">
-      {/* Video Container - Mobilde daha küçük aspect ratio */}
-      <div className="aspect-[9/16] bg-gradient-to-br from-blue-600/20 to-purple-600/20 flex items-center justify-center relative overflow-hidden">
+      {/* Video Container - Mobilde tam dikey görünüm */}
+      <div className="aspect-[9/16] bg-black flex items-center justify-center relative overflow-hidden">
         {/* Video Player - Her zaman render et */}
         <video
           ref={videoRef}
           src={videoUrl}
           controls={false}
-          className={`w-full h-full object-cover cursor-pointer ${isPlaying ? 'block' : 'hidden'}`}
+          className={`h-full w-auto object-contain cursor-pointer ${isPlaying ? 'block' : 'hidden'}`}
           poster="/lovable-uploads/fa1b9433-137e-4259-a668-bd42d77d978b.png"
           onEnded={handleVideoEnded}
           onError={handleVideoError}
@@ -140,9 +140,15 @@ const VideoCard: React.FC<VideoCardProps> = ({
         {!isPlaying && (
           <>
             <div 
-              className="absolute inset-0 bg-cover bg-center"
+              className="absolute inset-0 bg-black bg-cover bg-center flex items-center justify-center"
               style={{ backgroundImage: `url(/lovable-uploads/fa1b9433-137e-4259-a668-bd42d77d978b.png)` }}
-            />
+            >
+              <img 
+                src="/lovable-uploads/fa1b9433-137e-4259-a668-bd42d77d978b.png" 
+                alt="Video thumbnail"
+                className="h-full w-auto object-contain"
+              />
+            </div>
             
             {/* Play button overlay - Ana tıklama alanı */}
             <div className="absolute inset-0 bg-black/30 flex items-center justify-center group-hover:bg-black/50 transition-all duration-300">
