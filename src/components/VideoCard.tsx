@@ -26,7 +26,13 @@ const VideoCard: React.FC<VideoCardProps> = ({
   const [isLoading, setIsLoading] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
 
-  const handlePlayToggle = async () => {
+  const handlePlayToggle = async (e?: React.MouseEvent) => {
+    // Event propagation'ı durduralım
+    if (e) {
+      e.preventDefault();
+      e.stopPropagation();
+    }
+    
     console.log('=== Play button clicked ===');
     console.log('Current playing state:', isPlaying);
     console.log('Video URL:', videoUrl);
@@ -40,33 +46,37 @@ const VideoCard: React.FC<VideoCardProps> = ({
     if (!isPlaying) {
       try {
         setIsLoading(true);
-        setIsPlaying(true);
-        
         console.log('Attempting to play video...');
         
-        // Video'yu yüklemeyi bekle
-        if (videoRef.current.readyState < 3) {
-          console.log('Video not ready, waiting for loadeddata event...');
-          await new Promise((resolve) => {
-            const handleLoadedData = () => {
-              console.log('Video loaded, ready to play');
-              videoRef.current?.removeEventListener('loadeddata', handleLoadedData);
-              resolve(void 0);
-            };
-            videoRef.current?.addEventListener('loadeddata', handleLoadedData);
-          });
-        }
+        // Mobile için muted olarak başlat
+        videoRef.current.muted = true;
         
-        await videoRef.current.play();
-        console.log('Video play successful');
-        setIsLoading(false);
+        // Video oynatmayı dene
+        const playPromise = videoRef.current.play();
+        
+        if (playPromise !== undefined) {
+          await playPromise;
+          console.log('Video play successful');
+          setIsPlaying(true);
+          setIsLoading(false);
+        }
       } catch (error) {
         console.error('Video play failed:', error);
         setIsPlaying(false);
         setIsLoading(false);
         
-        // Hata durumunda kullanıcıya bilgi ver
-        alert('Video oynatılamadı. Lütfen internet bağlantınızı kontrol edin.');
+        // Mobile'da ses açık halde dene
+        try {
+          if (videoRef.current) {
+            videoRef.current.muted = false;
+            await videoRef.current.play();
+            setIsPlaying(true);
+            console.log('Video play successful with sound');
+          }
+        } catch (secondError) {
+          console.error('Second play attempt failed:', secondError);
+          alert('Video oynatılamadı. Lütfen internet bağlantınızı kontrol edin.');
+        }
       }
     } else {
       console.log('Pausing video...');
@@ -76,9 +86,9 @@ const VideoCard: React.FC<VideoCardProps> = ({
     }
   };
 
-  const handleVideoClick = () => {
+  const handleVideoClick = (e: React.MouseEvent) => {
     if (isPlaying) {
-      handlePlayToggle();
+      handlePlayToggle(e);
     }
   };
 
@@ -121,6 +131,8 @@ const VideoCard: React.FC<VideoCardProps> = ({
           onClick={handleVideoClick}
           playsInline
           preload="metadata"
+          webkit-playsinline="true"
+          x5-playsinline="true"
         >
           Your browser does not support the video tag.
         </video>
@@ -138,9 +150,10 @@ const VideoCard: React.FC<VideoCardProps> = ({
               {/* Play button - Direkt tıklanabilir */}
               <button 
                 onClick={handlePlayToggle}
-                className="bg-white/20 backdrop-blur-sm rounded-full p-4 hover:bg-white/30 transition-all duration-300 cursor-pointer focus:outline-none focus:ring-2 focus:ring-white/50"
+                className="bg-white/20 backdrop-blur-sm rounded-full p-4 hover:bg-white/30 transition-all duration-300 cursor-pointer focus:outline-none focus:ring-2 focus:ring-white/50 touch-manipulation"
                 aria-label="Play video"
                 disabled={isLoading}
+                type="button"
               >
                 {isLoading ? (
                   <div className="w-12 h-12 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
