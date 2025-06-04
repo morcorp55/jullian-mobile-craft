@@ -23,38 +23,78 @@ const VideoCard: React.FC<VideoCardProps> = ({
   downloads,
 }) => {
   const [isPlaying, setIsPlaying] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
 
-  const handlePlayToggle = () => {
-    console.log('Play button clicked, current state:', isPlaying);
+  const handlePlayToggle = async () => {
+    console.log('=== Play button clicked ===');
+    console.log('Current playing state:', isPlaying);
     console.log('Video URL:', videoUrl);
+    console.log('Video element:', videoRef.current);
     
+    if (!videoRef.current) {
+      console.error('Video element not found!');
+      return;
+    }
+
     if (!isPlaying) {
-      setIsPlaying(true);
-      // Video element'i otomatik oynatma için biraz bekleyelim
-      setTimeout(() => {
-        if (videoRef.current) {
-          videoRef.current.play().catch((error) => {
-            console.error('Video play error:', error);
+      try {
+        setIsLoading(true);
+        setIsPlaying(true);
+        
+        console.log('Attempting to play video...');
+        
+        // Video'yu yüklemeyi bekle
+        if (videoRef.current.readyState < 3) {
+          console.log('Video not ready, waiting for loadeddata event...');
+          await new Promise((resolve) => {
+            const handleLoadedData = () => {
+              console.log('Video loaded, ready to play');
+              videoRef.current?.removeEventListener('loadeddata', handleLoadedData);
+              resolve(void 0);
+            };
+            videoRef.current?.addEventListener('loadeddata', handleLoadedData);
           });
         }
-      }, 100);
-    } else {
-      setIsPlaying(false);
-      if (videoRef.current) {
-        videoRef.current.pause();
+        
+        await videoRef.current.play();
+        console.log('Video play successful');
+        setIsLoading(false);
+      } catch (error) {
+        console.error('Video play failed:', error);
+        setIsPlaying(false);
+        setIsLoading(false);
+        
+        // Hata durumunda kullanıcıya bilgi ver
+        alert('Video oynatılamadı. Lütfen internet bağlantınızı kontrol edin.');
       }
+    } else {
+      console.log('Pausing video...');
+      videoRef.current.pause();
+      setIsPlaying(false);
+      setIsLoading(false);
     }
   };
 
   const handleVideoEnded = () => {
     console.log('Video ended');
     setIsPlaying(false);
+    setIsLoading(false);
   };
 
   const handleVideoError = (e: React.SyntheticEvent<HTMLVideoElement, Event>) => {
-    console.error('Video error:', e);
+    console.error('Video error event:', e);
+    console.error('Video error details:', (e.target as HTMLVideoElement).error);
     setIsPlaying(false);
+    setIsLoading(false);
+  };
+
+  const handleVideoLoadStart = () => {
+    console.log('Video load started');
+  };
+
+  const handleVideoCanPlay = () => {
+    console.log('Video can play');
   };
 
   return (
@@ -67,12 +107,14 @@ const VideoCard: React.FC<VideoCardProps> = ({
             ref={videoRef}
             src={videoUrl}
             controls
-            autoPlay
             className="w-full h-full object-cover"
             poster={thumbnailUrl}
             onEnded={handleVideoEnded}
             onError={handleVideoError}
+            onLoadStart={handleVideoLoadStart}
+            onCanPlay={handleVideoCanPlay}
             playsInline
+            preload="metadata"
           >
             Your browser does not support the video tag.
           </video>
@@ -90,7 +132,11 @@ const VideoCard: React.FC<VideoCardProps> = ({
               onClick={handlePlayToggle}
             >
               <div className="bg-white/20 backdrop-blur-sm rounded-full p-4 hover:bg-white/30 transition-all duration-300">
-                <Play className="w-12 h-12 text-white fill-white" />
+                {isLoading ? (
+                  <div className="w-12 h-12 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+                ) : (
+                  <Play className="w-12 h-12 text-white fill-white" />
+                )}
               </div>
             </div>
             
