@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from "react";
 import { X, Home, Sparkles, Mail, LogIn } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -72,7 +71,7 @@ const Navbar: React.FC = () => {
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center">
             <Link to="/" className="text-2xl md:text-3xl lg:text-4xl font-bold">
-              <span className="text-red-500 drop-shadow-lg shadow-black/50">Jullian</span>
+              <span className="text-white drop-shadow-lg shadow-black/50">Jullian</span>
             </Link>
 
             <div className="flex items-center space-x-6">
@@ -118,7 +117,7 @@ const Navbar: React.FC = () => {
         <div className="max-w-7xl mx-auto px-4 py-4">
           <div className="flex justify-center items-center">
             <Link to="/" className="text-2xl font-bold">
-              <span className="text-red-500 drop-shadow-lg shadow-black/50">Jullian</span>
+              <span className="text-white drop-shadow-lg shadow-black/50">Jullian</span>
             </Link>
           </div>
         </div>
