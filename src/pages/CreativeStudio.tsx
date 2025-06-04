@@ -11,13 +11,13 @@ import {
 import VideoCard from "@/components/VideoCard";
 import ContactPopup from "@/components/ContactPopup";
 
-// Placeholder video data - sen bunları kendi verilerinle değiştireceksin
+// Updated video data with TikTok App Promo themes
 const videoData = [
   {
     id: "1",
-    title: "Gaming App Campaign #1", 
+    title: "TikTok App Promo #1", 
     description: "High-engaging vertical video ad that increased downloads by 250%",
-    thumbnailUrl: "https://your-ftp-domain.com/thumbnails/thumbnail-1.jpg", // Gerçek thumbnail URL'nizi buraya yazın
+    thumbnailUrl: "/lovable-uploads/b172139e-fe4f-4269-a40a-341890012394.png",
     videoUrl: "https://jullian.io/lovable-uploads/ad1.mp4",
     duration: "0:15s",
     views: "3.2M Views", 
@@ -25,9 +25,9 @@ const videoData = [
   },
   {
     id: "2",
-    title: "Fitness App Campaign #2",
+    title: "TikTok App Promo #2",
     description: "Motivational content that drove massive user engagement",
-    thumbnailUrl: "https://your-ftp-domain.com/thumbnails/thumbnail-2.jpg", // Gerçek thumbnail URL'nizi buraya yazın
+    thumbnailUrl: "/lovable-uploads/4d313ab0-2a1f-4025-8545-a76e526ca9c8.png",
     videoUrl: "https://jullian.io/lovable-uploads/ad1.mp4",
     duration: "0:18s",
     views: "4.1M Views",
@@ -35,9 +35,9 @@ const videoData = [
   },
   {
     id: "3", 
-    title: "E-commerce App Campaign #3",
+    title: "TikTok App Promo #3",
     description: "Product showcase video with exceptional conversion rates",
-    thumbnailUrl: "https://your-ftp-domain.com/thumbnails/thumbnail-3.jpg", // Gerçek thumbnail URL'nizi buraya yazın
+    thumbnailUrl: "/lovable-uploads/a5e08c9b-8d1b-4967-9116-0fb5fcfa2384.png",
     videoUrl: "https://jullian.io/lovable-uploads/ad1.mp4",
     duration: "0:22s",
     views: "2.8M Views", 
@@ -45,9 +45,9 @@ const videoData = [
   },
   {
     id: "4",
-    title: "Social Media App Campaign #4", 
+    title: "TikTok App Promo #4", 
     description: "Viral content that exploded across all platforms",
-    thumbnailUrl: "https://your-ftp-domain.com/thumbnails/thumbnail-4.jpg", // Gerçek thumbnail URL'nizi buraya yazın
+    thumbnailUrl: "/lovable-uploads/df575466-4a52-4e99-9803-783a505d01d6.png",
     videoUrl: "https://jullian.io/lovable-uploads/ad1.mp4",
     duration: "0:16s",
     views: "5.7M Views",
@@ -55,9 +55,9 @@ const videoData = [
   },
   {
     id: "5",
-    title: "Food Delivery App Campaign #5",
+    title: "TikTok App Promo #5",
     description: "Appetite-inducing visuals with strong call-to-action", 
-    thumbnailUrl: "https://your-ftp-domain.com/thumbnails/thumbnail-5.jpg", // Gerçek thumbnail URL'nizi buraya yazın
+    thumbnailUrl: "/lovable-uploads/dfbb18ca-6995-47e9-9892-b90c9a1808fa.png",
     videoUrl: "https://jullian.io/lovable-uploads/ad1.mp4",
     duration: "0:20s",
     views: "3.9M Views",
@@ -65,9 +65,9 @@ const videoData = [
   },
   {
     id: "6",
-    title: "Travel App Campaign #6",
+    title: "TikTok App Promo #6",
     description: "Adventure-packed content inspiring wanderlust",
-    thumbnailUrl: "https://your-ftp-domain.com/thumbnails/thumbnail-6.jpg", // Gerçek thumbnail URL'nizi buraya yazın
+    thumbnailUrl: "/lovable-uploads/fa1b9433-137e-4259-a668-bd42d77d978b.png",
     videoUrl: "https://jullian.io/lovable-uploads/ad1.mp4",
     duration: "0:25s", 
     views: "4.6M Views",
