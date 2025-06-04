@@ -1,4 +1,3 @@
-
 import React, { useState, useRef, useEffect } from 'react';
 import { Play, Pause, Volume2, VolumeX } from 'lucide-react';
 
@@ -108,23 +107,8 @@ const VideoCard: React.FC<VideoCardProps> = ({
   };
 
   const handleVideoClick = (e: React.MouseEvent) => {
-    if (isPlaying) {
-      // Video oynarken tıklanırsa kontrolleri göster/gizle
-      setShowControls(!showControls);
-      
-      // Eğer kontrolller gösterilirse, 3 saniye sonra tekrar gizle
-      if (!showControls) {
-        controlsTimeoutRef.current = setTimeout(() => {
-          setShowControls(false);
-        }, 3000);
-      }
-    } else {
-      // Video durakken tıklanırsa videoyu başa sar ve oynat
-      if (videoRef.current) {
-        videoRef.current.currentTime = 0;
-        handlePlayToggle();
-      }
-    }
+    // Direkt oynat/durdur
+    handlePlayToggle(e);
   };
 
   const handleMuteToggle = (e: React.MouseEvent) => {
@@ -211,8 +195,9 @@ const VideoCard: React.FC<VideoCardProps> = ({
         {!isPlaying && (
           <>
             <div 
-              className="absolute inset-0 bg-black bg-cover bg-center flex items-center justify-center"
+              className="absolute inset-0 bg-black bg-cover bg-center flex items-center justify-center cursor-pointer"
               style={{ backgroundImage: `url(/lovable-uploads/fa1b9433-137e-4259-a668-bd42d77d978b.png)` }}
+              onClick={handleVideoClick}
             >
               <img 
                 src="/lovable-uploads/fa1b9433-137e-4259-a668-bd42d77d978b.png" 
