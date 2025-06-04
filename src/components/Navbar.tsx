@@ -1,5 +1,6 @@
+
 import React, { useState, useEffect } from "react";
-import { X, Home, Sparkles, Mail, LogIn } from "lucide-react";
+import { X, Home, Sparkles, Mail, LogIn, Search, ShoppingCart, User, Store } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link, useNavigate } from "react-router-dom";
 import LoginPopup from "./LoginPopup";
@@ -123,30 +124,35 @@ const Navbar: React.FC = () => {
         </div>
       </nav>
 
-      <nav className="md:hidden fixed bottom-0 left-0 right-0 z-50 bg-black/95 backdrop-blur-xl border-t border-gray-800">
-        <div className="px-2 py-2">
-          <div className="grid grid-cols-4 gap-1">
-            <Link to="/" className="flex flex-col items-center justify-center p-3 rounded-xl hover:bg-gray-800/50 transition-colors">
-              <Home size={22} className="text-blue-400 mb-1" />
-              <span className="text-xs text-gray-300">Home</span>
+      {/* Mobile Bottom Navbar */}
+      <nav className="md:hidden fixed bottom-0 left-0 right-0 z-50 bg-black/95 backdrop-blur-xl rounded-t-3xl mx-4 mb-4">
+        <div className="px-4 py-3">
+          <div className="flex justify-between items-center">
+            <Link to="/" className="flex flex-col items-center justify-center p-3">
+              <Home size={24} className="text-blue-400 mb-1" />
+              <span className="text-xs text-blue-400 font-medium">Home</span>
             </Link>
             
-            <Link to="/creative-studio" className="flex flex-col items-center justify-center p-3 rounded-xl bg-gradient-to-br from-purple-900/50 to-pink-900/50 hover:from-purple-800/60 hover:to-pink-800/60 transition-colors border border-purple-500/30">
-              <Sparkles size={22} className="text-purple-400 mb-1" />
-              <span className="text-xs text-gray-300">Creative</span>
+            <button className="flex flex-col items-center justify-center p-3">
+              <Search size={24} className="text-gray-400 mb-1" />
+              <span className="text-xs text-gray-400">Search</span>
+            </button>
+            
+            <Link to="/creative-studio" className="flex flex-col items-center justify-center p-3 bg-gradient-to-br from-purple-600 to-blue-600 rounded-full w-16 h-16 transform -mt-6">
+              <Store size={28} className="text-white" />
             </Link>
             
-            <button onClick={handleJoinNetworkClick} className="flex flex-col items-center justify-center p-3 rounded-xl bg-gradient-to-br from-blue-900/50 to-cyan-900/50 hover:from-blue-800/60 hover:to-cyan-800/60 transition-colors border border-blue-500/30">
-              <Mail size={22} className="text-blue-400 mb-1" />
-              <span className="text-xs text-gray-300">Join</span>
+            <button className="flex flex-col items-center justify-center p-3">
+              <ShoppingCart size={24} className="text-gray-400 mb-1" />
+              <span className="text-xs text-gray-400">Cart</span>
             </button>
             
             <button 
               onClick={handleLoginClick}
-              className="flex flex-col items-center justify-center p-3 rounded-xl bg-gradient-to-br from-gray-900/70 to-slate-900/70 hover:from-gray-800/80 hover:to-slate-800/80 transition-colors border border-slate-700/30"
+              className="flex flex-col items-center justify-center p-3"
             >
-              <LogIn size={22} className="text-slate-400 mb-1" />
-              <span className="text-xs text-gray-300">Dashboard</span>
+              <User size={24} className="text-gray-400 mb-1" />
+              <span className="text-xs text-gray-400">Profile</span>
             </button>
           </div>
         </div>
