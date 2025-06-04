@@ -109,7 +109,7 @@ const VideoCard: React.FC<VideoCardProps> = ({
 
   const handleVideoClick = (e: React.MouseEvent) => {
     if (isPlaying) {
-      // Video tıklandığında kontrolleri göster/gizle
+      // Video oynarken tıklanırsa kontrolleri göster/gizle
       setShowControls(!showControls);
       
       // Eğer kontrolller gösterilirse, 3 saniye sonra tekrar gizle
@@ -117,6 +117,12 @@ const VideoCard: React.FC<VideoCardProps> = ({
         controlsTimeoutRef.current = setTimeout(() => {
           setShowControls(false);
         }, 3000);
+      }
+    } else {
+      // Video durakken tıklanırsa videoyu başa sar ve oynat
+      if (videoRef.current) {
+        videoRef.current.currentTime = 0;
+        handlePlayToggle();
       }
     }
   };
