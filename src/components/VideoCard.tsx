@@ -155,7 +155,7 @@ const VideoCard: React.FC<VideoCardProps> = ({
 
   return (
     <div className="bg-gradient-to-br from-gray-900/80 to-black/80 backdrop-blur-xl rounded-2xl border border-gray-700/50 overflow-hidden hover:border-blue-500/50 transition-all duration-300 group h-full flex flex-col mx-2 md:mx-0">
-      {/* Video Container - Mobilde tam dikey görünüm */}
+      {/* Video Container - Fixed aspect ratio */}
       <div className="aspect-[9/16] bg-black flex items-center justify-center relative overflow-hidden">
         {/* Video Player - Her zaman render et */}
         <video
@@ -235,15 +235,15 @@ const VideoCard: React.FC<VideoCardProps> = ({
         )}
       </div>
       
-      {/* Video info - Flexible, her zaman görünür */}
-      <div className="p-3 md:p-6 flex-1 flex flex-col justify-between">
-        <div>
-          <h3 className="text-sm md:text-lg font-semibold mb-1 md:mb-2 text-white line-clamp-2">{title}</h3>
-          <p className="text-gray-400 text-xs md:text-sm mb-2 md:mb-4 line-clamp-2">{description}</p>
+      {/* Video info - Fixed height with consistent spacing */}
+      <div className="p-3 md:p-6 flex-1 flex flex-col justify-between min-h-[120px] md:min-h-[140px]">
+        <div className="flex-1">
+          <h3 className="text-sm md:text-lg font-semibold mb-1 md:mb-2 text-white line-clamp-2 h-8 md:h-12 overflow-hidden">{title}</h3>
+          <p className="text-gray-400 text-xs md:text-sm mb-2 md:mb-4 line-clamp-2 h-8 md:h-10 overflow-hidden">{description}</p>
         </div>
-        <div className="flex justify-between items-center">
-          <span className="text-blue-400 font-semibold text-xs md:text-sm">{downloads}</span>
-          <span className="text-purple-400 font-semibold text-xs md:text-sm">{views}</span>
+        <div className="flex justify-between items-center pt-2">
+          <span className="text-blue-400 font-semibold text-xs md:text-sm truncate pr-2">{downloads}</span>
+          <span className="text-purple-400 font-semibold text-xs md:text-sm truncate">{views}</span>
         </div>
       </div>
     </div>
