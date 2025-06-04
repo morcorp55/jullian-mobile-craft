@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from "react";
 import { X, Home, Sparkles, Mail, LogIn, FileText, Briefcase, User, Store } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -128,14 +129,22 @@ const Navbar: React.FC = () => {
       <nav className="md:hidden fixed bottom-0 left-0 right-0 z-50 bg-black/95 backdrop-blur-xl rounded-3xl mx-4 mb-4">
         <div className="px-4 py-3">
           <div className="flex justify-between items-center">
-            <Link to="/" className="flex flex-col items-center justify-center p-3 rounded-2xl transition-all duration-300">
-              <Home size={24} className={location.pathname === '/' ? "text-blue-400 mb-1" : "text-gray-400 mb-1"} />
-              <span className={`text-xs font-medium ${location.pathname === '/' ? "text-blue-400" : "text-gray-400"}`}>Home</span>
+            <Link to="/" className={`flex flex-col items-center justify-center p-3 rounded-2xl transition-all duration-300 ${
+              location.pathname === '/' 
+                ? 'bg-gradient-to-br from-blue-600 via-blue-500 to-purple-600 animate-pulse' 
+                : ''
+            }`}>
+              <Home size={24} className={location.pathname === '/' ? "text-white mb-1" : "text-gray-400 mb-1"} />
+              <span className={`text-xs font-medium ${location.pathname === '/' ? "text-white" : "text-gray-400"}`}>Home</span>
             </Link>
             
-            <Link to="/creative-studio" className="flex flex-col items-center justify-center p-3 rounded-2xl transition-all duration-300">
-              <Store size={24} className={location.pathname === '/creative-studio' ? "text-blue-400 mb-1" : "text-gray-400 mb-1"} />
-              <span className={`text-xs ${location.pathname === '/creative-studio' ? "text-blue-400" : "text-gray-400"}`}>Creative</span>
+            <Link to="/creative-studio" className={`flex flex-col items-center justify-center p-3 rounded-2xl transition-all duration-300 ${
+              location.pathname === '/creative-studio' 
+                ? 'bg-gradient-to-br from-blue-600 via-blue-500 to-purple-600 animate-pulse' 
+                : ''
+            }`}>
+              <Store size={24} className={location.pathname === '/creative-studio' ? "text-white mb-1" : "text-gray-400 mb-1"} />
+              <span className={`text-xs ${location.pathname === '/creative-studio' ? "text-white" : "text-gray-400"}`}>Creative</span>
             </Link>
             
             <button 
