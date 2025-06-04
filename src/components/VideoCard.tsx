@@ -76,6 +76,12 @@ const VideoCard: React.FC<VideoCardProps> = ({
     }
   };
 
+  const handleVideoClick = () => {
+    if (isPlaying) {
+      handlePlayToggle();
+    }
+  };
+
   const handleVideoEnded = () => {
     console.log('Video ended');
     setIsPlaying(false);
@@ -105,13 +111,14 @@ const VideoCard: React.FC<VideoCardProps> = ({
         <video
           ref={videoRef}
           src={videoUrl}
-          controls={isPlaying}
-          className={`w-full h-full object-cover ${isPlaying ? 'block' : 'hidden'}`}
-          poster={thumbnailUrl}
+          controls={false}
+          className={`w-full h-full object-cover cursor-pointer ${isPlaying ? 'block' : 'hidden'}`}
+          poster="/lovable-uploads/fa1b9433-137e-4259-a668-bd42d77d978b.png"
           onEnded={handleVideoEnded}
           onError={handleVideoError}
           onLoadStart={handleVideoLoadStart}
           onCanPlay={handleVideoCanPlay}
+          onClick={handleVideoClick}
           playsInline
           preload="metadata"
         >
@@ -123,7 +130,7 @@ const VideoCard: React.FC<VideoCardProps> = ({
           <>
             <div 
               className="absolute inset-0 bg-cover bg-center"
-              style={{ backgroundImage: `url(${thumbnailUrl})` }}
+              style={{ backgroundImage: `url(/lovable-uploads/fa1b9433-137e-4259-a668-bd42d77d978b.png)` }}
             />
             
             {/* Play button overlay - Ana tıklama alanı */}
