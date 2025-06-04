@@ -1,5 +1,3 @@
-
-
 import React, { useState, useEffect } from "react";
 import { X, Home, Sparkles, Mail, LogIn, FileText, Briefcase, User, Store } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -88,9 +86,14 @@ const Navbar: React.FC = () => {
                 <Link to="/creative-studio" className={`transition-colors font-medium ${isScrolled ? "text-white hover:text-blue-300" : "text-white hover:text-blue-400"}`}>
                   <span className="moving-gradient-text drop-shadow-md shadow-black/50">Creative</span> <span className="moving-gradient-text drop-shadow-md shadow-black/50">Studio</span>
                 </Link>
-                <Link to="/blog" className={`transition-colors font-medium text-white drop-shadow-md shadow-black/50 ${isScrolled ? "hover:text-blue-300" : "hover:text-blue-400"}`}>
+                <a 
+                  href="https://blog.jullian.io" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className={`transition-colors font-medium text-white drop-shadow-md shadow-black/50 ${isScrolled ? "hover:text-blue-300" : "hover:text-blue-400"}`}
+                >
                   Blog
-                </Link>
+                </a>
               </div>
 
               <div className="flex items-center space-x-3">
@@ -173,4 +176,3 @@ const Navbar: React.FC = () => {
 };
 
 export default Navbar;
-
