@@ -129,13 +129,13 @@ const Navbar: React.FC = () => {
         <div className="px-4 py-3">
           <div className="flex justify-between items-center">
             <Link to="/" className="flex flex-col items-center justify-center p-3 rounded-2xl transition-all duration-300">
-              <Home size={24} className={location.pathname === '/' ? "moving-gradient-text mb-1" : "text-gray-400 mb-1"} />
-              <span className={`text-xs font-medium ${location.pathname === '/' ? "moving-gradient-text" : "text-gray-400"}`}>Home</span>
+              <Home size={24} className={location.pathname === '/' ? "text-blue-400 mb-1" : "text-gray-400 mb-1"} />
+              <span className={`text-xs font-medium ${location.pathname === '/' ? "text-blue-400" : "text-gray-400"}`}>Home</span>
             </Link>
             
             <Link to="/creative-studio" className="flex flex-col items-center justify-center p-3 rounded-2xl transition-all duration-300">
-              <Store size={24} className={location.pathname === '/creative-studio' ? "moving-gradient-text mb-1" : "text-gray-400 mb-1"} />
-              <span className={`text-xs ${location.pathname === '/creative-studio' ? "moving-gradient-text" : "text-gray-400"}`}>Creative</span>
+              <Store size={24} className={location.pathname === '/creative-studio' ? "text-blue-400 mb-1" : "text-gray-400 mb-1"} />
+              <span className={`text-xs ${location.pathname === '/creative-studio' ? "text-blue-400" : "text-gray-400"}`}>Creative</span>
             </Link>
             
             <button 
