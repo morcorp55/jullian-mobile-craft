@@ -242,19 +242,21 @@ const CreativeStudio: React.FC = () => {
               }}
               className="w-full"
             >
-              <CarouselContent className="-ml-4">
+              <CarouselContent className="-ml-4 h-[70vh] md:h-auto">
                 {videoData.map((video) => (
-                  <CarouselItem key={video.id} className="pl-4 md:basis-1/2 lg:basis-1/3">
-                    <VideoCard
-                      id={video.id}
-                      title={video.title}
-                      description={video.description}
-                      thumbnailUrl={video.thumbnailUrl}
-                      videoUrl={video.videoUrl}
-                      duration={video.duration}
-                      views={video.views}
-                      downloads={video.downloads}
-                    />
+                  <CarouselItem key={video.id} className="pl-4 md:basis-1/2 lg:basis-1/3 h-full">
+                    <div className="h-full">
+                      <VideoCard
+                        id={video.id}
+                        title={video.title}
+                        description={video.description}
+                        thumbnailUrl={video.thumbnailUrl}
+                        videoUrl={video.videoUrl}
+                        duration={video.duration}
+                        views={video.views}
+                        downloads={video.downloads}
+                      />
+                    </div>
                   </CarouselItem>
                 ))}
               </CarouselContent>
