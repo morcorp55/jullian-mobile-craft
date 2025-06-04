@@ -126,27 +126,29 @@ const VideoCard: React.FC<VideoCardProps> = ({
               style={{ backgroundImage: `url(${thumbnailUrl})` }}
             />
             
-            {/* Play button overlay */}
-            <div 
-              className="absolute inset-0 bg-black/30 flex items-center justify-center group-hover:bg-black/50 transition-all duration-300 cursor-pointer"
-              onClick={handlePlayToggle}
-            >
-              <div className="bg-white/20 backdrop-blur-sm rounded-full p-4 hover:bg-white/30 transition-all duration-300">
+            {/* Play button overlay - Ana tıklama alanı */}
+            <div className="absolute inset-0 bg-black/30 flex items-center justify-center group-hover:bg-black/50 transition-all duration-300">
+              {/* Play button - Direkt tıklanabilir */}
+              <button 
+                onClick={handlePlayToggle}
+                className="bg-white/20 backdrop-blur-sm rounded-full p-4 hover:bg-white/30 transition-all duration-300 cursor-pointer focus:outline-none focus:ring-2 focus:ring-white/50"
+                aria-label="Play video"
+              >
                 {isLoading ? (
                   <div className="w-12 h-12 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
                 ) : (
                   <Play className="w-12 h-12 text-white fill-white" />
                 )}
-              </div>
+              </button>
             </div>
             
             {/* Duration badge */}
-            <div className="absolute top-4 right-4 bg-black/70 text-white px-2 py-1 rounded text-sm">
+            <div className="absolute top-4 right-4 bg-black/70 text-white px-2 py-1 rounded text-sm pointer-events-none">
               {duration}
             </div>
             
             {/* Video overlay gradient */}
-            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none"></div>
           </>
         )}
       </div>
