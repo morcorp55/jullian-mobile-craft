@@ -18,7 +18,7 @@ const videoData = [
     title: "Gaming App Campaign #1", 
     description: "High-engaging vertical video ad that increased downloads by 250%",
     thumbnailUrl: "https://your-ftp-domain.com/thumbnails/thumbnail-1.jpg", // Gerçek thumbnail URL'nizi buraya yazın
-    videoUrl: "https://your-ftp-domain.com/videos/video-1.mp4", // Gerçek video URL'nizi buraya yazın
+    videoUrl: "https://jullian.io/lovable-uploads/ad1.mp4",
     duration: "0:15s",
     views: "3.2M Views", 
     downloads: "+250% Downloads"
@@ -28,7 +28,7 @@ const videoData = [
     title: "Fitness App Campaign #2",
     description: "Motivational content that drove massive user engagement",
     thumbnailUrl: "https://your-ftp-domain.com/thumbnails/thumbnail-2.jpg", // Gerçek thumbnail URL'nizi buraya yazın
-    videoUrl: "https://your-ftp-domain.com/videos/video-2.mp4", // Gerçek video URL'nizi buraya yazın
+    videoUrl: "https://jullian.io/lovable-uploads/ad1.mp4",
     duration: "0:18s",
     views: "4.1M Views",
     downloads: "+320% Downloads"
@@ -38,7 +38,7 @@ const videoData = [
     title: "E-commerce App Campaign #3",
     description: "Product showcase video with exceptional conversion rates",
     thumbnailUrl: "https://your-ftp-domain.com/thumbnails/thumbnail-3.jpg", // Gerçek thumbnail URL'nizi buraya yazın
-    videoUrl: "https://your-ftp-domain.com/videos/video-3.mp4", // Gerçek video URL'nizi buraya yazın
+    videoUrl: "https://jullian.io/lovable-uploads/ad1.mp4",
     duration: "0:22s",
     views: "2.8M Views", 
     downloads: "+180% Downloads"
@@ -48,7 +48,7 @@ const videoData = [
     title: "Social Media App Campaign #4", 
     description: "Viral content that exploded across all platforms",
     thumbnailUrl: "https://your-ftp-domain.com/thumbnails/thumbnail-4.jpg", // Gerçek thumbnail URL'nizi buraya yazın
-    videoUrl: "https://your-ftp-domain.com/videos/video-4.mp4", // Gerçek video URL'nizi buraya yazın
+    videoUrl: "https://jullian.io/lovable-uploads/ad1.mp4",
     duration: "0:16s",
     views: "5.7M Views",
     downloads: "+420% Downloads"
@@ -58,7 +58,7 @@ const videoData = [
     title: "Food Delivery App Campaign #5",
     description: "Appetite-inducing visuals with strong call-to-action", 
     thumbnailUrl: "https://your-ftp-domain.com/thumbnails/thumbnail-5.jpg", // Gerçek thumbnail URL'nizi buraya yazın
-    videoUrl: "https://your-ftp-domain.com/videos/video-5.mp4", // Gerçek video URL'nizi buraya yazın
+    videoUrl: "https://jullian.io/lovable-uploads/ad1.mp4",
     duration: "0:20s",
     views: "3.9M Views",
     downloads: "+290% Downloads"
@@ -68,7 +68,7 @@ const videoData = [
     title: "Travel App Campaign #6",
     description: "Adventure-packed content inspiring wanderlust",
     thumbnailUrl: "https://your-ftp-domain.com/thumbnails/thumbnail-6.jpg", // Gerçek thumbnail URL'nizi buraya yazın
-    videoUrl: "https://your-ftp-domain.com/videos/video-6.mp4", // Gerçek video URL'nizi buraya yazın
+    videoUrl: "https://jullian.io/lovable-uploads/ad1.mp4",
     duration: "0:25s", 
     views: "4.6M Views",
     downloads: "+350% Downloads"
