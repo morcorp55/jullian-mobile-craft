@@ -1,6 +1,5 @@
-
-import React, { useState, useRef, useEffect, useContext } from 'react';
-import { Play, Pause, Volume2, VolumeX } from 'lucide-react';
+import React, { useState, useRef, useEffect } from 'react';
+import { Play, Volume2, VolumeX } from 'lucide-react';
 
 interface VideoCardProps {
   id: string;
@@ -279,14 +278,14 @@ const VideoCard: React.FC<VideoCardProps> = ({
           <>
             {/* Video içeriği için dokunma alanı - sadece video alanı */}
             <div 
-              className="absolute inset-0 flex items-center justify-center"
+              className="absolute inset-0 flex items-center justify-center cursor-pointer"
               style={{ backgroundImage: `url(${thumbnailUrl})`, backgroundSize: 'cover', backgroundPosition: 'center' }}
+              onClick={handleVideoClick}
             >
               <img 
                 src={thumbnailUrl} 
                 alt="Video thumbnail"
-                className="h-full w-auto object-contain cursor-pointer"
-                onClick={handleVideoClick}
+                className="h-full w-auto object-contain"
               />
               
               {/* Play button overlay - sadece video içeriği üzerinde */}
@@ -321,16 +320,9 @@ const VideoCard: React.FC<VideoCardProps> = ({
         )}
       </div>
       
-      {/* Video info - Fixed height with consistent spacing */}
-      <div className="p-3 md:p-6 flex-1 flex flex-col justify-between min-h-[120px] md:min-h-[140px]">
-        <div className="flex-1">
-          <h3 className="text-sm md:text-lg font-semibold mb-1 md:mb-2 text-white line-clamp-2 h-8 md:h-12 overflow-hidden">{title}</h3>
-          <p className="text-gray-400 text-xs md:text-sm mb-2 md:mb-4 line-clamp-2 h-8 md:h-10 overflow-hidden">{description}</p>
-        </div>
-        <div className="flex justify-between items-center pt-2">
-          <span className="text-blue-400 font-semibold text-xs md:text-sm truncate pr-2">{downloads}</span>
-          <span className="text-purple-400 font-semibold text-xs md:text-sm truncate">{views}</span>
-        </div>
+      {/* Video info - Sadece başlık */}
+      <div className="p-3 md:p-6 flex items-center justify-center">
+        <h3 className="text-sm md:text-lg font-semibold text-white text-center">{title}</h3>
       </div>
     </div>
   );
