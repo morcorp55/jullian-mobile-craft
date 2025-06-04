@@ -1,3 +1,4 @@
+
 import React, { useState, useRef, useEffect } from 'react';
 import { Play, Pause, Volume2, VolumeX } from 'lucide-react';
 
@@ -44,17 +45,13 @@ const VideoCard: React.FC<VideoCardProps> = ({
     };
   }, [isPlaying, showControls]);
 
-  const handlePlayToggle = async (e?: React.MouseEvent) => {
-    // Event propagation'ı durduralım
-    if (e) {
-      e.preventDefault();
-      e.stopPropagation();
-    }
+  const handleVideoClick = async (e: React.MouseEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
     
-    console.log('=== Play button clicked ===');
+    console.log('=== Video clicked ===');
     console.log('Current playing state:', isPlaying);
     console.log('Video URL:', videoUrl);
-    console.log('Video element:', videoRef.current);
     
     if (!videoRef.current) {
       console.error('Video element not found!');
@@ -77,25 +74,12 @@ const VideoCard: React.FC<VideoCardProps> = ({
           console.log('Video play successful');
           setIsPlaying(true);
           setIsLoading(false);
-          setShowControls(true); // Video başlayınca kontrolleri göster
+          setShowControls(true);
         }
       } catch (error) {
         console.error('Video play failed:', error);
         setIsPlaying(false);
         setIsLoading(false);
-        
-        // Mobile'da ses açık halde dene
-        try {
-          if (videoRef.current) {
-            videoRef.current.muted = false;
-            await videoRef.current.play();
-            setIsPlaying(true);
-            console.log('Video play successful with sound');
-          }
-        } catch (secondError) {
-          console.error('Second play attempt failed:', secondError);
-          alert('Video oynatılamadı. Lütfen internet bağlantınızı kontrol edin.');
-        }
       }
     } else {
       console.log('Pausing video...');
@@ -104,11 +88,6 @@ const VideoCard: React.FC<VideoCardProps> = ({
       setIsLoading(false);
       setShowControls(true);
     }
-  };
-
-  const handleVideoClick = (e: React.MouseEvent) => {
-    // Direkt oynat/durdur
-    handlePlayToggle(e);
   };
 
   const handleMuteToggle = (e: React.MouseEvent) => {
@@ -157,13 +136,13 @@ const VideoCard: React.FC<VideoCardProps> = ({
     <div className="bg-gradient-to-br from-gray-900/80 to-black/80 backdrop-blur-xl rounded-2xl border border-gray-700/50 overflow-hidden hover:border-blue-500/50 transition-all duration-300 group h-full flex flex-col mx-2 md:mx-0">
       {/* Video Container - Fixed aspect ratio */}
       <div className="aspect-[9/16] bg-black flex items-center justify-center relative overflow-hidden">
-        {/* Video Player - Her zaman render et */}
+        {/* Video Player */}
         <video
           ref={videoRef}
           src={videoUrl}
           controls={false}
           className={`h-full w-auto object-contain cursor-pointer ${isPlaying ? 'block' : 'hidden'}`}
-          poster="/lovable-uploads/fa1b9433-137e-4259-a668-bd42d77d978b.png"
+          poster={thumbnailUrl}
           onEnded={handleVideoEnded}
           onError={handleVideoError}
           onLoadStart={handleVideoLoadStart}
@@ -196,21 +175,20 @@ const VideoCard: React.FC<VideoCardProps> = ({
           <>
             <div 
               className="absolute inset-0 bg-black bg-cover bg-center flex items-center justify-center cursor-pointer"
-              style={{ backgroundImage: `url(/lovable-uploads/fa1b9433-137e-4259-a668-bd42d77d978b.png)` }}
+              style={{ backgroundImage: `url(${thumbnailUrl})` }}
               onClick={handleVideoClick}
             >
               <img 
-                src="/lovable-uploads/fa1b9433-137e-4259-a668-bd42d77d978b.png" 
+                src={thumbnailUrl} 
                 alt="Video thumbnail"
                 className="h-full w-auto object-contain"
               />
             </div>
             
-            {/* Play button overlay - Ana tıklama alanı */}
+            {/* Play button overlay */}
             <div className="absolute inset-0 bg-black/30 flex items-center justify-center group-hover:bg-black/50 transition-all duration-300">
-              {/* Play button - Direkt tıklanabilir */}
               <button 
-                onClick={handlePlayToggle}
+                onClick={handleVideoClick}
                 className="bg-white/20 backdrop-blur-sm rounded-full p-3 md:p-4 hover:bg-white/30 transition-all duration-300 cursor-pointer focus:outline-none focus:ring-2 focus:ring-white/50 touch-manipulation"
                 aria-label="Play video"
                 disabled={isLoading}
