@@ -1,6 +1,6 @@
-import React, { useState, useRef, useEffect } from 'react';
+
+import React, { useState, useRef, useEffect, useContext } from 'react';
 import { Play, Pause, Volume2, VolumeX } from 'lucide-react';
-import { useCarousel } from '@/components/ui/carousel';
 
 interface VideoCardProps {
   id: string;
@@ -28,13 +28,10 @@ const VideoCard: React.FC<VideoCardProps> = ({
   const [showControls, setShowControls] = useState(true);
   const videoRef = useRef<HTMLVideoElement>(null);
   const controlsTimeoutRef = useRef<NodeJS.Timeout>();
-  const { api } = useCarousel();
 
-  // Carousel hareket algılama ve video durdurma
+  // Carousel hareket algılama için window event listener
   useEffect(() => {
-    if (!api) return;
-
-    const onSelect = () => {
+    const handleCarouselMove = () => {
       // Carousel hareket ettiğinde videoyu durdur
       if (isPlaying && videoRef.current) {
         console.log('Carousel moved, pausing video');
@@ -45,12 +42,20 @@ const VideoCard: React.FC<VideoCardProps> = ({
       }
     };
 
-    api.on('select', onSelect);
+    // Touch ve scroll event'lerini dinle
+    const carouselElement = document.querySelector('[data-carousel-viewport]');
+    if (carouselElement) {
+      carouselElement.addEventListener('touchstart', handleCarouselMove);
+      carouselElement.addEventListener('scroll', handleCarouselMove);
+    }
 
     return () => {
-      api.off('select', onSelect);
+      if (carouselElement) {
+        carouselElement.removeEventListener('touchstart', handleCarouselMove);
+        carouselElement.removeEventListener('scroll', handleCarouselMove);
+      }
     };
-  }, [api, isPlaying]);
+  }, [isPlaying]);
 
   // Kontrolleri gizleme timer'ı
   useEffect(() => {
@@ -75,6 +80,15 @@ const VideoCard: React.FC<VideoCardProps> = ({
     console.log('=== Video clicked ===');
     console.log('Current playing state:', isPlaying);
     console.log('Video URL:', videoUrl);
+    
+    // Diğer tüm videoları durdur
+    const allVideos = document.querySelectorAll('video');
+    allVideos.forEach((video) => {
+      if (video !== videoRef.current && !video.paused) {
+        video.pause();
+        console.log('Paused other video');
+      }
+    });
     
     if (!videoRef.current) {
       console.error('Video element not found!');
