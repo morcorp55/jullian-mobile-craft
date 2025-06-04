@@ -114,9 +114,9 @@ const VideoCard: React.FC<VideoCardProps> = ({
   };
 
   return (
-    <div className="bg-gradient-to-br from-gray-900/80 to-black/80 backdrop-blur-xl rounded-2xl border border-gray-700/50 overflow-hidden hover:border-blue-500/50 transition-all duration-300 group">
-      {/* Video Container */}
-      <div className="aspect-[9/16] bg-gradient-to-br from-blue-600/20 to-purple-600/20 flex items-center justify-center relative overflow-hidden">
+    <div className="bg-gradient-to-br from-gray-900/80 to-black/80 backdrop-blur-xl rounded-2xl border border-gray-700/50 overflow-hidden hover:border-blue-500/50 transition-all duration-300 group h-full flex flex-col">
+      {/* Video Container - Mobilde daha küçük aspect ratio */}
+      <div className="aspect-[9/14] md:aspect-[9/16] bg-gradient-to-br from-blue-600/20 to-purple-600/20 flex items-center justify-center relative overflow-hidden">
         {/* Video Player - Her zaman render et */}
         <video
           ref={videoRef}
@@ -150,21 +150,21 @@ const VideoCard: React.FC<VideoCardProps> = ({
               {/* Play button - Direkt tıklanabilir */}
               <button 
                 onClick={handlePlayToggle}
-                className="bg-white/20 backdrop-blur-sm rounded-full p-4 hover:bg-white/30 transition-all duration-300 cursor-pointer focus:outline-none focus:ring-2 focus:ring-white/50 touch-manipulation"
+                className="bg-white/20 backdrop-blur-sm rounded-full p-3 md:p-4 hover:bg-white/30 transition-all duration-300 cursor-pointer focus:outline-none focus:ring-2 focus:ring-white/50 touch-manipulation"
                 aria-label="Play video"
                 disabled={isLoading}
                 type="button"
               >
                 {isLoading ? (
-                  <div className="w-12 h-12 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+                  <div className="w-8 h-8 md:w-12 md:h-12 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
                 ) : (
-                  <Play className="w-12 h-12 text-white fill-white" />
+                  <Play className="w-8 h-8 md:w-12 md:h-12 text-white fill-white" />
                 )}
               </button>
             </div>
             
             {/* Duration badge */}
-            <div className="absolute top-4 right-4 bg-black/70 text-white px-2 py-1 rounded text-sm pointer-events-none">
+            <div className="absolute top-2 md:top-4 right-2 md:right-4 bg-black/70 text-white px-2 py-1 rounded text-xs md:text-sm pointer-events-none">
               {duration}
             </div>
             
@@ -174,13 +174,15 @@ const VideoCard: React.FC<VideoCardProps> = ({
         )}
       </div>
       
-      {/* Video info */}
-      <div className="p-6">
-        <h3 className="text-lg font-semibold mb-2 text-white">{title}</h3>
-        <p className="text-gray-400 text-sm mb-4">{description}</p>
+      {/* Video info - Flexible, her zaman görünür */}
+      <div className="p-4 md:p-6 flex-1 flex flex-col justify-between">
+        <div>
+          <h3 className="text-base md:text-lg font-semibold mb-2 text-white line-clamp-2">{title}</h3>
+          <p className="text-gray-400 text-xs md:text-sm mb-3 md:mb-4 line-clamp-2">{description}</p>
+        </div>
         <div className="flex justify-between items-center">
-          <span className="text-blue-400 font-semibold">{downloads}</span>
-          <span className="text-purple-400 font-semibold">{views}</span>
+          <span className="text-blue-400 font-semibold text-xs md:text-sm">{downloads}</span>
+          <span className="text-purple-400 font-semibold text-xs md:text-sm">{views}</span>
         </div>
       </div>
     </div>
