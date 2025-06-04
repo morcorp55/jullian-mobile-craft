@@ -1,8 +1,7 @@
-
 import React, { useState, useEffect } from "react";
 import { X, Home, Sparkles, Mail, LogIn, FileText, Briefcase, User, Store } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import LoginPopup from "./LoginPopup";
 import JoinNetworkPopup from "./JoinNetworkPopup";
 
@@ -12,6 +11,7 @@ const Navbar: React.FC = () => {
   const [isLoginPopupOpen, setIsLoginPopupOpen] = useState(false);
   const [isJoinNetworkPopupOpen, setIsJoinNetworkPopupOpen] = useState(false);
   const navigate = useNavigate();
+  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -125,22 +125,30 @@ const Navbar: React.FC = () => {
       </nav>
 
       {/* Mobile Bottom Navbar */}
-      <nav className="md:hidden fixed bottom-0 left-0 right-0 z-50 bg-black/95 backdrop-blur-xl rounded-t-3xl mx-4 mb-4">
+      <nav className="md:hidden fixed bottom-0 left-0 right-0 z-50 bg-black/95 backdrop-blur-xl rounded-3xl mx-4 mb-4">
         <div className="px-4 py-3">
           <div className="flex justify-between items-center">
-            <Link to="/" className="flex flex-col items-center justify-center p-3">
-              <Home size={24} className="text-blue-400 mb-1" />
-              <span className="text-xs text-blue-400 font-medium">Home</span>
+            <Link to="/" className={`flex flex-col items-center justify-center p-3 rounded-2xl transition-all duration-300 ${
+              location.pathname === '/' 
+                ? 'bg-gradient-to-br from-blue-600 to-blue-500' 
+                : ''
+            }`}>
+              <Home size={24} className={location.pathname === '/' ? "text-white mb-1" : "text-gray-400 mb-1"} />
+              <span className={`text-xs font-medium ${location.pathname === '/' ? "text-white" : "text-gray-400"}`}>Home</span>
             </Link>
             
-            <Link to="/creative-studio" className="flex flex-col items-center justify-center p-3">
-              <Store size={24} className="text-gray-400 mb-1" />
-              <span className="text-xs text-gray-400">Creative</span>
+            <Link to="/creative-studio" className={`flex flex-col items-center justify-center p-3 rounded-2xl transition-all duration-300 ${
+              location.pathname === '/creative-studio' 
+                ? 'bg-gradient-to-br from-blue-600 to-blue-500' 
+                : ''
+            }`}>
+              <Store size={24} className={location.pathname === '/creative-studio' ? "text-white mb-1" : "text-gray-400 mb-1"} />
+              <span className={`text-xs ${location.pathname === '/creative-studio' ? "text-white" : "text-gray-400"}`}>Creative</span>
             </Link>
             
             <button 
               onClick={handleJoinNetworkClick}
-              className="flex flex-col items-center justify-center p-3"
+              className="flex flex-col items-center justify-center p-3 rounded-2xl transition-all duration-300"
             >
               <Mail size={24} className="text-gray-400 mb-1" />
               <span className="text-xs text-gray-400">Join</span>
@@ -148,7 +156,7 @@ const Navbar: React.FC = () => {
             
             <button 
               onClick={handleLoginClick}
-              className="flex flex-col items-center justify-center p-3"
+              className="flex flex-col items-center justify-center p-3 rounded-2xl transition-all duration-300"
             >
               <LogIn size={24} className="text-gray-400 mb-1" />
               <span className="text-xs text-gray-400">Dashboard</span>
