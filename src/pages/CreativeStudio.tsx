@@ -228,7 +228,7 @@ const CreativeStudio: React.FC = () => {
       </section>
 
       {/* Portfolio Showcase */}
-      <section id="creative-showcase" className="py-20 px-4 sm:px-6 lg:px-8">
+      <section id="creative-showcase" className="py-20 px-2 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
           <h2 className="text-3xl md:text-5xl font-bold text-center mb-16 bg-gradient-to-r from-purple-400 to-pink-500 bg-clip-text text-transparent">
             Creative Showcase
@@ -242,9 +242,9 @@ const CreativeStudio: React.FC = () => {
               }}
               className="w-full"
             >
-              <CarouselContent className="-ml-4 h-[60vh] md:h-auto">
+              <CarouselContent className="h-[60vh] md:h-auto">
                 {videoData.map((video) => (
-                  <CarouselItem key={video.id} className="pl-4 md:basis-1/2 lg:basis-1/3 h-full">
+                  <CarouselItem key={video.id} className="md:basis-1/2 lg:basis-1/3 h-full">
                     <div className="h-full">
                       <VideoCard
                         id={video.id}
