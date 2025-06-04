@@ -1,6 +1,6 @@
-
 import React, { useState, useRef, useEffect } from 'react';
 import { Play, Pause, Volume2, VolumeX } from 'lucide-react';
+import { useCarousel } from '@/components/ui/carousel';
 
 interface VideoCardProps {
   id: string;
@@ -28,6 +28,29 @@ const VideoCard: React.FC<VideoCardProps> = ({
   const [showControls, setShowControls] = useState(true);
   const videoRef = useRef<HTMLVideoElement>(null);
   const controlsTimeoutRef = useRef<NodeJS.Timeout>();
+  const { api } = useCarousel();
+
+  // Carousel hareket algılama ve video durdurma
+  useEffect(() => {
+    if (!api) return;
+
+    const onSelect = () => {
+      // Carousel hareket ettiğinde videoyu durdur
+      if (isPlaying && videoRef.current) {
+        console.log('Carousel moved, pausing video');
+        videoRef.current.pause();
+        setIsPlaying(false);
+        setIsLoading(false);
+        setShowControls(true);
+      }
+    };
+
+    api.on('select', onSelect);
+
+    return () => {
+      api.off('select', onSelect);
+    };
+  }, [api, isPlaying]);
 
   // Kontrolleri gizleme timer'ı
   useEffect(() => {
