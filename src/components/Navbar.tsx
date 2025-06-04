@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from "react";
 import { X, Home, Sparkles, Mail, LogIn, FileText, Briefcase, User, Store } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -132,8 +133,9 @@ const Navbar: React.FC = () => {
               <span className="text-xs text-blue-400 font-medium">Home</span>
             </Link>
             
-            <Link to="/creative-studio" className="flex flex-col items-center justify-center p-3 bg-gradient-to-br from-purple-600 to-blue-600 rounded-full w-16 h-16 transform -mt-6">
-              <Store size={28} className="text-white" />
+            <Link to="/creative-studio" className="flex flex-col items-center justify-center p-3">
+              <Store size={24} className="text-gray-400 mb-1" />
+              <span className="text-xs text-gray-400">Creative</span>
             </Link>
             
             <button 
