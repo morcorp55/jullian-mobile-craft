@@ -1,5 +1,5 @@
 
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { Play, Pause } from 'lucide-react';
 
 interface VideoCardProps {
@@ -23,24 +23,56 @@ const VideoCard: React.FC<VideoCardProps> = ({
   downloads,
 }) => {
   const [isPlaying, setIsPlaying] = useState(false);
+  const videoRef = useRef<HTMLVideoElement>(null);
 
   const handlePlayToggle = () => {
-    setIsPlaying(!isPlaying);
+    console.log('Play button clicked, current state:', isPlaying);
+    console.log('Video URL:', videoUrl);
+    
+    if (!isPlaying) {
+      setIsPlaying(true);
+      // Video element'i otomatik oynatma için biraz bekleyelim
+      setTimeout(() => {
+        if (videoRef.current) {
+          videoRef.current.play().catch((error) => {
+            console.error('Video play error:', error);
+          });
+        }
+      }, 100);
+    } else {
+      setIsPlaying(false);
+      if (videoRef.current) {
+        videoRef.current.pause();
+      }
+    }
+  };
+
+  const handleVideoEnded = () => {
+    console.log('Video ended');
+    setIsPlaying(false);
+  };
+
+  const handleVideoError = (e: React.SyntheticEvent<HTMLVideoElement, Event>) => {
+    console.error('Video error:', e);
+    setIsPlaying(false);
   };
 
   return (
-    <div className="bg-gradient-to-br from-gray-900/80 to-black/80 backdrop-blur-xl rounded-2xl border border-gray-700/50 overflow-hidden hover:border-blue-500/50 transition-all duration-300 group cursor-pointer">
+    <div className="bg-gradient-to-br from-gray-900/80 to-black/80 backdrop-blur-xl rounded-2xl border border-gray-700/50 overflow-hidden hover:border-blue-500/50 transition-all duration-300 group">
       {/* Video Container */}
       <div className="aspect-[9/16] bg-gradient-to-br from-blue-600/20 to-purple-600/20 flex items-center justify-center relative overflow-hidden">
         {isPlaying ? (
           // Video Player
           <video
+            ref={videoRef}
             src={videoUrl}
             controls
             autoPlay
             className="w-full h-full object-cover"
             poster={thumbnailUrl}
-            onEnded={() => setIsPlaying(false)}
+            onEnded={handleVideoEnded}
+            onError={handleVideoError}
+            playsInline
           >
             Your browser does not support the video tag.
           </video>
@@ -54,10 +86,12 @@ const VideoCard: React.FC<VideoCardProps> = ({
             
             {/* Play button overlay */}
             <div 
-              className="absolute inset-0 bg-black/30 flex items-center justify-center group-hover:bg-black/50 transition-all duration-300"
+              className="absolute inset-0 bg-black/30 flex items-center justify-center group-hover:bg-black/50 transition-all duration-300 cursor-pointer"
               onClick={handlePlayToggle}
             >
-              <Play className="w-20 h-20 text-white/80 group-hover:text-blue-400 group-hover:scale-110 transition-all duration-300" />
+              <div className="bg-white/20 backdrop-blur-sm rounded-full p-4 hover:bg-white/30 transition-all duration-300">
+                <Play className="w-12 h-12 text-white fill-white" />
+              </div>
             </div>
             
             {/* Duration badge */}
