@@ -132,33 +132,25 @@ const Navbar: React.FC = () => {
               <span className="text-xs text-blue-400 font-medium">Home</span>
             </Link>
             
-            <button 
-              onClick={() => scrollToSection("jullian-publishing")}
-              className="flex flex-col items-center justify-center p-3"
-            >
-              <FileText size={24} className="text-gray-400 mb-1" />
-              <span className="text-xs text-gray-400">Publishing</span>
-            </button>
-            
             <Link to="/creative-studio" className="flex flex-col items-center justify-center p-3 bg-gradient-to-br from-purple-600 to-blue-600 rounded-full w-16 h-16 transform -mt-6">
               <Store size={28} className="text-white" />
             </Link>
             
             <button 
-              onClick={() => scrollToSection("jullian-broker")}
+              onClick={handleJoinNetworkClick}
               className="flex flex-col items-center justify-center p-3"
             >
-              <Briefcase size={24} className="text-gray-400 mb-1" />
-              <span className="text-xs text-gray-400">Broker</span>
+              <Mail size={24} className="text-gray-400 mb-1" />
+              <span className="text-xs text-gray-400">Join</span>
             </button>
             
-            <Link 
-              to="/blog"
+            <button 
+              onClick={handleLoginClick}
               className="flex flex-col items-center justify-center p-3"
             >
-              <User size={24} className="text-gray-400 mb-1" />
-              <span className="text-xs text-gray-400">Blog</span>
-            </Link>
+              <LogIn size={24} className="text-gray-400 mb-1" />
+              <span className="text-xs text-gray-400">Dashboard</span>
+            </button>
           </div>
         </div>
       </nav>
