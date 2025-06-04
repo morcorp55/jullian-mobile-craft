@@ -61,29 +61,39 @@ const VideoCard: React.FC<VideoCardProps> = ({
     };
   }, []);
 
-  // Carousel hareket algılama için window event listener
+  // Carousel hareket algılama için window event listener - daha spesifik hale getirildi
   useEffect(() => {
-    const handleCarouselMove = () => {
-      // Carousel hareket ettiğinde videoyu durdur
-      if (isPlaying && videoRef.current) {
-        console.log('Carousel moved, pausing video');
-        videoRef.current.pause();
-        setIsPlaying(false);
-        setIsLoading(false);
-        setShowControls(true);
+    let carouselMoveTimeout: NodeJS.Timeout;
+    
+    const handleCarouselMove = (e: Event) => {
+      // Eğer hedef ses butonu veya çocuklarıysa, carousel hareketi olarak algılama
+      const target = e.target as HTMLElement;
+      if (target && (target.closest('[aria-label="Mute"]') || target.closest('[aria-label="Unmute"]'))) {
+        return;
       }
+
+      // Carousel hareket ettiğinde videoyu durdur - debounce ile
+      clearTimeout(carouselMoveTimeout);
+      carouselMoveTimeout = setTimeout(() => {
+        if (isPlaying && videoRef.current) {
+          console.log('Carousel moved, pausing video');
+          videoRef.current.pause();
+          setIsPlaying(false);
+          setIsLoading(false);
+          setShowControls(true);
+        }
+      }, 100);
     };
 
-    // Touch ve scroll event'lerini dinle
+    // Sadece carousel viewport'unu dinle
     const carouselElement = document.querySelector('[data-carousel-viewport]');
     if (carouselElement) {
-      carouselElement.addEventListener('touchstart', handleCarouselMove);
       carouselElement.addEventListener('scroll', handleCarouselMove);
     }
 
     return () => {
+      clearTimeout(carouselMoveTimeout);
       if (carouselElement) {
-        carouselElement.removeEventListener('touchstart', handleCarouselMove);
         carouselElement.removeEventListener('scroll', handleCarouselMove);
       }
     };
@@ -216,12 +226,12 @@ const VideoCard: React.FC<VideoCardProps> = ({
     <div className="bg-gradient-to-br from-gray-900/80 to-black/80 backdrop-blur-xl rounded-2xl border border-gray-700/50 overflow-hidden hover:border-blue-500/50 transition-all duration-300 group h-full flex flex-col mx-2 md:mx-0">
       {/* Video Container - Fixed aspect ratio */}
       <div className="aspect-[9/16] bg-black flex items-center justify-center relative overflow-hidden">
-        {/* Video Player */}
+        {/* Video Player - Sadece video içeriği için dokunma alanı */}
         <video
           ref={videoRef}
           src={videoUrl}
           controls={false}
-          className={`h-full w-auto object-contain cursor-pointer ${isPlaying ? 'block' : 'hidden'}`}
+          className={`h-full w-auto object-contain ${isPlaying ? 'block' : 'hidden'}`}
           poster={thumbnailUrl}
           onEnded={handleVideoEnded}
           onError={handleVideoError}
@@ -236,16 +246,28 @@ const VideoCard: React.FC<VideoCardProps> = ({
           Your browser does not support the video tag.
         </video>
 
-        {/* Custom Video Controls - Sadece mute/unmute butonu */}
+        {/* Custom Video Controls - Sadece mute/unmute butonu - dokunma alanından ayrı */}
         {isPlaying && showControls && (
-          <div className="absolute bottom-4 right-4 bg-black/70 backdrop-blur-sm rounded-lg p-3 transition-opacity duration-300">
+          <div className="absolute bottom-4 right-4 bg-black/70 backdrop-blur-sm rounded-lg p-3 transition-opacity duration-300 z-50">
             {/* Mute/Unmute Button - Mobil için optimize edilmiş */}
             <button 
               onClick={handleMuteToggle}
-              onTouchEnd={handleMuteToggle}
-              className="text-white hover:text-blue-400 transition-colors min-h-[44px] min-w-[44px] flex items-center justify-center touch-manipulation select-none"
+              onTouchStart={(e) => {
+                e.stopPropagation();
+                console.log('Touch start on mute button');
+              }}
+              onTouchEnd={(e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                console.log('Touch end on mute button - triggering mute toggle');
+                handleMuteToggle(e);
+              }}
+              className="text-white hover:text-blue-400 transition-colors min-h-[48px] min-w-[48px] flex items-center justify-center touch-manipulation select-none relative z-10"
               aria-label={isMuted ? "Unmute" : "Mute"}
-              style={{ WebkitTapHighlightColor: 'transparent' }}
+              style={{ 
+                WebkitTapHighlightColor: 'transparent',
+                touchAction: 'manipulation'
+              }}
             >
               {isMuted ? <VolumeX className="w-6 h-6" /> : <Volume2 className="w-6 h-6" />}
             </button>
@@ -255,33 +277,37 @@ const VideoCard: React.FC<VideoCardProps> = ({
         {/* Thumbnail View - Sadece video oynatılmadığında göster */}
         {!isPlaying && (
           <>
+            {/* Video içeriği için dokunma alanı - sadece video alanı */}
             <div 
-              className="absolute inset-0 bg-black bg-cover bg-center flex items-center justify-center cursor-pointer"
-              style={{ backgroundImage: `url(${thumbnailUrl})` }}
-              onClick={handleVideoClick}
+              className="absolute inset-0 flex items-center justify-center"
+              style={{ backgroundImage: `url(${thumbnailUrl})`, backgroundSize: 'cover', backgroundPosition: 'center' }}
             >
               <img 
                 src={thumbnailUrl} 
                 alt="Video thumbnail"
-                className="h-full w-auto object-contain"
-              />
-            </div>
-            
-            {/* Play button overlay */}
-            <div className="absolute inset-0 bg-black/30 flex items-center justify-center group-hover:bg-black/50 transition-all duration-300">
-              <button 
+                className="h-full w-auto object-contain cursor-pointer"
                 onClick={handleVideoClick}
-                className="bg-white/20 backdrop-blur-sm rounded-full p-3 md:p-4 hover:bg-white/30 transition-all duration-300 cursor-pointer focus:outline-none focus:ring-2 focus:ring-white/50 touch-manipulation"
-                aria-label="Play video"
-                disabled={isLoading}
-                type="button"
+              />
+              
+              {/* Play button overlay - sadece video içeriği üzerinde */}
+              <div 
+                className="absolute inset-0 bg-black/30 flex items-center justify-center group-hover:bg-black/50 transition-all duration-300 cursor-pointer"
+                onClick={handleVideoClick}
               >
-                {isLoading ? (
-                  <div className="w-8 h-8 md:w-12 md:h-12 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
-                ) : (
-                  <Play className="w-8 h-8 md:w-12 md:h-12 text-white fill-white" />
-                )}
-              </button>
+                <button 
+                  onClick={handleVideoClick}
+                  className="bg-white/20 backdrop-blur-sm rounded-full p-3 md:p-4 hover:bg-white/30 transition-all duration-300 cursor-pointer focus:outline-none focus:ring-2 focus:ring-white/50 touch-manipulation"
+                  aria-label="Play video"
+                  disabled={isLoading}
+                  type="button"
+                >
+                  {isLoading ? (
+                    <div className="w-8 h-8 md:w-12 md:h-12 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+                  ) : (
+                    <Play className="w-8 h-8 md:w-12 md:h-12 text-white fill-white" />
+                  )}
+                </button>
+              </div>
             </div>
             
             {/* Duration badge */}
