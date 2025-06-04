@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from "react";
 import { X, Home, Sparkles, Mail, LogIn, FileText, Briefcase, User, Store } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -125,7 +126,7 @@ const Navbar: React.FC = () => {
       </nav>
 
       {/* Mobile Bottom Navbar */}
-      <nav className="md:hidden fixed bottom-0 left-0 right-0 z-50 bg-black/50 backdrop-blur-xl rounded-3xl mx-4 mb-4">
+      <nav className="md:hidden fixed bottom-0 left-0 right-0 z-40 bg-black/50 backdrop-blur-sm rounded-3xl mx-4 mb-4">
         <div className="px-4 py-2">
           <div className="flex justify-between items-center">
             <Link to="/" className="flex flex-col items-center justify-center p-2 rounded-2xl transition-all duration-300">
