@@ -13,6 +13,13 @@ interface VideoCardProps {
   downloads: string;
 }
 
+// Global ses durumu için window object'i kullan
+declare global {
+  interface Window {
+    globalVideoMuted?: boolean;
+  }
+}
+
 const VideoCard: React.FC<VideoCardProps> = ({
   title,
   description,
@@ -24,10 +31,35 @@ const VideoCard: React.FC<VideoCardProps> = ({
 }) => {
   const [isPlaying, setIsPlaying] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
-  const [isMuted, setIsMuted] = useState(true);
+  // Global ses durumunu kontrol et, ilk kez true (muted) olsun
+  const [isMuted, setIsMuted] = useState(() => {
+    if (typeof window !== 'undefined') {
+      return window.globalVideoMuted !== undefined ? window.globalVideoMuted : true;
+    }
+    return true;
+  });
   const [showControls, setShowControls] = useState(true);
   const videoRef = useRef<HTMLVideoElement>(null);
   const controlsTimeoutRef = useRef<NodeJS.Timeout>();
+
+  // Global ses durumunu dinle
+  useEffect(() => {
+    const handleGlobalMuteChange = () => {
+      if (typeof window !== 'undefined' && window.globalVideoMuted !== undefined) {
+        setIsMuted(window.globalVideoMuted);
+        if (videoRef.current) {
+          videoRef.current.muted = window.globalVideoMuted;
+        }
+      }
+    };
+
+    // Custom event listener ekle
+    window.addEventListener('globalMuteChange', handleGlobalMuteChange);
+    
+    return () => {
+      window.removeEventListener('globalMuteChange', handleGlobalMuteChange);
+    };
+  }, []);
 
   // Carousel hareket algılama için window event listener
   useEffect(() => {
@@ -100,7 +132,7 @@ const VideoCard: React.FC<VideoCardProps> = ({
         setIsLoading(true);
         console.log('Attempting to play video...');
         
-        // Mobile için muted olarak başlat
+        // Global ses durumunu uygula
         videoRef.current.muted = isMuted;
         
         // Video oynatmayı dene
@@ -127,14 +159,25 @@ const VideoCard: React.FC<VideoCardProps> = ({
     }
   };
 
-  const handleMuteToggle = (e: React.MouseEvent) => {
+  const handleMuteToggle = (e: React.MouseEvent | React.TouchEvent) => {
     e.preventDefault();
     e.stopPropagation();
+    
+    console.log('Mute toggle clicked/touched');
     
     if (videoRef.current) {
       const newMutedState = !isMuted;
       setIsMuted(newMutedState);
       videoRef.current.muted = newMutedState;
+      
+      // Global ses durumunu güncelle
+      if (typeof window !== 'undefined') {
+        window.globalVideoMuted = newMutedState;
+        // Custom event dispatch et
+        window.dispatchEvent(new Event('globalMuteChange'));
+      }
+      
+      console.log('New muted state:', newMutedState);
       
       // Mute/unmute sonrası kontrolleri tekrar göster ve 3 saniye sonra gizle
       setShowControls(true);
@@ -196,11 +239,13 @@ const VideoCard: React.FC<VideoCardProps> = ({
         {/* Custom Video Controls - Sadece mute/unmute butonu */}
         {isPlaying && showControls && (
           <div className="absolute bottom-4 right-4 bg-black/70 backdrop-blur-sm rounded-lg p-3 transition-opacity duration-300">
-            {/* Mute/Unmute Button */}
+            {/* Mute/Unmute Button - Mobil için optimize edilmiş */}
             <button 
               onClick={handleMuteToggle}
-              className="text-white hover:text-blue-400 transition-colors"
+              onTouchEnd={handleMuteToggle}
+              className="text-white hover:text-blue-400 transition-colors min-h-[44px] min-w-[44px] flex items-center justify-center touch-manipulation select-none"
               aria-label={isMuted ? "Unmute" : "Mute"}
+              style={{ WebkitTapHighlightColor: 'transparent' }}
             >
               {isMuted ? <VolumeX className="w-6 h-6" /> : <Volume2 className="w-6 h-6" />}
             </button>
