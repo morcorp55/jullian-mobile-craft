@@ -1,5 +1,6 @@
+
 import React, { useState, useRef } from 'react';
-import { Play, Pause } from 'lucide-react';
+import { Play, Pause, Volume2, VolumeX } from 'lucide-react';
 
 interface VideoCardProps {
   id: string;
@@ -23,6 +24,8 @@ const VideoCard: React.FC<VideoCardProps> = ({
 }) => {
   const [isPlaying, setIsPlaying] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+  const [isMuted, setIsMuted] = useState(true);
+  const [volume, setVolume] = useState(0.5);
   const videoRef = useRef<HTMLVideoElement>(null);
 
   const handlePlayToggle = async (e?: React.MouseEvent) => {
@@ -48,7 +51,8 @@ const VideoCard: React.FC<VideoCardProps> = ({
         console.log('Attempting to play video...');
         
         // Mobile için muted olarak başlat
-        videoRef.current.muted = true;
+        videoRef.current.muted = isMuted;
+        videoRef.current.volume = volume;
         
         // Video oynatmayı dene
         const playPromise = videoRef.current.play();
@@ -88,6 +92,36 @@ const VideoCard: React.FC<VideoCardProps> = ({
   const handleVideoClick = (e: React.MouseEvent) => {
     if (isPlaying) {
       handlePlayToggle(e);
+    }
+  };
+
+  const handleMuteToggle = (e: React.MouseEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+    
+    if (videoRef.current) {
+      const newMutedState = !isMuted;
+      setIsMuted(newMutedState);
+      videoRef.current.muted = newMutedState;
+    }
+  };
+
+  const handleVolumeChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    e.preventDefault();
+    e.stopPropagation();
+    
+    const newVolume = parseFloat(e.target.value);
+    setVolume(newVolume);
+    
+    if (videoRef.current) {
+      videoRef.current.volume = newVolume;
+      if (newVolume === 0) {
+        setIsMuted(true);
+        videoRef.current.muted = true;
+      } else if (isMuted) {
+        setIsMuted(false);
+        videoRef.current.muted = false;
+      }
     }
   };
 
@@ -135,6 +169,45 @@ const VideoCard: React.FC<VideoCardProps> = ({
         >
           Your browser does not support the video tag.
         </video>
+
+        {/* Custom Video Controls - Sadece video oynatılırken göster */}
+        {isPlaying && (
+          <div className="absolute bottom-4 left-4 right-4 bg-black/70 backdrop-blur-sm rounded-lg p-3 flex items-center gap-3">
+            {/* Play/Pause Button */}
+            <button 
+              onClick={handlePlayToggle}
+              className="text-white hover:text-blue-400 transition-colors"
+              aria-label={isPlaying ? "Pause video" : "Play video"}
+            >
+              {isPlaying ? <Pause className="w-5 h-5" /> : <Play className="w-5 h-5" />}
+            </button>
+
+            {/* Mute/Unmute Button */}
+            <button 
+              onClick={handleMuteToggle}
+              className="text-white hover:text-blue-400 transition-colors"
+              aria-label={isMuted ? "Unmute" : "Mute"}
+            >
+              {isMuted ? <VolumeX className="w-5 h-5" /> : <Volume2 className="w-5 h-5" />}
+            </button>
+
+            {/* Volume Slider */}
+            <div className="flex-1 max-w-20">
+              <input
+                type="range"
+                min="0"
+                max="1"
+                step="0.1"
+                value={isMuted ? 0 : volume}
+                onChange={handleVolumeChange}
+                className="w-full h-1 bg-gray-600 rounded-lg appearance-none cursor-pointer slider"
+                style={{
+                  background: `linear-gradient(to right, #3b82f6 0%, #3b82f6 ${(isMuted ? 0 : volume) * 100}%, #4b5563 ${(isMuted ? 0 : volume) * 100}%, #4b5563 100%)`
+                }}
+              />
+            </div>
+          </div>
+        )}
 
         {/* Thumbnail View - Sadece video oynatılmadığında göster */}
         {!isPlaying && (
