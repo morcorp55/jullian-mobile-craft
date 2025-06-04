@@ -101,25 +101,25 @@ const VideoCard: React.FC<VideoCardProps> = ({
     <div className="bg-gradient-to-br from-gray-900/80 to-black/80 backdrop-blur-xl rounded-2xl border border-gray-700/50 overflow-hidden hover:border-blue-500/50 transition-all duration-300 group">
       {/* Video Container */}
       <div className="aspect-[9/16] bg-gradient-to-br from-blue-600/20 to-purple-600/20 flex items-center justify-center relative overflow-hidden">
-        {isPlaying ? (
-          // Video Player
-          <video
-            ref={videoRef}
-            src={videoUrl}
-            controls
-            className="w-full h-full object-cover"
-            poster={thumbnailUrl}
-            onEnded={handleVideoEnded}
-            onError={handleVideoError}
-            onLoadStart={handleVideoLoadStart}
-            onCanPlay={handleVideoCanPlay}
-            playsInline
-            preload="metadata"
-          >
-            Your browser does not support the video tag.
-          </video>
-        ) : (
-          // Thumbnail View
+        {/* Video Player - Her zaman render et */}
+        <video
+          ref={videoRef}
+          src={videoUrl}
+          controls={isPlaying}
+          className={`w-full h-full object-cover ${isPlaying ? 'block' : 'hidden'}`}
+          poster={thumbnailUrl}
+          onEnded={handleVideoEnded}
+          onError={handleVideoError}
+          onLoadStart={handleVideoLoadStart}
+          onCanPlay={handleVideoCanPlay}
+          playsInline
+          preload="metadata"
+        >
+          Your browser does not support the video tag.
+        </video>
+
+        {/* Thumbnail View - Sadece video oynatılmadığında göster */}
+        {!isPlaying && (
           <>
             <div 
               className="absolute inset-0 bg-cover bg-center"
@@ -133,6 +133,7 @@ const VideoCard: React.FC<VideoCardProps> = ({
                 onClick={handlePlayToggle}
                 className="bg-white/20 backdrop-blur-sm rounded-full p-4 hover:bg-white/30 transition-all duration-300 cursor-pointer focus:outline-none focus:ring-2 focus:ring-white/50"
                 aria-label="Play video"
+                disabled={isLoading}
               >
                 {isLoading ? (
                   <div className="w-12 h-12 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
