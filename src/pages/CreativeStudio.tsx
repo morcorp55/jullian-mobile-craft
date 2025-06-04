@@ -1,3 +1,4 @@
+
 import React from "react";
 import Navbar from "@/components/Navbar";
 import { Play, Award, Zap, CheckCircle, Clock } from "lucide-react";
@@ -18,7 +19,7 @@ const videoData = [
     title: "TikTok App Promo #1", 
     description: "High-engaging vertical video ad that increased downloads by 250%",
     thumbnailUrl: "/lovable-uploads/b172139e-fe4f-4269-a40a-341890012394.png",
-    videoUrl: "https://jullian.io/lovable-uploads/ad1.mp4",
+    videoUrl: "https://jullian.io/lovable-uploads/ad2.mp4",
     duration: "0:15s",
     views: "3.2M Views", 
     downloads: "+250% Downloads"
@@ -28,7 +29,7 @@ const videoData = [
     title: "TikTok App Promo #2",
     description: "Motivational content that drove massive user engagement",
     thumbnailUrl: "/lovable-uploads/4d313ab0-2a1f-4025-8545-a76e526ca9c8.png",
-    videoUrl: "https://jullian.io/lovable-uploads/ad1.mp4",
+    videoUrl: "https://jullian.io/lovable-uploads/ad3.mp4",
     duration: "0:18s",
     views: "4.1M Views",
     downloads: "+320% Downloads"
@@ -38,7 +39,7 @@ const videoData = [
     title: "TikTok App Promo #3",
     description: "Product showcase video with exceptional conversion rates",
     thumbnailUrl: "/lovable-uploads/a5e08c9b-8d1b-4967-9116-0fb5fcfa2384.png",
-    videoUrl: "https://jullian.io/lovable-uploads/ad1.mp4",
+    videoUrl: "https://jullian.io/lovable-uploads/ad4.mp4",
     duration: "0:22s",
     views: "2.8M Views", 
     downloads: "+180% Downloads"
@@ -48,7 +49,7 @@ const videoData = [
     title: "TikTok App Promo #4", 
     description: "Viral content that exploded across all platforms",
     thumbnailUrl: "/lovable-uploads/df575466-4a52-4e99-9803-783a505d01d6.png",
-    videoUrl: "https://jullian.io/lovable-uploads/ad1.mp4",
+    videoUrl: "https://jullian.io/lovable-uploads/ad5.mp4",
     duration: "0:16s",
     views: "5.7M Views",
     downloads: "+420% Downloads"
@@ -58,7 +59,7 @@ const videoData = [
     title: "TikTok App Promo #5",
     description: "Appetite-inducing visuals with strong call-to-action", 
     thumbnailUrl: "/lovable-uploads/dfbb18ca-6995-47e9-9892-b90c9a1808fa.png",
-    videoUrl: "https://jullian.io/lovable-uploads/ad1.mp4",
+    videoUrl: "https://jullian.io/lovable-uploads/ad6.mp4",
     duration: "0:20s",
     views: "3.9M Views",
     downloads: "+290% Downloads"
