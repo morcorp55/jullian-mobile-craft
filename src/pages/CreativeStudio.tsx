@@ -15,40 +15,40 @@ import ContactPopup from "@/components/ContactPopup";
 const videoData = [
   {
     id: "1",
-    title: "Gaming App Campaign #1",
+    title: "Gaming App Campaign #1", 
     description: "High-engaging vertical video ad that increased downloads by 250%",
-    thumbnailUrl: "/placeholder-thumbnail-1.jpg", // Sen kendi thumbnail'lerini ekleyeceksin
-    videoUrl: "/placeholder-video-1.mp4", // Sen kendi video URL'lerini ekleyeceksin
+    thumbnailUrl: "https://your-ftp-domain.com/thumbnails/thumbnail-1.jpg", // Gerçek thumbnail URL'nizi buraya yazın
+    videoUrl: "https://your-ftp-domain.com/videos/video-1.mp4", // Gerçek video URL'nizi buraya yazın
     duration: "0:15s",
-    views: "3.2M Views",
+    views: "3.2M Views", 
     downloads: "+250% Downloads"
   },
   {
     id: "2",
     title: "Fitness App Campaign #2",
     description: "Motivational content that drove massive user engagement",
-    thumbnailUrl: "/placeholder-thumbnail-2.jpg",
-    videoUrl: "/placeholder-video-2.mp4",
+    thumbnailUrl: "https://your-ftp-domain.com/thumbnails/thumbnail-2.jpg", // Gerçek thumbnail URL'nizi buraya yazın
+    videoUrl: "https://your-ftp-domain.com/videos/video-2.mp4", // Gerçek video URL'nizi buraya yazın
     duration: "0:18s",
     views: "4.1M Views",
     downloads: "+320% Downloads"
   },
   {
-    id: "3",
+    id: "3", 
     title: "E-commerce App Campaign #3",
     description: "Product showcase video with exceptional conversion rates",
-    thumbnailUrl: "/placeholder-thumbnail-3.jpg",
-    videoUrl: "/placeholder-video-3.mp4",
+    thumbnailUrl: "https://your-ftp-domain.com/thumbnails/thumbnail-3.jpg", // Gerçek thumbnail URL'nizi buraya yazın
+    videoUrl: "https://your-ftp-domain.com/videos/video-3.mp4", // Gerçek video URL'nizi buraya yazın
     duration: "0:22s",
-    views: "2.8M Views",
+    views: "2.8M Views", 
     downloads: "+180% Downloads"
   },
   {
     id: "4",
-    title: "Social Media App Campaign #4",
+    title: "Social Media App Campaign #4", 
     description: "Viral content that exploded across all platforms",
-    thumbnailUrl: "/placeholder-thumbnail-4.jpg",
-    videoUrl: "/placeholder-video-4.mp4",
+    thumbnailUrl: "https://your-ftp-domain.com/thumbnails/thumbnail-4.jpg", // Gerçek thumbnail URL'nizi buraya yazın
+    videoUrl: "https://your-ftp-domain.com/videos/video-4.mp4", // Gerçek video URL'nizi buraya yazın
     duration: "0:16s",
     views: "5.7M Views",
     downloads: "+420% Downloads"
@@ -56,9 +56,9 @@ const videoData = [
   {
     id: "5",
     title: "Food Delivery App Campaign #5",
-    description: "Appetite-inducing visuals with strong call-to-action",
-    thumbnailUrl: "/placeholder-thumbnail-5.jpg",
-    videoUrl: "/placeholder-video-5.mp4",
+    description: "Appetite-inducing visuals with strong call-to-action", 
+    thumbnailUrl: "https://your-ftp-domain.com/thumbnails/thumbnail-5.jpg", // Gerçek thumbnail URL'nizi buraya yazın
+    videoUrl: "https://your-ftp-domain.com/videos/video-5.mp4", // Gerçek video URL'nizi buraya yazın
     duration: "0:20s",
     views: "3.9M Views",
     downloads: "+290% Downloads"
@@ -67,9 +67,9 @@ const videoData = [
     id: "6",
     title: "Travel App Campaign #6",
     description: "Adventure-packed content inspiring wanderlust",
-    thumbnailUrl: "/placeholder-thumbnail-6.jpg",
-    videoUrl: "/placeholder-video-6.mp4",
-    duration: "0:25s",
+    thumbnailUrl: "https://your-ftp-domain.com/thumbnails/thumbnail-6.jpg", // Gerçek thumbnail URL'nizi buraya yazın
+    videoUrl: "https://your-ftp-domain.com/videos/video-6.mp4", // Gerçek video URL'nizi buraya yazın
+    duration: "0:25s", 
     views: "4.6M Views",
     downloads: "+350% Downloads"
   }
